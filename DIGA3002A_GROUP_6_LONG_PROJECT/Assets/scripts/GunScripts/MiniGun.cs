@@ -5,8 +5,17 @@ using UnityEngine;
 public class MiniGun : MonoBehaviour
 {
     public bool Shooting;
-    void Update()
+    public GameObject Bullet;
+    public Transform ShootPoint;
+
+
+
+    private void FixedUpdate()
     {
-        
+        if (Shooting)
+        {
+            Debug.Log("BRRRRRRRRR");
+            Instantiate(Bullet, ShootPoint.position, ShootPoint.rotation);
+        }
     }
 }
