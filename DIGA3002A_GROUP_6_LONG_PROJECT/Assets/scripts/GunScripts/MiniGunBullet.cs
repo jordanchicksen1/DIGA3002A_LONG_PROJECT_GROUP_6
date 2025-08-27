@@ -9,24 +9,37 @@ public class MiniGunBullet : MonoBehaviour
     [SerializeField] private float Timer;
     [SerializeField] private Rigidbody rb;
 
+    [Header("Movement")]
     public float speed;
+
+    [Header("damage")]
+    public float Damage;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        
+        rb.AddForce(transform.right * speed, ForceMode.Impulse);
+
     }
 
     private void Update()
     {
-        //DestroyMyself();
+        DestroyMyself();
     }
 
     public void DestroyMyself() 
     {
         Timer += Time.deltaTime;
 
-        if (Timer > 3) 
+        if (Timer > 4) 
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+       if (other.gameObject) 
         {
             Destroy(this.gameObject);
         }
