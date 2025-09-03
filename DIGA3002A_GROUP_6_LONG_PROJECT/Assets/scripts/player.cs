@@ -13,8 +13,8 @@ public class player : MonoBehaviour
     public float lookSpeed; // Sensitivity of the camera movement
     public float gravity = -9.81f; // Gravity value
     public float jumpHeight = 1.0f; // Height of the jump
-    public float windJumpHeight = 1.0f; //wind jump height
-    //public Transform playerCamera; // Reference to the player's camera
+  
+
 
     // Private variables to store input values and the character controller
     private Vector2 _moveInput; // Stores the movement input from the player
@@ -34,14 +34,18 @@ public class player : MonoBehaviour
    
 
     //dash
-    public bool canDodge = true;
-
+    public bool canDash = true;
+    public dashManager dashManager;
   
 
     //pause stuff
     public bool isPaused = false;
     public GameObject pauseScreen;
 
+    //differentCanvases
+    public GameObject playerCanvas;
+    public GameObject shopCanvas;
+    public GameObject mechBuildingCanvas;
    
 
 
@@ -68,12 +72,19 @@ public class player : MonoBehaviour
         playerInput.Player.Jump.performed += ctx => Jump(); // Call the Jump method when jump input is performed
 
         //Subscribe to the sprint
-        playerInput.Player.Dash.performed += ctx => Dash(); // dodge
-
-        //Subscribe to the drink potion
+        playerInput.Player.Dash.performed += ctx => Dash(); // dash
       
         //Subscribe to the pause
         playerInput.Player.Pause.performed += ctx => Pause(); // pause
+
+        //Subscribe to the shootLeft
+        playerInput.Player.ShootLeft.performed += ctx => ShootLeft(); // shoot left hand
+
+        //Subscribe to the shootRight
+        playerInput.Player.ShootRight.performed += ctx => ShootRight(); // shoot left hand
+
+        //Subscribe to the superMove
+        playerInput.Player.SuperMove.performed += ctx => SuperMove(); // shoot left hand
     }
 
     private void Awake()
@@ -155,14 +166,58 @@ public class player : MonoBehaviour
 
     public void Dash()
     {
-        if (canDodge == true)
+        if (canDash == true)
         {
-            
+            canDash = false;
+            moveSpeed = moveSpeed + 8f;
+            dashManager.UseBoost();
+            StartCoroutine(DashReset());
+            Debug.Log("should dodge");
         }
     }
 
     public void Pause()
     {
-       
+        Debug.Log("pressed pause");
+
+        if (isPaused == false) 
+        {
+            pauseScreen.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+
+        else if (isPaused == true)
+        {
+            pauseScreen.SetActive(false);
+            isPaused = false;
+            Time.timeScale = 1f;
+        }
+
+
+    }
+
+    public void ShootLeft()
+    {
+
+    }
+
+    public void ShootRight()
+    {
+
+    }
+
+    public void SuperMove()
+    {
+
+    }
+
+    private IEnumerator DashReset()
+    {
+        yield return new WaitForSeconds(0.5f);
+        moveSpeed = moveSpeed - 8f; 
+        dashManager.shouldFillBar = true;
+        yield return new WaitForSeconds(3f);
+        canDash = true;
     }
 }
