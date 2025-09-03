@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class dashManager : MonoBehaviour
 {
-    public float maxBoost = 3f;
+    public float maxBoost = 30f;
     public float currentBoost;
     public Image boostBarPic;
 
@@ -23,9 +23,9 @@ public class dashManager : MonoBehaviour
 
     public void RefillBoostBar()
     {
-        if (shouldFillBar == true && currentBoost < 3)
+        if (shouldFillBar == true && currentBoost < maxBoost)
         {
-            currentBoost += Time.deltaTime;
+            currentBoost += 2*Time.deltaTime;
             updateBoostBar();
         }
     }
@@ -33,6 +33,12 @@ public class dashManager : MonoBehaviour
     public void UseBoost()
     {
         currentBoost = currentBoost - 3f;
+        updateBoostBar();
+    }
+
+    public void UseJump()
+    {
+        currentBoost = currentBoost - 1f;
         updateBoostBar();
     }
     public void updateBoost(float amount)

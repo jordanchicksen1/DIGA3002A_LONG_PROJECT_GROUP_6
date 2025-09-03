@@ -157,19 +157,21 @@ public class player : MonoBehaviour
 
     public void Jump()
     {
-        if (_characterController.isGrounded && isPaused == false)
+        if (isPaused == false && dashManager.currentBoost > 1)
         {
             _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            dashManager.UseJump();
+            StartCoroutine(jumpReset());
         }
 
     }
 
     public void Dash()
     {
-        if (canDash == true)
+        if ( dashManager.currentBoost > 3)
         {
-            canDash = false;
-            moveSpeed = moveSpeed + 8f;
+            
+            moveSpeed = moveSpeed + 3f;
             dashManager.UseBoost();
             StartCoroutine(DashReset());
             Debug.Log("should dodge");
@@ -214,10 +216,15 @@ public class player : MonoBehaviour
 
     private IEnumerator DashReset()
     {
-        yield return new WaitForSeconds(0.5f);
-        moveSpeed = moveSpeed - 8f; 
+        yield return new WaitForSeconds(1f);
+        moveSpeed = moveSpeed - 3f; 
         dashManager.shouldFillBar = true;
-        yield return new WaitForSeconds(3f);
-        canDash = true;
     }
+
+    private IEnumerator jumpReset()
+    {
+        yield return new WaitForSeconds(1f);
+        dashManager.shouldFillBar = true;
+    }
+
 }
