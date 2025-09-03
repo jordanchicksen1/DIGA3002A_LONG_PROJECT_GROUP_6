@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         isJumpingHeld = true;
 
-        if (_characterController.isGrounded && dashManager.currentBoost > 1 && !isPaused)
+        if (_characterController.isGrounded && dashManager.currentBoost > 1 && isPaused == false)
         {
             // initial hop
             _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -137,7 +137,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (isPaused) return;
+        if (isPaused == true) 
+        return;
 
         Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
         move = transform.TransformDirection(move);
@@ -148,7 +149,8 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
-        if (isPaused) return;
+        if (isPaused == true) 
+        return;
 
         float lookX = _lookInput.x * lookSpeed;
         transform.Rotate(0f, lookX, 0f);
@@ -167,7 +169,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jetpack()
     {
-        if (isPaused) return;
+        if (isPaused == true)     
+        return;
 
         // Only thrust if we still have fuel
         if (dashManager.currentBoost > 0.5f)
@@ -199,10 +202,23 @@ public class PlayerController : MonoBehaviour
 
     private void Pause()
     {
-        isPaused = !isPaused;
+        Debug.Log("pressed pause");
 
-        pauseScreen.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0f : 1f;
+        if (isPaused == false)
+        {
+            pauseScreen.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+
+        else if (isPaused == true)
+        {
+            pauseScreen.SetActive(false);
+            isPaused = false;
+            Time.timeScale = 1f;
+        }
+
+
     }
 
     private void ShootLeft() 
