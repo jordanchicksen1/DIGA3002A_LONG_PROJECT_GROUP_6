@@ -12600,7 +12600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f37423e9fe3a8b4d8e01fbb84d423b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBoost: 30
+  maxBoost: 20
   currentBoost: 0
   boostBarPic: {fileID: 2071888001}
   shouldFillBar: 0

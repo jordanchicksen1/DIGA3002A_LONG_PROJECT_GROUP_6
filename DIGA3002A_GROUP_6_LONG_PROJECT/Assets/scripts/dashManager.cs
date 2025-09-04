@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class dashManager : MonoBehaviour
 {
-    public float maxBoost = 30f;
+    public float maxBoost = 20f;
     public float currentBoost;
     public Image boostBarPic;
 
