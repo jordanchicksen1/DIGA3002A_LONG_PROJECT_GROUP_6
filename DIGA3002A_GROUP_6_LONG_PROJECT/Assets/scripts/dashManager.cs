@@ -41,6 +41,12 @@ public class dashManager : MonoBehaviour
         currentBoost = currentBoost - 1f;
         updateBoostBar();
     }
+
+    public void UseJetpack()
+    {
+        currentBoost = currentBoost - 10f * Time.deltaTime;
+        updateBoostBar();
+    }
     public void updateBoost(float amount)
     {
         currentBoost += amount;

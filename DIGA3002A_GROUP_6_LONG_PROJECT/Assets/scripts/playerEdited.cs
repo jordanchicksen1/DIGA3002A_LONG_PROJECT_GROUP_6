@@ -118,18 +118,25 @@ public class PlayerController : MonoBehaviour
     private void OnJumpStarted(InputAction.CallbackContext ctx)
     {
         isJumpingHeld = true;
+        dashManager.shouldFillBar = false;
 
         if (_characterController.isGrounded && dashManager.currentBoost > 1 && isPaused == false)
         {
             // initial hop
             _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             dashManager.UseJump();
-            StartCoroutine(JumpReset());
+
         }
     }
 
-    private void OnJumpCanceled(InputAction.CallbackContext ctx) =>
+    private void OnJumpCanceled(InputAction.CallbackContext ctx) 
+    {
         isJumpingHeld = false;
+        dashManager.shouldFillBar = true;
+
+    }
+
+    
 
     #endregion
 
@@ -178,14 +185,16 @@ public class PlayerController : MonoBehaviour
             // Apply upward thrust
             _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-            // Drain fuel gradually
-            dashManager.currentBoost -= 10f * Time.deltaTime;
+            dashManager.UseJetpack();
+            
             dashManager.currentBoost = Mathf.Max(dashManager.currentBoost, 0f); // clamp at 0
+            dashManager.shouldFillBar = false;
         }
         else
         {
             // No boost left = stop thrust immediately
             isJumpingHeld = false;
+            dashManager.shouldFillBar = true;
         }
     }
 
@@ -245,11 +254,7 @@ public class PlayerController : MonoBehaviour
         dashManager.shouldFillBar = true;
     }
 
-    private IEnumerator JumpReset()
-    {
-        yield return new WaitForSeconds(1f);
-        dashManager.shouldFillBar = true;
-    }
+ 
 
     #endregion
 }
