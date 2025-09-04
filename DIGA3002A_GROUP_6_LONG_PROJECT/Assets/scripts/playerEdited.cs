@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public GameObject pauseScreen;
     public dashManager dashManager;
+    public playerHealth playerHealth;
+    public healManager healManager;
 
     private void Awake()
     {
@@ -59,6 +61,9 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.ShootLeft.performed += ctx => ShootLeft();
         playerInput.Player.ShootRight.performed += ctx => ShootRight();
         playerInput.Player.SuperMove.performed += ctx => SuperMove();
+
+        //heal
+        playerInput.Player.Heal.performed += ctx => Heal();
     }
 
     private void OnDisable()
@@ -83,10 +88,13 @@ public class PlayerController : MonoBehaviour
         // Pause
         playerInput.Player.Pause.performed -= ctx => Pause();
 
-        // Shooting
+        // attacks
         playerInput.Player.ShootLeft.performed -= ctx => ShootLeft();
         playerInput.Player.ShootRight.performed -= ctx => ShootRight();
         playerInput.Player.SuperMove.performed -= ctx => SuperMove();
+
+        //heal
+        playerInput.Player.Heal.performed -= ctx => Heal();
     }
 
     private void Update()
@@ -101,19 +109,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #region Input Callbacks
+    //callbacks
 
-    private void OnMovePerformed(InputAction.CallbackContext ctx) =>
+    private void OnMovePerformed(InputAction.CallbackContext ctx)
+    {
         _moveInput = ctx.ReadValue<Vector2>();
+    }
+       
 
-    private void OnMoveCanceled(InputAction.CallbackContext ctx) =>
+    private void OnMoveCanceled(InputAction.CallbackContext ctx)
+    {
         _moveInput = Vector2.zero;
+    }
+        
 
-    private void OnLookPerformed(InputAction.CallbackContext ctx) =>
+    private void OnLookPerformed(InputAction.CallbackContext ctx)
+    {
         _lookInput = ctx.ReadValue<Vector2>();
+    }
+        
 
-    private void OnLookCanceled(InputAction.CallbackContext ctx) =>
+    private void OnLookCanceled(InputAction.CallbackContext ctx)
+    {
         _lookInput = Vector2.zero;
+    }
+        
 
     private void OnJumpStarted(InputAction.CallbackContext ctx)
     {
@@ -138,9 +158,9 @@ public class PlayerController : MonoBehaviour
 
     
 
-    #endregion
+    
 
-    #region Actions
+    //actions
 
     private void Move()
     {
@@ -243,9 +263,20 @@ public class PlayerController : MonoBehaviour
     
     }
 
-    #endregion
+    private void Heal()
+    {
+        Debug.Log("pressed Heal");
 
-    #region Coroutines
+        if(healManager.heal >= 1 && playerHealth.currentHealth < playerHealth.maxHealth)
+        {
+            playerHealth.Heal();
+            healManager.UseHeal();
+        }
+     
+    }
+    
+
+    //coroutines
 
     private IEnumerator DashReset()
     {
@@ -256,6 +287,6 @@ public class PlayerController : MonoBehaviour
 
  
 
-    #endregion
+    
 }
 
