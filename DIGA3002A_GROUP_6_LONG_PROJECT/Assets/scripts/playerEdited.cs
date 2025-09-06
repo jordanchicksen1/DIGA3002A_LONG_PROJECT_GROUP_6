@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        if (isPaused == true) 
+        if (isPaused == true && playerPosture.isStaggered == false) 
         return;
 
         Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
@@ -287,7 +287,30 @@ public class PlayerController : MonoBehaviour
     {
         StartCoroutine(PostureFull());
     }
-    
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "EnemyBulletSmall")
+        {
+            Destroy(other.gameObject);
+            playerHealth.PlayerHit();
+            Debug.Log("small hit");
+        }
+
+        if(other.tag == "EnemyBulletMedium")
+        {
+            Destroy(other.gameObject);
+            playerHealth.PlayerHitALot();
+            Debug.Log("medium hit");
+        }
+
+        if(other.tag == "EnemyBulletLarge")
+        {
+            Destroy(other.gameObject);
+            playerHealth.PlayerHitATon();
+            Debug.Log("big hit");
+        }
+    }
 
     //coroutines
 

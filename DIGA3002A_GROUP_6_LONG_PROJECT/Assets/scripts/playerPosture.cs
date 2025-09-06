@@ -7,7 +7,6 @@ public class playerPosture : MonoBehaviour
 {
 
     public float maxPosture = 100f;
-    public float staggeredPosture = 90f;
     public float minPosture = 0f;
     public float currentPosture;
     public Image postureBarPic;
@@ -19,20 +18,20 @@ public class playerPosture : MonoBehaviour
     public void Start()
     {
         currentPosture = minPosture;
+        updatePostureBar();
     }
 
     public void Update()
     {
-        if(currentPosture < maxPosture && currentPosture > minPosture && isStaggered == false)
+        if(currentPosture <= maxPosture && currentPosture > minPosture && isStaggered == false)
         {
             currentPosture -= Time.deltaTime;
             updatePostureBar();
         }
 
-        if(currentPosture > 99.9)
+        if(currentPosture >= maxPosture)
         {
-            currentPosture = staggeredPosture;
-            updatePostureBar();
+            isStaggered=true;
             playerController.PlayerStaggered();
             
         }
@@ -56,7 +55,7 @@ public class playerPosture : MonoBehaviour
     [ContextMenu("FullPostureHit")]
     public void FullPostureHit()
     {
-        currentPosture = maxPosture;
+        currentPosture = currentPosture + 100f;
         updatePostureBar();
     }
 
