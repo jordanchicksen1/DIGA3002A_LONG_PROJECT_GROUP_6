@@ -55,7 +55,7 @@ public class playerPosture : MonoBehaviour
     [ContextMenu("FullPostureHit")]
     public void FullPostureHit()
     {
-        currentPosture = currentPosture + 100f;
+        currentPosture = currentPosture + 101f;
         updatePostureBar();
     }
 

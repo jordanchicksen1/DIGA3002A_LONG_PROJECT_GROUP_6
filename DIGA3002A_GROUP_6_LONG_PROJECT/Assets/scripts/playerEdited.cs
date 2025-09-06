@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public bool isCrouching = false;
     private bool isJumpingHeld;
     private bool canDash = true;
+    private bool hasHit = false;
 
     [Header("References")]
     public GameObject pauseScreen;
@@ -290,27 +291,36 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "EnemyBulletSmall")
+
+        if(other.tag == "EnemyBulletSmall" && hasHit == false)
         {
+            hasHit = true;
             Destroy(other.gameObject);
             playerHealth.PlayerHit();
             Debug.Log("small hit");
+            StartCoroutine(BulletHit());
         }
 
-        if(other.tag == "EnemyBulletMedium")
+        if(other.tag == "EnemyBulletMedium" && hasHit == false)
         {
+           hasHit = true;
             Destroy(other.gameObject);
             playerHealth.PlayerHitALot();
             Debug.Log("medium hit");
+            StartCoroutine(BulletHit());
         }
 
-        if(other.tag == "EnemyBulletLarge")
+        if(other.tag == "EnemyBulletLarge" && hasHit == false)
         {
+            hasHit = true;
             Destroy(other.gameObject);
             playerHealth.PlayerHitATon();
             Debug.Log("big hit");
+            StartCoroutine(BulletHit());
         }
     }
+
+    
 
     //coroutines
 
@@ -335,6 +345,11 @@ public class PlayerController : MonoBehaviour
         playerPosture.PostureHeal();
     }
  
+    public IEnumerator BulletHit()
+    {
+        yield return new WaitForSeconds(0.1f);
+        hasHit = false;
+    }
 
     
 }
