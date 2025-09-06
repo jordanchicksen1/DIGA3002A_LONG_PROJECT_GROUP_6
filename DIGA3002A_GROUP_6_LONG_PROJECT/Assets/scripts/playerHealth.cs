@@ -8,6 +8,7 @@ public class playerHealth : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthBarPic;
+    public playerPosture playerPosture;
 
    
 
@@ -27,6 +28,7 @@ public class playerHealth : MonoBehaviour
     {
         currentHealth = currentHealth - 10f;
         updateHealthBar();
+        playerPosture.PlayerPostureHit();
     }
 
     [ContextMenu("PlayerHitALot")]
@@ -34,13 +36,25 @@ public class playerHealth : MonoBehaviour
     {
         currentHealth = currentHealth - 30f;
         updateHealthBar();
+        playerPosture.PlayerPostureHitALot();
     }
-    
+
+    [ContextMenu("PlayerHitATon")]
+
+    public void PlayerHitATon()
+    {
+        currentHealth = currentHealth - 50f;
+        updateHealthBar();
+        playerPosture.FullPostureHit();
+    }
+
+
     [ContextMenu("Heal")]
     public void Heal()
     {
         currentHealth = maxHealth;
         updateHealthBar();
+        playerPosture.PostureHeal();    
     }
 
 

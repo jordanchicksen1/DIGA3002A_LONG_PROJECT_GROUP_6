@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float originalSpeed = 5f;
     public float crouchSpeed = 2f;
     public float lookSpeed = 2f;
     public float jumpHeight = 2f;
@@ -22,12 +23,14 @@ public class PlayerController : MonoBehaviour
     public bool isPaused = false;
     public bool isCrouching = false;
     private bool isJumpingHeld;
+    private bool canDash = true;
 
     [Header("References")]
     public GameObject pauseScreen;
     public dashManager dashManager;
     public playerHealth playerHealth;
     public healManager healManager;
+    public playerPosture playerPosture;
 
     private void Awake()
     {
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         playerInput.Player.Enable();
 
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Heal.performed += ctx => Heal();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         playerInput.Player.Disable();
 
@@ -97,7 +100,11 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Heal.performed -= ctx => Heal();
     }
 
-    private void Update()
+    public void Start()
+    {
+        moveSpeed = originalSpeed;
+    }
+    public void Update()
     {
         Move();
         Look();
@@ -111,31 +118,31 @@ public class PlayerController : MonoBehaviour
 
     //callbacks
 
-    private void OnMovePerformed(InputAction.CallbackContext ctx)
+    public void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         _moveInput = ctx.ReadValue<Vector2>();
     }
        
 
-    private void OnMoveCanceled(InputAction.CallbackContext ctx)
+    public void OnMoveCanceled(InputAction.CallbackContext ctx)
     {
         _moveInput = Vector2.zero;
     }
         
 
-    private void OnLookPerformed(InputAction.CallbackContext ctx)
+    public void OnLookPerformed(InputAction.CallbackContext ctx)
     {
         _lookInput = ctx.ReadValue<Vector2>();
     }
         
 
-    private void OnLookCanceled(InputAction.CallbackContext ctx)
+    public void OnLookCanceled(InputAction.CallbackContext ctx)
     {
         _lookInput = Vector2.zero;
     }
         
 
-    private void OnJumpStarted(InputAction.CallbackContext ctx)
+    public void OnJumpStarted(InputAction.CallbackContext ctx)
     {
         isJumpingHeld = true;
         dashManager.shouldFillBar = false;
@@ -149,7 +156,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnJumpCanceled(InputAction.CallbackContext ctx) 
+    public void OnJumpCanceled(InputAction.CallbackContext ctx) 
     {
         isJumpingHeld = false;
         dashManager.shouldFillBar = true;
@@ -162,7 +169,7 @@ public class PlayerController : MonoBehaviour
 
     //actions
 
-    private void Move()
+    public void Move()
     {
         if (isPaused == true) 
         return;
@@ -174,7 +181,7 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(move * currentSpeed * Time.deltaTime);
     }
 
-    private void Look()
+    public void Look()
     {
         if (isPaused == true) 
         return;
@@ -183,7 +190,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, lookX, 0f);
     }
 
-    private void ApplyGravity()
+    public void ApplyGravity()
     {
         if (_characterController.isGrounded && _velocity.y < 0)
         {
@@ -194,7 +201,7 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(_velocity * Time.deltaTime);
     }
 
-    private void Jetpack()
+    public void Jetpack()
     {
         if (isPaused == true)     
         return;
@@ -218,10 +225,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Dash()
+    public void Dash()
     {
-        if (dashManager.currentBoost > 3)
+        if (dashManager.currentBoost > 3 && canDash == true)
         {
+            canDash = false;
             moveSpeed = moveSpeed + 8f;
             dashManager.UseBoost();
             StartCoroutine(DashReset());
@@ -229,7 +237,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
         Debug.Log("pressed pause");
 
@@ -250,20 +258,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void ShootLeft() 
+    public void ShootLeft() 
     { 
     
     }
-    private void ShootRight() 
+    public void ShootRight() 
     { 
     
     }
-    private void SuperMove() 
+    public void SuperMove() 
     { 
     
     }
 
-    private void Heal()
+    public void Heal()
     {
         Debug.Log("pressed Heal");
 
@@ -274,17 +282,35 @@ public class PlayerController : MonoBehaviour
         }
      
     }
+
+    public void PlayerStaggered()
+    {
+        StartCoroutine(PostureFull());
+    }
     
 
     //coroutines
 
-    private IEnumerator DashReset()
+    public IEnumerator DashReset()
     {
         yield return new WaitForSeconds(1f);
-        moveSpeed = moveSpeed - 8f;
+        moveSpeed = originalSpeed;
         dashManager.shouldFillBar = true;
+        canDash = true;
     }
 
+    public IEnumerator PostureFull()
+    {
+        yield return new WaitForSeconds(0f);
+        moveSpeed = 0f;
+        canDash = false;
+        playerPosture.isStaggered = true;
+        yield return new WaitForSeconds(3f);
+        moveSpeed = originalSpeed;
+        canDash = true;
+        playerPosture.isStaggered = false;
+        playerPosture.PostureHeal();
+    }
  
 
     
