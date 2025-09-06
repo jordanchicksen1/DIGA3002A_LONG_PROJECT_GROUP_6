@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public playerHealth playerHealth;
     public healManager healManager;
     public playerPosture playerPosture;
+    public GameObject staggeredText;
 
     private void Awake()
     {
@@ -148,7 +149,7 @@ public class PlayerController : MonoBehaviour
         isJumpingHeld = true;
         dashManager.shouldFillBar = false;
 
-        if (_characterController.isGrounded && dashManager.currentBoost > 1 && isPaused == false)
+        if (_characterController.isGrounded && dashManager.currentBoost > 1 && isPaused == false && playerPosture.isStaggered == false)
         {
             // initial hop
             _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -172,14 +173,16 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        if (isPaused == true && playerPosture.isStaggered == false) 
-        return;
+        if (isPaused == false && playerPosture.isStaggered == false)
+        {
+            Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
+            move = transform.TransformDirection(move);
 
-        Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
-        move = transform.TransformDirection(move);
-
-        float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
-        _characterController.Move(move * currentSpeed * Time.deltaTime);
+            float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
+            _characterController.Move(move * currentSpeed * Time.deltaTime);
+        }
+       
+       
     }
 
     public void Look()
@@ -204,26 +207,26 @@ public class PlayerController : MonoBehaviour
 
     public void Jetpack()
     {
-        if (isPaused == true)     
-        return;
-
-        // Only thrust if we still have fuel
-        if (dashManager.currentBoost > 0.5f)
+        if (isPaused == false && playerPosture.isStaggered == false)
         {
-            // Apply upward thrust
-            _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            // Only thrust if we still have fuel
+            if (dashManager.currentBoost > 0.5f)
+            {
+                // Apply upward thrust
+                _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-            dashManager.UseJetpack();
-            
-            dashManager.currentBoost = Mathf.Max(dashManager.currentBoost, 0f); // clamp at 0
-            dashManager.shouldFillBar = false;
-        }
-        else
-        {
-            // No boost left = stop thrust immediately
-            isJumpingHeld = false;
-            dashManager.shouldFillBar = true;
-        }
+                dashManager.UseJetpack();
+
+                dashManager.currentBoost = Mathf.Max(dashManager.currentBoost, 0f); // clamp at 0
+                dashManager.shouldFillBar = false;
+            }
+            else
+            {
+                // No boost left = stop thrust immediately
+                isJumpingHeld = false;
+                dashManager.shouldFillBar = true;
+            }
+        } 
     }
 
     public void Dash()
@@ -335,14 +338,17 @@ public class PlayerController : MonoBehaviour
     public IEnumerator PostureFull()
     {
         yield return new WaitForSeconds(0f);
-        moveSpeed = 0f;
+        
         canDash = false;
         playerPosture.isStaggered = true;
+        staggeredText.SetActive(true);
         yield return new WaitForSeconds(3f);
-        moveSpeed = originalSpeed;
+        
         canDash = true;
         playerPosture.isStaggered = false;
         playerPosture.PostureHeal();
+        staggeredText.SetActive(false);
+
     }
  
     public IEnumerator BulletHit()
