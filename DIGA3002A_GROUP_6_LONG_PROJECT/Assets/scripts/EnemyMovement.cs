@@ -17,15 +17,16 @@ public class EnemyMovement : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
 
-    public float health; 
+    public float health;
 
+    public Transform firePosition;
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     
     private void Awake()
     {
-        player= GameObject.Find("PlayerObj").transform;
+        player= GameObject.Find("player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -72,16 +73,19 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player); 
+        Vector3 targetPos = new Vector3(player.position.x, transform.position.y, player.position.z);
+        transform.LookAt(targetPos);
 
         if (!alreadyAttacked)
         {
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, firePosition.position, Quaternion.identity).GetComponent<Rigidbody>();
 
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse); 
+            Vector3 direction = (player.position - firePosition.position).normalized;
+
+            rb.AddForce(direction * 32f, ForceMode.Impulse);
+
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks); 
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
