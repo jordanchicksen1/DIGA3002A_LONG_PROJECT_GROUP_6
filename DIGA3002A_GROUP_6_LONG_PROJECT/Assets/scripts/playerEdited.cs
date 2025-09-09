@@ -34,26 +34,32 @@ public class PlayerController : MonoBehaviour
     public playerPosture playerPosture;
     public GameObject staggeredText;
 
-    //shooting stuff
+    //basic shooting stuff
     public GameObject basicBulletPrefab;
     public float basicBulletSpeed;
     public Transform basicLeftFirePoint;
     public float basicFireRate = 0.2f;
-
     public bool isShootingLeftHeld = false;
     public Coroutine basicLeftCoroutine;
     public bool leftBasicEquipped = true;
     public leftAmmoManager leftAmmoManager;
-
-    
-
     public Transform basicRightFirePoint;
-  
-
     public bool isShootingRightHeld = false;
     public Coroutine basicRightCoroutine;
     public bool rightBasicEquipped = true;
     public rightAmmoManager rightAmmoManager;
+
+    //machine gun shooting stuff
+    public GameObject machineBulletPrefab;
+    public float machineBulletSpeed;
+    public Transform machineLeftFirePoint;
+    public float machineFireRate = 0.1f;
+    public Coroutine machineLeftCoroutine;
+    public bool leftMachineEquipped = false;
+    public Transform machineRightFirePoint;
+    public Coroutine machineRightCoroutine;
+    public bool rightMachineEquipped = false;
+    
 
     private void Awake()
     {
@@ -205,7 +211,13 @@ public class PlayerController : MonoBehaviour
                 ShootBasicLeft();
                 basicLeftCoroutine = StartCoroutine(AutoFireLeftBasic());
             }
-           
+
+            if (leftMachineEquipped == true && leftAmmoManager.currentAmmo >= 2f)
+            {
+                ShootMachineLeft();
+                machineLeftCoroutine = StartCoroutine(AutoFireLeftMachine());
+            }
+
         }  
     }
 
@@ -218,6 +230,15 @@ public class PlayerController : MonoBehaviour
             if (basicLeftCoroutine != null) 
             { 
             StopCoroutine(basicLeftCoroutine);
+            }
+
+        }
+
+        if (leftMachineEquipped == true)
+        {
+            if (machineLeftCoroutine != null)
+            {
+                StopCoroutine(machineLeftCoroutine);
             }
 
         }
@@ -236,6 +257,12 @@ public class PlayerController : MonoBehaviour
                 basicRightCoroutine = StartCoroutine(AutoFireRightBasic());
             }
 
+            if (rightMachineEquipped == true && rightAmmoManager.currentAmmo >= 2f)
+            {
+                ShootMachineRight();
+                machineRightCoroutine = StartCoroutine(AutoFireRightMachine());
+            }
+
         }
     }
 
@@ -252,6 +279,14 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (rightMachineEquipped == true)
+        {
+            if (machineRightCoroutine != null)
+            {
+                StopCoroutine(machineRightCoroutine);
+            }
+
+        }
     }
 
 
@@ -373,6 +408,32 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("shot");
     }
+
+    public void ShootMachineLeft()
+    {
+        if (machineBulletPrefab == null || machineLeftFirePoint == null) return;
+
+        var projectile = Instantiate(machineBulletPrefab, machineLeftFirePoint.position, machineLeftFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
+        Destroy(projectile, 0.8f);
+        leftAmmoManager.MachineShot();
+
+        Debug.Log("machine shot");
+    }
+
+    public void ShootMachineRight()
+    {
+        if (machineBulletPrefab == null || machineRightFirePoint == null) return;
+
+        var projectile = Instantiate(machineBulletPrefab, machineRightFirePoint.position, machineRightFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
+        Destroy(projectile, 0.8f);
+        rightAmmoManager.MachineShot();
+
+        Debug.Log("shot");
+    }
     public void SuperMove() 
     { 
     
@@ -490,6 +551,38 @@ public class PlayerController : MonoBehaviour
             }
 
             ShootBasicRight();
+        }
+    }
+
+    public IEnumerator AutoFireLeftMachine()
+    {
+        while (isShootingLeftHeld == true)
+        {
+            yield return new WaitForSeconds(machineFireRate);
+
+            if (leftAmmoManager.currentAmmo <= 0)
+            {
+                isShootingLeftHeld = false;
+                yield break;
+            }
+
+            ShootMachineLeft();
+        }
+    }
+
+    public IEnumerator AutoFireRightMachine()
+    {
+        while (isShootingRightHeld == true)
+        {
+            yield return new WaitForSeconds(machineFireRate);
+
+            if (rightAmmoManager.currentAmmo <= 0)
+            {
+                isShootingRightHeld = false;
+                yield break;
+            }
+
+            ShootMachineRight();
         }
     }
 }

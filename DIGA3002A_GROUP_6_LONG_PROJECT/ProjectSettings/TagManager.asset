@@ -8,6 +8,7 @@ TagManager:
   - EnemyBulletMedium
   - EnemyBulletLarge
   - BasicBullet
+  - MachineBullet
   layers:
   - Default
   - TransparentFX
