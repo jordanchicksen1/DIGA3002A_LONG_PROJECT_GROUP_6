@@ -10,6 +10,7 @@ TagManager:
   - BasicBullet
   - MachineBullet
   - AssaultBullet
+  - LaserBullet
   layers:
   - Default
   - TransparentFX

@@ -71,6 +71,17 @@ public class PlayerController : MonoBehaviour
     public Coroutine assaultRightCoroutine;
     public bool rightAssaultEquipped = false;
 
+    //laser gun shooting stuff
+    public GameObject laserBulletPrefab;
+    public float laserBulletSpeed;
+    public Transform laserLeftFirePoint;
+    public float laserFireRate = 0.8f;
+    public Coroutine laserLeftCoroutine;
+    public bool leftLaserEquipped = false;
+    public Transform laserRightFirePoint;
+    public Coroutine laserRightCoroutine;
+    public bool rightLaserEquipped = false;
+
     private void Awake()
     {
         playerInput = new PlayerControls();
@@ -234,6 +245,11 @@ public class PlayerController : MonoBehaviour
                 assaultLeftCoroutine = StartCoroutine(AutoFireLeftAssault());
             }
 
+            if (leftLaserEquipped == true && leftAmmoManager.currentAmmo >= 10f)
+            {
+                ShootLaserLeft();
+                laserLeftCoroutine = StartCoroutine(AutoFireLeftLaser());
+            }
         }  
     }
 
@@ -268,6 +284,15 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (leftLaserEquipped == true)
+        {
+            if (laserLeftCoroutine != null)
+            {
+                StopCoroutine(laserLeftCoroutine);
+            }
+
+        }
+
     }
 
     public void OnRightShootStarted(InputAction.CallbackContext ctx)
@@ -292,6 +317,12 @@ public class PlayerController : MonoBehaviour
             {
                 ShootAssaultRight();
                 assaultRightCoroutine = StartCoroutine(AutoFireRightAssault());
+            }
+
+            if (rightLaserEquipped == true && rightAmmoManager.currentAmmo >= 10f)
+            {
+                ShootLaserRight();
+                laserRightCoroutine = StartCoroutine(AutoFireRightLaser());
             }
 
         }
@@ -324,6 +355,15 @@ public class PlayerController : MonoBehaviour
             if (assaultRightCoroutine != null)
             {
                 StopCoroutine(assaultRightCoroutine);
+            }
+
+        }
+
+        if (rightLaserEquipped == true)
+        {
+            if (laserRightCoroutine != null)
+            {
+                StopCoroutine(laserRightCoroutine);
             }
 
         }
@@ -498,7 +538,33 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         rightAmmoManager.AssaultShot();
 
-        Debug.Log("assault shot left");
+        Debug.Log("assault shot right");
+    }
+
+    public void ShootLaserLeft()
+    {
+        if (laserBulletPrefab == null || laserLeftFirePoint == null) return;
+
+        var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
+        Destroy(projectile, 1.5f);
+        leftAmmoManager.LaserShot();
+
+        Debug.Log("laser shot left");
+    }
+
+    public void ShootLaserRight()
+    {
+        if (laserBulletPrefab == null || laserRightFirePoint == null) return;
+
+        var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
+        Destroy(projectile, 1.5f);
+        rightAmmoManager.LaserShot();
+
+        Debug.Log("assault shot right");
     }
     public void SuperMove() 
     { 
@@ -681,6 +747,38 @@ public class PlayerController : MonoBehaviour
             }
 
             ShootAssaultRight();
+        }
+    }
+
+    public IEnumerator AutoFireLeftLaser()
+    {
+        while (isShootingLeftHeld == true)
+        {
+            yield return new WaitForSeconds(laserFireRate);
+
+            if (leftAmmoManager.currentAmmo <= 0)
+            {
+                isShootingLeftHeld = false;
+                yield break;
+            }
+
+            ShootLaserLeft();
+        }
+    }
+
+    public IEnumerator AutoFireRightLaser()
+    {
+        while (isShootingRightHeld == true)
+        {
+            yield return new WaitForSeconds(laserFireRate);
+
+            if (rightAmmoManager.currentAmmo <= 0)
+            {
+                isShootingRightHeld = false;
+                yield break;
+            }
+
+            ShootLaserRight();
         }
     }
 }
