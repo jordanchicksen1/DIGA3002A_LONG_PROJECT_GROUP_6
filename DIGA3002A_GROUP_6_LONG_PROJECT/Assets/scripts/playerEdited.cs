@@ -83,6 +83,13 @@ public class PlayerController : MonoBehaviour
     public Coroutine laserRightCoroutine;
     public bool rightLaserEquipped = false;
 
+    [Header("Super Move Stuff")]
+    public bool basicSuperEquipped = true;
+    public bool shieldSuperEquipped = false;
+    public bool laserSuperEquipped = false;
+
+
+
     private void Awake()
     {
         playerInput = new PlayerControls();
@@ -570,6 +577,20 @@ public class PlayerController : MonoBehaviour
     public void SuperMove() 
     { 
     
+        if(basicSuperEquipped == true)
+        {
+
+        }
+
+        if(shieldSuperEquipped == true)
+        {
+
+        }
+
+        if (laserSuperEquipped == true)
+        {
+
+        }
     }
 
     public void Heal()
