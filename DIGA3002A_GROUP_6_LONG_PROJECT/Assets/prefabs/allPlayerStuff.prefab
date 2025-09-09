@@ -617,7 +617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1088179901843024953
 Transform:
   m_ObjectHideFlags: 0
@@ -831,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8662309942437554193
 Transform:
   m_ObjectHideFlags: 0
@@ -1943,7 +1943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8869742427612456648
 Transform:
   m_ObjectHideFlags: 0
@@ -3263,11 +3263,11 @@ MonoBehaviour:
   basicLeftFirePoint: {fileID: 7015836346104604700}
   basicFireRate: 0.2
   isShootingLeftHeld: 0
-  leftBasicEquipped: 0
+  leftBasicEquipped: 1
   leftAmmoManager: {fileID: 2421205393565308800}
   basicRightFirePoint: {fileID: 6881054948419884679}
   isShootingRightHeld: 0
-  rightBasicEquipped: 0
+  rightBasicEquipped: 1
   rightAmmoManager: {fileID: 5204252677447129056}
   machineBulletPrefab: {fileID: 52489870082854467, guid: 7cca803cc2d78d44c9f381d2ece4bab0,
     type: 3}
@@ -3290,9 +3290,9 @@ MonoBehaviour:
   laserBulletSpeed: 20
   laserLeftFirePoint: {fileID: 5235278436699515297}
   laserFireRate: 0.8
-  leftLaserEquipped: 1
+  leftLaserEquipped: 0
   laserRightFirePoint: {fileID: 2095813425816242962}
-  rightLaserEquipped: 1
+  rightLaserEquipped: 0
 --- !u!114 &6924484907784928906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4648,7 +4648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5473932228920757004
 Transform:
   m_ObjectHideFlags: 0
