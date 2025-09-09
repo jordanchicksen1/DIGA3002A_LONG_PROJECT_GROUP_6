@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI; 
 using UnityEngine.PlayerLoop;
 
 public class EnemyMovement : MonoBehaviour
@@ -18,7 +19,9 @@ public class EnemyMovement : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
 
-    public float health;
+    public float currentEnemyHealth;
+    public float maxEnemyHealth;
+    public Image enemyHealthBarPic; 
 
     public Transform firePosition;
 
@@ -31,6 +34,11 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        currentEnemyHealth = maxEnemyHealth;
+        UpdateEnemyHealthBar();
+    }
     
     private void Patrolling()
     {
@@ -68,12 +76,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position); 
+        agent.SetDestination(player.position);
+        Debug.Log("is working");
     }
 
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
+        agent.SetDestination(player.position);
 
         Vector3 targetPos = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(targetPos);
@@ -96,14 +105,14 @@ public class EnemyMovement : MonoBehaviour
         alreadyAttacked = false; 
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Invoke(nameof(DestroyEnemy), 0.5f); 
-        }
-    }
+    //public void TakeDamage(int damage)
+    //{
+    //    currentEnemyHealth -= damage;
+    //    if (currentEnemyHealth <= 0)
+    //    {
+    //        Invoke(nameof(DestroyEnemy), 0.5f); 
+    //    }
+    //}
 
     private void DestroyEnemy()
     {
@@ -121,14 +130,17 @@ public class EnemyMovement : MonoBehaviour
         if (walkPointRange <= 10)
         {
             ChasePlayer();
+            AttackPlayer();
             Debug.Log(distance);
 
         }
-        else if (distance > 2)
+        else if (distance > 10)
         {
             Patrolling();
 
         }
+
+
         //if (!playerInSightRange && !playerInAttackRange)
         //{
         //    Patrolling(); 
@@ -143,5 +155,27 @@ public class EnemyMovement : MonoBehaviour
         //{
         //    AttackPlayer();
         //}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BasicBullet"))
+        {
+            currentEnemyHealth--;
+            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+
+            UpdateEnemyHealthBar();
+
+            if (currentEnemyHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void UpdateEnemyHealthBar()
+    {
+        float targetFillAmount = currentEnemyHealth / maxEnemyHealth;
+        enemyHealthBarPic.fillAmount = targetFillAmount;
     }
 }
