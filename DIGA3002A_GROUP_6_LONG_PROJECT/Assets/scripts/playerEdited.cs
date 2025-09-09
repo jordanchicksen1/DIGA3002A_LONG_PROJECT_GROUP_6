@@ -34,6 +34,27 @@ public class PlayerController : MonoBehaviour
     public playerPosture playerPosture;
     public GameObject staggeredText;
 
+    //shooting stuff
+    public GameObject basicBulletPrefab;
+    public float basicBulletSpeed;
+    public Transform basicLeftFirePoint;
+    public float basicFireRate = 0.2f;
+
+    public bool isShootingLeftHeld = false;
+    public Coroutine basicLeftCoroutine;
+    public bool leftBasicEquipped = true;
+    public leftAmmoManager leftAmmoManager;
+
+    
+
+    public Transform basicRightFirePoint;
+  
+
+    public bool isShootingRightHeld = false;
+    public Coroutine basicRightCoroutine;
+    public bool rightBasicEquipped = true;
+    public rightAmmoManager rightAmmoManager;
+
     private void Awake()
     {
         playerInput = new PlayerControls();
@@ -63,8 +84,12 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Pause.performed += ctx => Pause();
 
         // Shooting
-        playerInput.Player.ShootLeft.performed += ctx => ShootLeft();
-        playerInput.Player.ShootRight.performed += ctx => ShootRight();
+        playerInput.Player.ShootLeft.started += OnLeftShootStarted;
+        playerInput.Player.ShootLeft.canceled += OnLeftShootCanceled;
+
+        playerInput.Player.ShootRight.started += OnRightShootStarted;
+        playerInput.Player.ShootRight.canceled += OnRightShootCanceled;
+        
         playerInput.Player.SuperMove.performed += ctx => SuperMove();
 
         //heal
@@ -94,8 +119,12 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Pause.performed -= ctx => Pause();
 
         // attacks
-        playerInput.Player.ShootLeft.performed -= ctx => ShootLeft();
-        playerInput.Player.ShootRight.performed -= ctx => ShootRight();
+        playerInput.Player.ShootLeft.started -= OnLeftShootStarted;
+        playerInput.Player.ShootLeft.canceled -= OnLeftShootCanceled;
+        
+        playerInput.Player.ShootRight.started -= OnRightShootStarted;
+        playerInput.Player.ShootRight.canceled -= OnRightShootCanceled;
+       
         playerInput.Player.SuperMove.performed -= ctx => SuperMove();
 
         //heal
@@ -165,9 +194,67 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+    public void OnLeftShootStarted(InputAction.CallbackContext ctx)
+    {
+        if (isPaused == false) 
+        {
+            isShootingLeftHeld = true;
 
-    
+            if (leftBasicEquipped == true && leftAmmoManager.currentAmmo >= 5f)
+            {
+                ShootBasicLeft();
+                basicLeftCoroutine = StartCoroutine(AutoFireLeftBasic());
+            }
+           
+        }  
+    }
+
+    public void OnLeftShootCanceled(InputAction.CallbackContext ctx)
+    {
+        isShootingLeftHeld = false;
+        
+        if (leftBasicEquipped == true) 
+        {
+            if (basicLeftCoroutine != null) 
+            { 
+            StopCoroutine(basicLeftCoroutine);
+            }
+
+        }
+
+    }
+
+    public void OnRightShootStarted(InputAction.CallbackContext ctx)
+    {
+        if (isPaused == false)
+        {
+            isShootingRightHeld = true;
+
+            if (rightBasicEquipped == true && rightAmmoManager.currentAmmo >= 5f)
+            {
+                ShootBasicRight();
+                basicRightCoroutine = StartCoroutine(AutoFireRightBasic());
+            }
+
+        }
+    }
+
+    public void OnRightShootCanceled(InputAction.CallbackContext ctx)
+    {
+        isShootingRightHeld = false;
+
+        if (rightBasicEquipped == true)
+        {
+            if (basicRightCoroutine != null)
+            {
+                StopCoroutine(basicRightCoroutine);
+            }
+
+        }
+
+    }
+
+
 
     //actions
 
@@ -262,13 +349,29 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void ShootLeft() 
-    { 
-    
+    public void ShootBasicLeft() 
+    {
+        if (basicBulletPrefab == null || basicLeftFirePoint == null) return;
+
+        var projectile = Instantiate(basicBulletPrefab, basicLeftFirePoint.position, basicLeftFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = basicLeftFirePoint.forward * basicBulletSpeed;
+        Destroy(projectile, 1f);
+        leftAmmoManager.BasicShot();
+
+        Debug.Log("shot");
     }
-    public void ShootRight() 
-    { 
-    
+    public void ShootBasicRight() 
+    {
+        if (basicBulletPrefab == null || basicRightFirePoint == null) return;
+
+        var projectile = Instantiate(basicBulletPrefab, basicRightFirePoint.position, basicRightFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = basicRightFirePoint.forward * basicBulletSpeed;
+        Destroy(projectile, 1f);
+        rightAmmoManager.BasicShot();
+
+        Debug.Log("shot");
     }
     public void SuperMove() 
     { 
@@ -357,6 +460,37 @@ public class PlayerController : MonoBehaviour
         hasHit = false;
     }
 
-    
+    //basic left auto fire
+    public IEnumerator AutoFireLeftBasic()
+    {
+        while (isShootingLeftHeld == true)
+        {
+           yield return new WaitForSeconds(basicFireRate);
+          
+            if(leftAmmoManager.currentAmmo <= 0)
+            {
+                isShootingLeftHeld = false;
+                yield break;
+            }
+            
+            ShootBasicLeft();
+        }
+    }
+
+    public IEnumerator AutoFireRightBasic()
+    {
+        while (isShootingRightHeld == true)
+        {
+            yield return new WaitForSeconds(basicFireRate);
+
+            if (rightAmmoManager.currentAmmo <= 0)
+            {
+                isShootingRightHeld = false;
+                yield break;
+            }
+
+            ShootBasicRight();
+        }
+    }
 }
 
