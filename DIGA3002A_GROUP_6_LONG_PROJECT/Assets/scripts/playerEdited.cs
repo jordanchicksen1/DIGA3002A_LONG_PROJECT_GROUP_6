@@ -59,7 +59,17 @@ public class PlayerController : MonoBehaviour
     public Transform machineRightFirePoint;
     public Coroutine machineRightCoroutine;
     public bool rightMachineEquipped = false;
-    
+
+    //assault gun shooting stuff
+    public GameObject assaultBulletPrefab;
+    public float assaultBulletSpeed;
+    public Transform assaultLeftFirePoint;
+    public float assaultFireRate = 0.15f;
+    public Coroutine assaultLeftCoroutine;
+    public bool leftAssaultEquipped = false;
+    public Transform assaultRightFirePoint;
+    public Coroutine assaultRightCoroutine;
+    public bool rightAssaultEquipped = false;
 
     private void Awake()
     {
@@ -218,6 +228,12 @@ public class PlayerController : MonoBehaviour
                 machineLeftCoroutine = StartCoroutine(AutoFireLeftMachine());
             }
 
+            if (leftAssaultEquipped == true && leftAmmoManager.currentAmmo >= 4f)
+            {
+                ShootAssaultLeft();
+                assaultLeftCoroutine = StartCoroutine(AutoFireLeftAssault());
+            }
+
         }  
     }
 
@@ -243,6 +259,15 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (leftAssaultEquipped == true)
+        {
+            if (assaultLeftCoroutine != null)
+            {
+                StopCoroutine(assaultLeftCoroutine);
+            }
+
+        }
+
     }
 
     public void OnRightShootStarted(InputAction.CallbackContext ctx)
@@ -261,6 +286,12 @@ public class PlayerController : MonoBehaviour
             {
                 ShootMachineRight();
                 machineRightCoroutine = StartCoroutine(AutoFireRightMachine());
+            }
+
+            if (rightAssaultEquipped == true && rightAmmoManager.currentAmmo >= 4f)
+            {
+                ShootAssaultRight();
+                assaultRightCoroutine = StartCoroutine(AutoFireRightAssault());
             }
 
         }
@@ -284,6 +315,15 @@ public class PlayerController : MonoBehaviour
             if (machineRightCoroutine != null)
             {
                 StopCoroutine(machineRightCoroutine);
+            }
+
+        }
+
+        if (rightAssaultEquipped == true)
+        {
+            if (assaultRightCoroutine != null)
+            {
+                StopCoroutine(assaultRightCoroutine);
             }
 
         }
@@ -394,7 +434,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         leftAmmoManager.BasicShot();
 
-        Debug.Log("shot");
+        Debug.Log("basic shot left");
     }
     public void ShootBasicRight() 
     {
@@ -406,7 +446,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         rightAmmoManager.BasicShot();
 
-        Debug.Log("shot");
+        Debug.Log("basic shot right");
     }
 
     public void ShootMachineLeft()
@@ -419,7 +459,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 0.8f);
         leftAmmoManager.MachineShot();
 
-        Debug.Log("machine shot");
+        Debug.Log("machine shot left");
     }
 
     public void ShootMachineRight()
@@ -432,7 +472,33 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 0.8f);
         rightAmmoManager.MachineShot();
 
-        Debug.Log("shot");
+        Debug.Log("machine shot right");
+    }
+
+    public void ShootAssaultLeft()
+    {
+        if (assaultBulletPrefab == null || assaultLeftFirePoint == null) return;
+
+        var projectile = Instantiate(assaultBulletPrefab, assaultLeftFirePoint.position, assaultLeftFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
+        Destroy(projectile, 1f);
+        leftAmmoManager.AssaultShot();
+
+        Debug.Log("assault shot left");
+    }
+
+    public void ShootAssaultRight()
+    {
+        if (assaultBulletPrefab == null || assaultRightFirePoint == null) return;
+
+        var projectile = Instantiate(assaultBulletPrefab, assaultRightFirePoint.position, assaultRightFirePoint.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
+        Destroy(projectile, 1f);
+        rightAmmoManager.AssaultShot();
+
+        Debug.Log("assault shot left");
     }
     public void SuperMove() 
     { 
@@ -583,6 +649,38 @@ public class PlayerController : MonoBehaviour
             }
 
             ShootMachineRight();
+        }
+    }
+
+    public IEnumerator AutoFireLeftAssault()
+    {
+        while (isShootingLeftHeld == true)
+        {
+            yield return new WaitForSeconds(assaultFireRate);
+
+            if (leftAmmoManager.currentAmmo <= 0)
+            {
+                isShootingLeftHeld = false;
+                yield break;
+            }
+
+            ShootAssaultLeft();
+        }
+    }
+
+    public IEnumerator AutoFireRightAssault()
+    {
+        while (isShootingRightHeld == true)
+        {
+            yield return new WaitForSeconds(assaultFireRate);
+
+            if (rightAmmoManager.currentAmmo <= 0)
+            {
+                isShootingRightHeld = false;
+                yield break;
+            }
+
+            ShootAssaultRight();
         }
     }
 }
