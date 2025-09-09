@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
+using UnityEngine.PlayerLoop;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    
     private void Patrolling()
     {
         if (!walkPointSet)
@@ -111,21 +113,35 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            Patrolling(); 
-        }
 
-        if (playerInSightRange && !playerInAttackRange)
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        walkPointRange = distance;
+        if (walkPointRange <= 10)
         {
             ChasePlayer();
-        }
+            Debug.Log(distance);
 
-        if (playerInSightRange && playerInAttackRange)
-        {
-            AttackPlayer();
         }
+        else if (distance > 2)
+        {
+            Patrolling();
+
+        }
+        //if (!playerInSightRange && !playerInAttackRange)
+        //{
+        //    Patrolling(); 
+        //}
+
+        //else if (playerInSightRange && !playerInAttackRange)
+        //{
+        //    ChasePlayer();
+        //}
+
+        //else if (playerInSightRange && playerInAttackRange)
+        //{
+        //    AttackPlayer();
+        //}
     }
 }
