@@ -27,6 +27,8 @@ public class EnemyMovement : MonoBehaviour
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    public ParticleSystem explosion; 
     
     private void Awake()
     {
@@ -168,6 +170,13 @@ public class EnemyMovement : MonoBehaviour
 
             if (currentEnemyHealth <= 0)
             {
+                if(explosion != null)
+                {
+                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+                    ps.Play();
+                    Destroy(ps.gameObject, ps.main.duration);
+                }
+
                 Destroy(gameObject);
             }
         }
