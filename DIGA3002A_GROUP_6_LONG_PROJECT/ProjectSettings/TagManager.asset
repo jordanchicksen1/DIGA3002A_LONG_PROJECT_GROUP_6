@@ -8,10 +8,7 @@ TagManager:
   - EnemyBulletMedium
   - EnemyBulletLarge
   - BasicBullet
-  - MachineBullet
-  - AssaultBullet
-  - LaserBullet
-  - BasicShield
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
