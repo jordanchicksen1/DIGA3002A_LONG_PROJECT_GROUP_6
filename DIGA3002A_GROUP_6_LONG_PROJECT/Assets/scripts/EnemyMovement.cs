@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
+using UnityEngine.UI; 
+using UnityEngine.PlayerLoop;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -17,12 +19,16 @@ public class EnemyMovement : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
 
-    public float health;
+    public float currentEnemyHealth;
+    public float maxEnemyHealth;
+    public Image enemyHealthBarPic; 
 
     public Transform firePosition;
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    public ParticleSystem explosion; 
     
     private void Awake()
     {
@@ -30,6 +36,12 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        currentEnemyHealth = maxEnemyHealth;
+        UpdateEnemyHealthBar();
+    }
+    
     private void Patrolling()
     {
         if (!walkPointSet)
@@ -66,12 +78,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position); 
+        agent.SetDestination(player.position);
+        Debug.Log("is working");
     }
 
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
+        agent.SetDestination(player.position);
 
         Vector3 targetPos = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(targetPos);
@@ -94,14 +107,14 @@ public class EnemyMovement : MonoBehaviour
         alreadyAttacked = false; 
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Invoke(nameof(DestroyEnemy), 0.5f); 
-        }
-    }
+    //public void TakeDamage(int damage)
+    //{
+    //    currentEnemyHealth -= damage;
+    //    if (currentEnemyHealth <= 0)
+    //    {
+    //        Invoke(nameof(DestroyEnemy), 0.5f); 
+    //    }
+    //}
 
     private void DestroyEnemy()
     {
@@ -111,21 +124,67 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            Patrolling(); 
-        }
 
-        if (playerInSightRange && !playerInAttackRange)
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        walkPointRange = distance;
+        if (walkPointRange <= 10)
         {
             ChasePlayer();
+            AttackPlayer();
+            Debug.Log(distance);
+
+        }
+        else if (distance > 10)
+        {
+            Patrolling();
+
         }
 
-        if (playerInSightRange && playerInAttackRange)
+
+        //if (!playerInSightRange && !playerInAttackRange)
+        //{
+        //    Patrolling(); 
+        //}
+
+        //else if (playerInSightRange && !playerInAttackRange)
+        //{
+        //    ChasePlayer();
+        //}
+
+        //else if (playerInSightRange && playerInAttackRange)
+        //{
+        //    AttackPlayer();
+        //}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BasicBullet"))
         {
-            AttackPlayer();
+            currentEnemyHealth--;
+            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+
+            UpdateEnemyHealthBar();
+
+            if (currentEnemyHealth <= 0)
+            {
+                if(explosion != null)
+                {
+                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+                    ps.Play();
+                    Destroy(ps.gameObject, ps.main.duration);
+                }
+
+                Destroy(gameObject);
+            }
         }
+    }
+
+    private void UpdateEnemyHealthBar()
+    {
+        float targetFillAmount = currentEnemyHealth / maxEnemyHealth;
+        enemyHealthBarPic.fillAmount = targetFillAmount;
     }
 }
