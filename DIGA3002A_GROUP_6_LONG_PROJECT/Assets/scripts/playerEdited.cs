@@ -33,8 +33,10 @@ public class PlayerController : MonoBehaviour
     public healManager healManager;
     public playerPosture playerPosture;
     public GameObject staggeredText;
+    public leftAmmoManager leftAmmoManager;
+    public rightAmmoManager rightAmmoManager;
 
-    //basic shooting stuff
+    [Header("Basic Gun Info")]
     public GameObject basicBulletPrefab;
     public float basicBulletSpeed;
     public Transform basicLeftFirePoint;
@@ -42,14 +44,13 @@ public class PlayerController : MonoBehaviour
     public bool isShootingLeftHeld = false;
     public Coroutine basicLeftCoroutine;
     public bool leftBasicEquipped = true;
-    public leftAmmoManager leftAmmoManager;
     public Transform basicRightFirePoint;
     public bool isShootingRightHeld = false;
     public Coroutine basicRightCoroutine;
     public bool rightBasicEquipped = true;
-    public rightAmmoManager rightAmmoManager;
+    
 
-    //machine gun shooting stuff
+    [Header("Machine Gun Info")]
     public GameObject machineBulletPrefab;
     public float machineBulletSpeed;
     public Transform machineLeftFirePoint;
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
     public Coroutine machineRightCoroutine;
     public bool rightMachineEquipped = false;
 
-    //assault gun shooting stuff
+    [Header("Assault Gun Info")]
     public GameObject assaultBulletPrefab;
     public float assaultBulletSpeed;
     public Transform assaultLeftFirePoint;
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
     public Coroutine assaultRightCoroutine;
     public bool rightAssaultEquipped = false;
 
-    //laser gun shooting stuff
+    [Header("Laser Gun Info")]
     public GameObject laserBulletPrefab;
     public float laserBulletSpeed;
     public Transform laserLeftFirePoint;
@@ -81,6 +82,16 @@ public class PlayerController : MonoBehaviour
     public Transform laserRightFirePoint;
     public Coroutine laserRightCoroutine;
     public bool rightLaserEquipped = false;
+
+    [Header("Super Move Stuff")]
+    public bool basicSuperEquipped = true;
+    public bool shieldSuperEquipped = false;
+    public bool laserSuperEquipped = false;
+    public superMoveBar superMoveBar;
+    public GameObject basicSuper;
+    public basicShieldHealth basicShieldHealth;
+
+
 
     private void Awake()
     {
@@ -569,6 +580,26 @@ public class PlayerController : MonoBehaviour
     public void SuperMove() 
     { 
     
+        if(basicSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        {
+            superMoveBar.UseSuperBar();
+            basicSuper.SetActive(true);
+            Debug.Log("used basic super");
+            basicShieldHealth.currentShieldHealth = basicShieldHealth.maxShieldHealth;
+            basicShieldHealth.updateShieldHealthBar();
+        }
+
+        if (shieldSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        {
+            superMoveBar.UseSuperBar();
+            Debug.Log("used shield super");
+        }
+
+        if (laserSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        {
+            superMoveBar.UseSuperBar();
+            Debug.Log("used laser super");
+        }
     }
 
     public void Heal()
