@@ -745,13 +745,15 @@ GameObject:
   - component: {fileID: 1659606446043906918}
   - component: {fileID: 2208295651577577208}
   - component: {fileID: 4095956123445155947}
+  - component: {fileID: 4976138010949312040}
+  - component: {fileID: 33932970790400881}
   m_Layer: 0
   m_Name: basicShield
   m_TagString: BasicShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &982645487500063319
 Transform:
   m_ObjectHideFlags: 0
@@ -839,6 +841,35 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4976138010949312040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705403001099674601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0972fcfcc5001458df7d72b6da6521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxShieldHealth: 100
+  currentShieldHealth: 0
+  healthBarShieldPic: {fileID: 8772371368405652617}
+  theShield: {fileID: 1705403001099674601}
+--- !u!114 &33932970790400881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705403001099674601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03e1fdc3d2ae784aa17015e11853cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicShieldHealth: {fileID: 4976138010949312040}
 --- !u!1 &1814355551994095411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,6 +3600,7 @@ GameObject:
   - component: {fileID: 8746082115035360048}
   - component: {fileID: 2421205393565308800}
   - component: {fileID: 5204252677447129056}
+  - component: {fileID: 565028174742674133}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -3760,6 +3792,9 @@ MonoBehaviour:
   basicSuperEquipped: 1
   shieldSuperEquipped: 0
   laserSuperEquipped: 0
+  superMoveBar: {fileID: 565028174742674133}
+  basicSuper: {fileID: 1705403001099674601}
+  basicShieldHealth: {fileID: 4976138010949312040}
 --- !u!114 &6924484907784928906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3855,6 +3890,21 @@ MonoBehaviour:
   maxAmmo: 100
   currentAmmo: 0
   ammoBarPic: {fileID: 2682744438000754368}
+--- !u!114 &565028174742674133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6157256343834927344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f09f9b6e8c4d54e85ebc2e36f33e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSuperBar: 100
+  currentSuperBar: 0
+  superBarPic: {fileID: 5077824381519331819}
 --- !u!1 &6192789336275473727
 GameObject:
   m_ObjectHideFlags: 0

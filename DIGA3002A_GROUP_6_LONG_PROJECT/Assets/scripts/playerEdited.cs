@@ -87,6 +87,9 @@ public class PlayerController : MonoBehaviour
     public bool basicSuperEquipped = true;
     public bool shieldSuperEquipped = false;
     public bool laserSuperEquipped = false;
+    public superMoveBar superMoveBar;
+    public GameObject basicSuper;
+    public basicShieldHealth basicShieldHealth;
 
 
 
@@ -577,19 +580,25 @@ public class PlayerController : MonoBehaviour
     public void SuperMove() 
     { 
     
-        if(basicSuperEquipped == true)
+        if(basicSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
-
+            superMoveBar.UseSuperBar();
+            basicSuper.SetActive(true);
+            Debug.Log("used basic super");
+            basicShieldHealth.currentShieldHealth = basicShieldHealth.maxShieldHealth;
+            basicShieldHealth.updateShieldHealthBar();
         }
 
-        if(shieldSuperEquipped == true)
+        if (shieldSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
-
+            superMoveBar.UseSuperBar();
+            Debug.Log("used shield super");
         }
 
-        if (laserSuperEquipped == true)
+        if (laserSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
-
+            superMoveBar.UseSuperBar();
+            Debug.Log("used laser super");
         }
     }
 
