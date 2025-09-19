@@ -2612,7 +2612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &183702417
@@ -3215,7 +3215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &241327270
@@ -3394,7 +3394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &247693872
@@ -4137,7 +4137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &327980655
@@ -5162,7 +5162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &396644942
@@ -8365,7 +8365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &718438686
@@ -8755,7 +8755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &797756019
@@ -8987,7 +8987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &819515881
@@ -9801,7 +9801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &866003611
@@ -10888,7 +10888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &950849403
@@ -11420,7 +11420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &996233126
@@ -14529,7 +14529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1359814651
@@ -14812,7 +14812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &1377251970
@@ -15097,7 +15097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1420961900
@@ -16227,7 +16227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1510143529
@@ -16660,7 +16660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1570975124
@@ -18119,7 +18119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &1675766328
@@ -18192,7 +18192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &1678318966
@@ -18371,7 +18371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1691161187
@@ -20083,7 +20083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &1842189510
@@ -20505,7 +20505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1874927216
@@ -21189,7 +21189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
 --- !u!1 &1914687974
@@ -22213,7 +22213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &1975761899
@@ -23871,7 +23871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
   priority: 0
-  blendDistance: 1
+  blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
 --- !u!1 &2110558668
