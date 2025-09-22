@@ -13,20 +13,26 @@ public class playerHealth : MonoBehaviour
 
     [Header("Damage")]
     public Image DamagedScreenImage;
-    public float Alpha;
+    public float ImageAlpha;
 
     [Header("Player Hurt Comunication")]
-    public MeshRenderer MeshRenderer;
+    /*public MeshRenderer MeshRenderer;
     public Material HurtPlayerMat;
+    public float MateralAlpha;*/
+    public GameObject HurtPlayerOutline;
 
     private void Awake()
     {
-        MeshRenderer = GetComponent<MeshRenderer>();
+        //MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     public void Start()
     {
         currentHealth = maxHealth;
+
+      /*  Color C = HurtPlayerMat.color;
+        C.a = MateralAlpha;
+        HurtPlayerMat.color = C;*/
     }
 
     public void Update()
@@ -40,10 +46,11 @@ public class playerHealth : MonoBehaviour
     public void PlayerHit()
     {
         currentHealth = currentHealth - 10f;
-        
+        StartCoroutine(RedOn());
+
         if (currentHealth <= maxHealth / 2)
         {
-            Alpha += 0.1f;
+            ImageAlpha += 0.1f;
         }
 
         updateHealthBar();
@@ -57,7 +64,7 @@ public class playerHealth : MonoBehaviour
 
         if (currentHealth <= maxHealth / 2)
         {
-            Alpha += 0.3f;
+            ImageAlpha += 0.3f;
         }
         updateHealthBar();
         playerPosture.PlayerPostureHitALot();
@@ -71,7 +78,7 @@ public class playerHealth : MonoBehaviour
         
         if (currentHealth <= maxHealth / 2)
         {
-            Alpha += 0.5f;
+            ImageAlpha += 0.5f;
         }
         
         updateHealthBar();
@@ -104,16 +111,20 @@ public class playerHealth : MonoBehaviour
     public void DamagedPlayerScreen()
     {
         Color currentColor = DamagedScreenImage.color;
-        currentColor.a = Alpha;
+        currentColor.a = ImageAlpha;
         
         DamagedScreenImage.color = currentColor;
 
         if (currentHealth <= 0)
         {
-            Alpha = 1f;
+            ImageAlpha = 1f;
         }
+    }
 
-       
-
+    public IEnumerator RedOn() 
+    {
+        HurtPlayerOutline.SetActive(true);
+        yield return new WaitForSeconds(1);
+        HurtPlayerOutline.SetActive(false);
     }
 }
