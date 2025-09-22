@@ -61,6 +61,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitALot()
     {
         currentHealth = currentHealth - 30f;
+        StartCoroutine(RedOn());
 
         if (currentHealth <= maxHealth / 2)
         {
@@ -75,7 +76,8 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitATon()
     {
         currentHealth = currentHealth - 50f;
-        
+        StartCoroutine(RedOn());
+
         if (currentHealth <= maxHealth / 2)
         {
             ImageAlpha += 0.5f;
