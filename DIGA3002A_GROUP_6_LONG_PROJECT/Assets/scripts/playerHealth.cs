@@ -14,7 +14,15 @@ public class playerHealth : MonoBehaviour
     [Header("Damage")]
     public Image DamagedScreenImage;
     public float Alpha;
-   
+
+    [Header("Player Hurt Comunication")]
+    public MeshRenderer MeshRenderer;
+    public Material HurtPlayerMat;
+
+    private void Awake()
+    {
+        MeshRenderer = GetComponent<MeshRenderer>();
+    }
 
     public void Start()
     {
@@ -32,7 +40,12 @@ public class playerHealth : MonoBehaviour
     public void PlayerHit()
     {
         currentHealth = currentHealth - 10f;
-        Alpha += 0.1f;
+        
+        if (currentHealth <= maxHealth / 2)
+        {
+            Alpha += 0.1f;
+        }
+
         updateHealthBar();
         playerPosture.PlayerPostureHit();
     }
@@ -41,7 +54,11 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitALot()
     {
         currentHealth = currentHealth - 30f;
-        Alpha += 0.3f;
+
+        if (currentHealth <= maxHealth / 2)
+        {
+            Alpha += 0.3f;
+        }
         updateHealthBar();
         playerPosture.PlayerPostureHitALot();
     }
@@ -51,7 +68,12 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitATon()
     {
         currentHealth = currentHealth - 50f;
-        Alpha += 0.5f;
+        
+        if (currentHealth <= maxHealth / 2)
+        {
+            Alpha += 0.5f;
+        }
+        
         updateHealthBar();
         playerPosture.FullPostureHit();
     }
@@ -79,16 +101,19 @@ public class playerHealth : MonoBehaviour
         healthBarPic.fillAmount = targetFillAmount;
     }
 
-    public void DamagedPlayerScreen() 
+    public void DamagedPlayerScreen()
     {
         Color currentColor = DamagedScreenImage.color;
         currentColor.a = Alpha;
+        
         DamagedScreenImage.color = currentColor;
 
-        if (currentHealth <= 0) 
+        if (currentHealth <= 0)
         {
             Alpha = 1f;
         }
+
+       
 
     }
 }
