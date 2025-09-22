@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour
 {
+    [Header("Health Bar")]
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthBarPic;
     public playerPosture playerPosture;
 
+    [Header("Damage")]
+    public Image DamagedScreenImage;
+    public float Alpha;
    
 
     public void Start()
@@ -20,6 +24,7 @@ public class playerHealth : MonoBehaviour
     public void Update()
     {
         //put player death here
+        DamagedPlayerScreen();
     }
 
 
@@ -27,6 +32,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHit()
     {
         currentHealth = currentHealth - 10f;
+        Alpha += 0.1f;
         updateHealthBar();
         playerPosture.PlayerPostureHit();
     }
@@ -35,6 +41,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitALot()
     {
         currentHealth = currentHealth - 30f;
+        Alpha += 0.3f;
         updateHealthBar();
         playerPosture.PlayerPostureHitALot();
     }
@@ -44,6 +51,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitATon()
     {
         currentHealth = currentHealth - 50f;
+        Alpha += 0.5f;
         updateHealthBar();
         playerPosture.FullPostureHit();
     }
@@ -69,5 +77,18 @@ public class playerHealth : MonoBehaviour
     {
         float targetFillAmount = currentHealth / maxHealth;
         healthBarPic.fillAmount = targetFillAmount;
+    }
+
+    public void DamagedPlayerScreen() 
+    {
+        Color currentColor = DamagedScreenImage.color;
+        currentColor.a = Alpha;
+        DamagedScreenImage.color = currentColor;
+
+        if (currentHealth <= 0) 
+        {
+            Alpha = 1f;
+        }
+
     }
 }
