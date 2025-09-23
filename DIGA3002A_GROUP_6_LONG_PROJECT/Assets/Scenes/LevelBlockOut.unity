@@ -6219,6 +6219,11 @@ PrefabInstance:
       propertyPath: Laser
       value: 
       objectReference: {fileID: 8300000, guid: ba4437d91d6de67468b98c50bc280a7b, type: 3}
+    - target: {fileID: 8787124806977383376, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: MiniGun
+      value: 
+      objectReference: {fileID: 8300000, guid: 1dd2638cf19b4f24fb3c51d2aa322246, type: 3}
     - target: {fileID: 9217857645013029296, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_IsActive
