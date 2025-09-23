@@ -5490,6 +5490,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6157256343834927344, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7742796038675670926, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_Name
@@ -8121,7 +8126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundMusic: {fileID: 1560813551}
   SFX: {fileID: 566239636}
-  RifleFire: {fileID: 0}
+  NormalBackground: {fileID: 0}
 --- !u!1 &663643871
 GameObject:
   m_ObjectHideFlags: 0
@@ -11119,6 +11124,7 @@ GameObject:
   - component: {fileID: 946738109}
   - component: {fileID: 946738111}
   - component: {fileID: 946738110}
+  - component: {fileID: 946738112}
   m_Layer: 0
   m_Name: Sphere Volume
   m_TagString: Untagged
@@ -11181,6 +11187,20 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &946738112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946738108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicManager: {fileID: 0}
+  Background: {fileID: 0}
 --- !u!1 &950849403
 GameObject:
   m_ObjectHideFlags: 0
@@ -16677,6 +16697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MusicManager: {fileID: 662179982}
+  Background: {fileID: 0}
 --- !u!1 &1520474952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16871,7 +16893,7 @@ GameObject:
   - component: {fileID: 1560813550}
   - component: {fileID: 1560813551}
   m_Layer: 0
-  m_Name: BackGroundMusic
+  m_Name: 'BackGroundMusic '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16906,7 +16928,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

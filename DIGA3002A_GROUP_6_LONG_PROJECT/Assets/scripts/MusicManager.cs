@@ -9,5 +9,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource SFX;
 
     [Header("Audio Clips")]
-    public AudioClip RifleFire;
+    public AudioClip NormalBackground;
+    /*public AudioClip DesertBackground;
+    public AudioClip IceBackground;*/
 }
