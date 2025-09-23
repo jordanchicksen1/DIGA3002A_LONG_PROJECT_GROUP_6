@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool hasHit = false;
 
+    [Header("Music Manager")]
+    public MusicManager MusicManager;
+
     [Header("References")]
     public GameObject pauseScreen;
     public dashManager dashManager;
@@ -556,6 +559,7 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserLeftFirePoint == null) return;
 
+        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
@@ -569,6 +573,7 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserRightFirePoint == null) return;
 
+        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;

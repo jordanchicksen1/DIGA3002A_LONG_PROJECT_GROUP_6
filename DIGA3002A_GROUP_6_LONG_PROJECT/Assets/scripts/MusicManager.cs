@@ -12,4 +12,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip NormalBackground;
     /*public AudioClip DesertBackground;
     public AudioClip IceBackground;*/
+
+    [Header("Gun sounds")]
+    public AudioClip Laser;
 }
