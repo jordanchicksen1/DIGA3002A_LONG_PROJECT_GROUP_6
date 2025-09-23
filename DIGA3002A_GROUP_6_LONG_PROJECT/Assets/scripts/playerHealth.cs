@@ -82,6 +82,8 @@ public class playerHealth : MonoBehaviour
         {
             ImageAlpha += 0.5f;
         }
+
+        
         
         updateHealthBar();
         playerPosture.FullPostureHit();
@@ -120,6 +122,11 @@ public class playerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             ImageAlpha = 1f;
+        }
+
+        if (currentHealth > maxHealth / 2) 
+        {
+            ImageAlpha = 0f;
         }
     }
 
