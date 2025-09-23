@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Music Manager")]
     public MusicManager MusicManager;
+    public GameObject MiniGun;
 
     [Header("References")]
     public GameObject pauseScreen;
@@ -507,6 +508,7 @@ public class PlayerController : MonoBehaviour
     {
         if (machineBulletPrefab == null || machineLeftFirePoint == null) return;
 
+             
         var projectile = Instantiate(machineBulletPrefab, machineLeftFirePoint.position, machineLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
@@ -520,6 +522,7 @@ public class PlayerController : MonoBehaviour
     {
         if (machineBulletPrefab == null || machineRightFirePoint == null) return;
 
+       
         var projectile = Instantiate(machineBulletPrefab, machineRightFirePoint.position, machineRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
