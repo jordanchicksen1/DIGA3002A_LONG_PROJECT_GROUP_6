@@ -1016,6 +1016,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70107608}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &82228301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82228302}
+  - component: {fileID: 82228304}
+  - component: {fileID: 82228303}
+  m_Layer: 0
+  m_Name: Sphere Volume (26)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &82228302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82228301}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 198, y: 0, z: 863}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82228303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82228301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &82228304
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82228301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &83659180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1755,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118599146}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &124805040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124805041}
+  - component: {fileID: 124805043}
+  - component: {fileID: 124805042}
+  m_Layer: 0
+  m_Name: Sphere Volume (35)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &124805041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124805040}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -64, y: 0, z: 402.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124805042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124805040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &124805043
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124805040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &129470790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,6 +2038,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140752524}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &141995322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141995323}
+  - component: {fileID: 141995325}
+  - component: {fileID: 141995324}
+  m_Layer: 0
+  m_Name: Sphere Volume (29)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141995323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141995322}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 157, y: 0, z: 744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141995324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141995322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &141995325
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141995322}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.3
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &146667551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2766,7 @@ GameObject:
   - component: {fileID: 179804540}
   - component: {fileID: 179804542}
   - component: {fileID: 179804541}
+  - component: {fileID: 179804543}
   m_Layer: 0
   m_Name: Sphere Volume (3)
   m_TagString: Untagged
@@ -2615,6 +2829,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &179804543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179804539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &183702417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +3056,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191604117}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &201771609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 201771610}
+  m_Layer: 0
+  m_Name: Green
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &201771610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201771609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1448506179}
+  - {fileID: 1333718347}
+  - {fileID: 1598357671}
+  - {fileID: 223822323}
+  - {fileID: 124805041}
+  - {fileID: 753034970}
+  - {fileID: 1124053182}
+  - {fileID: 948245978}
+  - {fileID: 669685717}
+  - {fileID: 379526551}
+  - {fileID: 1251349207}
+  - {fileID: 960812695}
+  - {fileID: 82228302}
+  - {fileID: 571460434}
+  - {fileID: 2125570587}
+  - {fileID: 141995323}
+  - {fileID: 1630076138}
+  - {fileID: 1854299274}
+  - {fileID: 998881042}
+  - {fileID: 1969457821}
+  m_Father: {fileID: 1895960722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214290461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,6 +3319,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220806875}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &223822322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223822323}
+  - component: {fileID: 223822325}
+  - component: {fileID: 223822324}
+  m_Layer: 0
+  m_Name: Sphere Volume (34)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223822323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223822322}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.1, y: 0, z: 525.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223822324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223822322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &223822325
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223822322}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &229480022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3507,7 @@ GameObject:
   - component: {fileID: 236599485}
   - component: {fileID: 236599487}
   - component: {fileID: 236599486}
+  - component: {fileID: 236599488}
   m_Layer: 0
   m_Name: Sphere Volume (1)
   m_TagString: Untagged
@@ -3218,6 +3570,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &236599488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236599484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &241327270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3702,7 @@ GameObject:
   - component: {fileID: 245645139}
   - component: {fileID: 245645141}
   - component: {fileID: 245645140}
+  - component: {fileID: 245645142}
   m_Layer: 0
   m_Name: Sphere Volume (1)
   m_TagString: Untagged
@@ -3397,6 +3765,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &245645142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245645138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &247693872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4461,7 @@ GameObject:
   - component: {fileID: 327592180}
   - component: {fileID: 327592182}
   - component: {fileID: 327592181}
+  - component: {fileID: 327592183}
   m_Layer: 0
   m_Name: Sphere Volume (9)
   m_TagString: Untagged
@@ -4140,6 +4524,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &327592183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327592179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &327980655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +5280,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346065476}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &379526550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379526551}
+  - component: {fileID: 379526553}
+  - component: {fileID: 379526552}
+  m_Layer: 0
+  m_Name: Sphere Volume (23)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &379526551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379526550}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 537, y: 0, z: 913}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &379526552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379526550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &379526553
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379526550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &380006117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5573,7 @@ GameObject:
   - component: {fileID: 389941619}
   - component: {fileID: 389941621}
   - component: {fileID: 389941620}
+  - component: {fileID: 389941622}
   m_Layer: 0
   m_Name: Sphere Volume (3)
   m_TagString: Untagged
@@ -5165,6 +5636,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &389941622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389941618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &396644942
 GameObject:
   m_ObjectHideFlags: 0
@@ -7330,6 +7816,77 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &571460433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571460434}
+  - component: {fileID: 571460436}
+  - component: {fileID: 571460435}
+  m_Layer: 0
+  m_Name: Sphere Volume (27)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &571460434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571460433}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 54, y: 0, z: 747}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &571460435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571460433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &571460436
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571460433}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &585510156
 GameObject:
   m_ObjectHideFlags: 0
@@ -7910,6 +8467,7 @@ GameObject:
   - component: {fileID: 636056900}
   - component: {fileID: 636056902}
   - component: {fileID: 636056901}
+  - component: {fileID: 636056903}
   m_Layer: 0
   m_Name: Sphere Volume (14)
   m_TagString: Untagged
@@ -7972,6 +8530,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &636056903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636056899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &646402558
 GameObject:
   m_ObjectHideFlags: 0
@@ -8109,6 +8682,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1560813550}
+  - {fileID: 1733872620}
+  - {fileID: 1953324356}
   - {fileID: 566239635}
   m_Father: {fileID: 440322438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8126,7 +8701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundMusic: {fileID: 1560813551}
   SFX: {fileID: 566239636}
-  NormalBackground: {fileID: 0}
+  NormalBackground: {fileID: 8300000, guid: dd89a6714b09d124285c13d9e539f948, type: 3}
 --- !u!1 &663643871
 GameObject:
   m_ObjectHideFlags: 0
@@ -8233,6 +8808,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663643871}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &669685716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 669685717}
+  - component: {fileID: 669685719}
+  - component: {fileID: 669685718}
+  m_Layer: 0
+  m_Name: Sphere Volume (22)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &669685717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669685716}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -85, y: 0, z: 396}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &669685718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669685716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &669685719
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669685716}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &674368360
 GameObject:
   m_ObjectHideFlags: 0
@@ -8455,6 +9101,7 @@ GameObject:
   - component: {fileID: 682543729}
   - component: {fileID: 682543731}
   - component: {fileID: 682543730}
+  - component: {fileID: 682543732}
   m_Layer: 0
   m_Name: Sphere Volume (4)
   m_TagString: Untagged
@@ -8517,6 +9164,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &682543732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682543728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &687117053
 GameObject:
   m_ObjectHideFlags: 0
@@ -8528,6 +9190,7 @@ GameObject:
   - component: {fileID: 687117054}
   - component: {fileID: 687117056}
   - component: {fileID: 687117055}
+  - component: {fileID: 687117057}
   m_Layer: 0
   m_Name: Sphere Volume (10)
   m_TagString: Untagged
@@ -8590,6 +9253,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &687117057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687117053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &718438686
 GameObject:
   m_ObjectHideFlags: 0
@@ -8801,6 +9479,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746247201}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &753034969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753034970}
+  - component: {fileID: 753034972}
+  - component: {fileID: 753034971}
+  m_Layer: 0
+  m_Name: Sphere Volume (19)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &753034970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753034969}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -326, y: 0, z: 561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &753034971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753034969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &753034972
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753034969}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &756653045
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,6 +9667,7 @@ GameObject:
   - component: {fileID: 764423072}
   - component: {fileID: 764423074}
   - component: {fileID: 764423073}
+  - component: {fileID: 764423075}
   m_Layer: 0
   m_Name: Sphere Volume (8)
   m_TagString: Untagged
@@ -8980,6 +9730,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &764423075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764423071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &797756019
 GameObject:
   m_ObjectHideFlags: 0
@@ -9150,6 +9915,7 @@ GameObject:
   - component: {fileID: 813683438}
   - component: {fileID: 813683440}
   - component: {fileID: 813683439}
+  - component: {fileID: 813683441}
   m_Layer: 0
   m_Name: Sphere Volume (12)
   m_TagString: Untagged
@@ -9212,6 +9978,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &813683441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813683437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &819515881
 GameObject:
   m_ObjectHideFlags: 0
@@ -9964,6 +10745,7 @@ GameObject:
   - component: {fileID: 863759422}
   - component: {fileID: 863759424}
   - component: {fileID: 863759423}
+  - component: {fileID: 863759425}
   m_Layer: 0
   m_Name: Sphere Volume (13)
   m_TagString: Untagged
@@ -10026,6 +10808,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &863759425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863759421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &866003611
 GameObject:
   m_ObjectHideFlags: 0
@@ -10672,6 +11469,7 @@ GameObject:
   - component: {fileID: 906020096}
   - component: {fileID: 906020098}
   - component: {fileID: 906020097}
+  - component: {fileID: 906020099}
   m_Layer: 0
   m_Name: Sphere Volume (12)
   m_TagString: Untagged
@@ -10734,6 +11532,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &906020099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906020095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &923131088
 GameObject:
   m_ObjectHideFlags: 0
@@ -11199,8 +12012,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicManager: {fileID: 0}
-  Background: {fileID: 0}
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!1 &948245977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948245978}
+  - component: {fileID: 948245980}
+  - component: {fileID: 948245979}
+  m_Layer: 0
+  m_Name: Sphere Volume (21)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &948245978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948245977}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -135, y: 0, z: 440}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948245979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948245977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &948245980
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948245977}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &950849403
 GameObject:
   m_ObjectHideFlags: 0
@@ -11519,6 +12404,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959863167}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &960812694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960812695}
+  - component: {fileID: 960812697}
+  - component: {fileID: 960812696}
+  m_Layer: 0
+  m_Name: Sphere Volume (25)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960812695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960812694}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 296, y: 0, z: 928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960812696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960812694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &960812697
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960812694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &970990953
 GameObject:
   m_ObjectHideFlags: 0
@@ -11671,6 +12627,7 @@ GameObject:
   - component: {fileID: 996182511}
   - component: {fileID: 996182513}
   - component: {fileID: 996182512}
+  - component: {fileID: 996182514}
   m_Layer: 0
   m_Name: Sphere Volume (7)
   m_TagString: Untagged
@@ -11733,6 +12690,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &996182514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996182510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &996233126
 GameObject:
   m_ObjectHideFlags: 0
@@ -11839,6 +12811,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996233126}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &998881041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998881042}
+  - component: {fileID: 998881044}
+  - component: {fileID: 998881043}
+  m_Layer: 0
+  m_Name: Sphere Volume (32)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998881042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998881041}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 122, y: 0, z: 703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &998881043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998881041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &998881044
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998881041}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.3
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1001474183
 GameObject:
   m_ObjectHideFlags: 0
@@ -13264,6 +14307,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1124053181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124053182}
+  - component: {fileID: 1124053184}
+  - component: {fileID: 1124053183}
+  m_Layer: 0
+  m_Name: Sphere Volume (20)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124053182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124053181}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -215, y: 0, z: 508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1124053183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124053181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1124053184
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124053181}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1126647566
 GameObject:
   m_ObjectHideFlags: 0
@@ -13698,6 +14812,7 @@ GameObject:
   - component: {fileID: 1188668425}
   - component: {fileID: 1188668427}
   - component: {fileID: 1188668426}
+  - component: {fileID: 1188668428}
   m_Layer: 0
   m_Name: Sphere Volume (11)
   m_TagString: Untagged
@@ -13760,6 +14875,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1188668428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188668424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1195890152
 GameObject:
   m_ObjectHideFlags: 0
@@ -14109,6 +15239,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250107366}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1251349206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251349207}
+  - component: {fileID: 1251349209}
+  - component: {fileID: 1251349208}
+  m_Layer: 0
+  m_Name: Sphere Volume (24)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1251349207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251349206}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 424, y: 0, z: 887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1251349208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251349206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1251349209
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251349206}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1255972385
 GameObject:
   m_ObjectHideFlags: 0
@@ -14630,6 +15831,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324205715}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1333718346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1333718347}
+  - component: {fileID: 1333718349}
+  - component: {fileID: 1333718348}
+  m_Layer: 0
+  m_Name: Sphere Volume (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1333718347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333718346}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -80, y: 0, z: 511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333718348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333718346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1333718349
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333718346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1334080719
 GameObject:
   m_ObjectHideFlags: 0
@@ -14853,6 +16125,7 @@ GameObject:
   - component: {fileID: 1345953350}
   - component: {fileID: 1345953352}
   - component: {fileID: 1345953351}
+  - component: {fileID: 1345953353}
   m_Layer: 0
   m_Name: Sphere Volume
   m_TagString: Untagged
@@ -14915,6 +16188,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1345953353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345953349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1359814651
 GameObject:
   m_ObjectHideFlags: 0
@@ -15136,6 +16424,7 @@ GameObject:
   - component: {fileID: 1363933170}
   - component: {fileID: 1363933172}
   - component: {fileID: 1363933171}
+  - component: {fileID: 1363933173}
   m_Layer: 0
   m_Name: Sphere Volume (5)
   m_TagString: Untagged
@@ -15198,6 +16487,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1363933173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363933169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1377251970
 GameObject:
   m_ObjectHideFlags: 0
@@ -15421,6 +16725,7 @@ GameObject:
   - component: {fileID: 1416987108}
   - component: {fileID: 1416987110}
   - component: {fileID: 1416987109}
+  - component: {fileID: 1416987111}
   m_Layer: 0
   m_Name: Sphere Volume (6)
   m_TagString: Untagged
@@ -15483,6 +16788,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1416987111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416987107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1420961900
 GameObject:
   m_ObjectHideFlags: 0
@@ -15800,6 +17120,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443509940}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1448506178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448506179}
+  - component: {fileID: 1448506181}
+  - component: {fileID: 1448506180}
+  m_Layer: 0
+  m_Name: Sphere Volume (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448506179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448506178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -60.1, y: 0, z: 377.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448506180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448506178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1448506181
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448506178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1452981098
 GameObject:
   m_ObjectHideFlags: 0
@@ -16551,6 +17942,7 @@ GameObject:
   - component: {fileID: 1507247493}
   - component: {fileID: 1507247495}
   - component: {fileID: 1507247494}
+  - component: {fileID: 1507247496}
   m_Layer: 0
   m_Name: Sphere Volume (10)
   m_TagString: Untagged
@@ -16613,6 +18005,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1507247496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507247492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1510143529
 GameObject:
   m_ObjectHideFlags: 0
@@ -16697,8 +18104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicManager: {fileID: 662179982}
-  Background: {fileID: 0}
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1520474952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16893,7 +18301,7 @@ GameObject:
   - component: {fileID: 1560813550}
   - component: {fileID: 1560813551}
   m_Layer: 0
-  m_Name: 'BackGroundMusic '
+  m_Name: BackGroundMusic (normal)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16924,7 +18332,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dd89a6714b09d124285c13d9e539f948, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -17127,6 +18535,7 @@ GameObject:
   - component: {fileID: 1570826453}
   - component: {fileID: 1570826455}
   - component: {fileID: 1570826454}
+  - component: {fileID: 1570826456}
   m_Layer: 0
   m_Name: Sphere Volume (8)
   m_TagString: Untagged
@@ -17189,6 +18598,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1570826456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570826452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1570975124
 GameObject:
   m_ObjectHideFlags: 0
@@ -17823,6 +19247,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594264936}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1598357670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598357671}
+  - component: {fileID: 1598357673}
+  - component: {fileID: 1598357672}
+  m_Layer: 0
+  m_Name: Sphere Volume (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1598357671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598357670}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 80, y: 0, z: 552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598357672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598357670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1598357673
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598357670}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 75.96
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1602500517
 GameObject:
   m_ObjectHideFlags: 0
@@ -17834,6 +19329,7 @@ GameObject:
   - component: {fileID: 1602500518}
   - component: {fileID: 1602500520}
   - component: {fileID: 1602500519}
+  - component: {fileID: 1602500521}
   m_Layer: 0
   m_Name: Box Volume Ice
   m_TagString: Untagged
@@ -17894,6 +19390,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 209, y: 114.3, z: 513.4}
   m_Center: {x: 5.382043, y: 0, z: -7.326779}
+--- !u!114 &1602500521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602500517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1608204147
 GameObject:
   m_ObjectHideFlags: 0
@@ -18422,6 +19933,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627745648}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1630076137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630076138}
+  - component: {fileID: 1630076140}
+  - component: {fileID: 1630076139}
+  m_Layer: 0
+  m_Name: Sphere Volume (30)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1630076138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630076137}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 126, y: 0, z: 773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630076139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630076137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1630076140
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630076137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.3
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1631452959
 GameObject:
   m_ObjectHideFlags: 0
@@ -18586,6 +20168,7 @@ GameObject:
   - component: {fileID: 1669125656}
   - component: {fileID: 1669125658}
   - component: {fileID: 1669125657}
+  - component: {fileID: 1669125659}
   m_Layer: 0
   m_Name: Sphere Volume (2)
   m_TagString: Untagged
@@ -18648,6 +20231,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1669125659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669125655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1675766328
 GameObject:
   m_ObjectHideFlags: 0
@@ -18659,6 +20257,7 @@ GameObject:
   - component: {fileID: 1675766329}
   - component: {fileID: 1675766331}
   - component: {fileID: 1675766330}
+  - component: {fileID: 1675766332}
   m_Layer: 0
   m_Name: Sphere Volume (9)
   m_TagString: Untagged
@@ -18721,6 +20320,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1675766332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675766328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1678318966
 GameObject:
   m_ObjectHideFlags: 0
@@ -18838,6 +20452,7 @@ GameObject:
   - component: {fileID: 1683132281}
   - component: {fileID: 1683132283}
   - component: {fileID: 1683132282}
+  - component: {fileID: 1683132284}
   m_Layer: 0
   m_Name: Sphere Volume (15)
   m_TagString: Untagged
@@ -18900,6 +20515,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1683132284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683132280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1690328258
 GameObject:
   m_ObjectHideFlags: 0
@@ -18911,6 +20541,7 @@ GameObject:
   - component: {fileID: 1690328259}
   - component: {fileID: 1690328261}
   - component: {fileID: 1690328260}
+  - component: {fileID: 1690328262}
   m_Layer: 0
   m_Name: Sphere Volume (11)
   m_TagString: Untagged
@@ -18973,6 +20604,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1690328262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690328258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1691161187
 GameObject:
   m_ObjectHideFlags: 0
@@ -19607,6 +21253,134 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723571848}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1733872619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733872620}
+  - component: {fileID: 1733872621}
+  m_Layer: 0
+  m_Name: BackGroundMusic (Desert)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1733872620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733872619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 662179981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1733872621
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733872619}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ad3a02408e05d9b4585c53526a5b18d3, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1765745740
 GameObject:
   m_ObjectHideFlags: 0
@@ -20617,6 +22391,7 @@ GameObject:
   - component: {fileID: 1829126202}
   - component: {fileID: 1829126204}
   - component: {fileID: 1829126203}
+  - component: {fileID: 1829126205}
   m_Layer: 0
   m_Name: Sphere Volume (7)
   m_TagString: Untagged
@@ -20679,6 +22454,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1829126205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829126201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1842189510
 GameObject:
   m_ObjectHideFlags: 0
@@ -20785,6 +22575,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842189510}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1854299273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854299274}
+  - component: {fileID: 1854299276}
+  - component: {fileID: 1854299275}
+  m_Layer: 0
+  m_Name: Sphere Volume (31)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854299274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854299273}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 72, y: 0, z: 659}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854299275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854299273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1854299276
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854299273}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.3
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1863416158
 GameObject:
   m_ObjectHideFlags: 0
@@ -21039,6 +22900,7 @@ GameObject:
   - component: {fileID: 1874651376}
   - component: {fileID: 1874651378}
   - component: {fileID: 1874651377}
+  - component: {fileID: 1874651379}
   m_Layer: 0
   m_Name: Sphere Volume (2)
   m_TagString: Untagged
@@ -21101,6 +22963,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1874651379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874651375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1874927216
 GameObject:
   m_ObjectHideFlags: 0
@@ -21556,6 +23433,7 @@ Transform:
   - {fileID: 1906109669}
   - {fileID: 1786989687}
   - {fileID: 464318199}
+  - {fileID: 201771610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905722908
@@ -21723,6 +23601,7 @@ GameObject:
   - component: {fileID: 1913813679}
   - component: {fileID: 1913813681}
   - component: {fileID: 1913813680}
+  - component: {fileID: 1913813682}
   m_Layer: 0
   m_Name: Sphere Volume (5)
   m_TagString: Untagged
@@ -21785,6 +23664,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 4b9f79896f29f5b42b190eb89e2b6637, type: 2}
+--- !u!114 &1913813682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913813678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1953324355}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1733872619}
 --- !u!1 &1914687974
 GameObject:
   m_ObjectHideFlags: 0
@@ -21902,6 +23796,7 @@ GameObject:
   - component: {fileID: 1917548448}
   - component: {fileID: 1917548450}
   - component: {fileID: 1917548449}
+  - component: {fileID: 1917548451}
   m_Layer: 0
   m_Name: Sphere Volume (13)
   m_TagString: Untagged
@@ -21964,6 +23859,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1917548451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917548447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1935253445
 GameObject:
   m_ObjectHideFlags: 0
@@ -22176,6 +24086,134 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939372573}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1953324355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953324356}
+  - component: {fileID: 1953324357}
+  m_Layer: 0
+  m_Name: BackGroundMusic (Ice)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1953324356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953324355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 662179981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1953324357
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953324355}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a214c74e99e363c439fdc3cee0c69e92, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1960155943
 GameObject:
   m_ObjectHideFlags: 0
@@ -22491,6 +24529,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963689263}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1969457820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969457821}
+  - component: {fileID: 1969457823}
+  - component: {fileID: 1969457822}
+  m_Layer: 0
+  m_Name: Sphere Volume (33)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1969457821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969457820}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 160, y: 0, z: 716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969457822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969457820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &1969457823
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969457820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.3
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1969667905
 GameObject:
   m_ObjectHideFlags: 0
@@ -22820,6 +24929,7 @@ GameObject:
   - component: {fileID: 1973575323}
   - component: {fileID: 1973575325}
   - component: {fileID: 1973575324}
+  - component: {fileID: 1973575326}
   m_Layer: 0
   m_Name: Sphere Volume (6)
   m_TagString: Untagged
@@ -22882,6 +24992,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &1973575326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973575322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &1975761899
 GameObject:
   m_ObjectHideFlags: 0
@@ -24478,6 +26603,7 @@ GameObject:
   - component: {fileID: 2100429051}
   - component: {fileID: 2100429053}
   - component: {fileID: 2100429052}
+  - component: {fileID: 2100429054}
   m_Layer: 0
   m_Name: Sphere Volume (4)
   m_TagString: Untagged
@@ -24540,6 +26666,21 @@ MonoBehaviour:
   blendDistance: 4
   weight: 1
   sharedProfile: {fileID: 11400000, guid: cb88333e9db91494a96fa3ff7b89bcf9, type: 2}
+--- !u!114 &2100429054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100429050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1733872619}
+  OtherBackground1: {fileID: 1560813549}
+  OtherBackground2: {fileID: 1953324355}
 --- !u!1 &2110558668
 GameObject:
   m_ObjectHideFlags: 0
@@ -24752,6 +26893,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123162623}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2125570586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125570587}
+  - component: {fileID: 2125570589}
+  - component: {fileID: 2125570588}
+  m_Layer: 0
+  m_Name: Sphere Volume (28)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2125570587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125570586}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 181, y: 0, z: 734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201771610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2125570588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125570586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4ab4333f2d9f344881ecc2471dda6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcitveBackground: {fileID: 1560813549}
+  OtherBackground1: {fileID: 1733872619}
+  OtherBackground2: {fileID: 1953324355}
+--- !u!136 &2125570589
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125570586}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20.3
+  m_Height: 352.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2141090557
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ParticalTrigger : MonoBehaviour
 {
-    public MusicManager MusicManager;
-    public AudioClip Background;
+    public GameObject AcitveBackground;
+    public GameObject OtherBackground1;
+    public GameObject OtherBackground2;
     
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-       if (other.gameObject.tag == "Player") 
+        if (other.gameObject.tag == "Player")
         {
-            MusicManager.BackgroundMusic.clip = Background;
-        }
-
-        else 
-        {
-            MusicManager.BackgroundMusic.clip = MusicManager.NormalBackground;
+            AcitveBackground.SetActive(true);
+            OtherBackground1.SetActive(false);
+            OtherBackground2.SetActive(false);
         }
     }
+
+
 }
