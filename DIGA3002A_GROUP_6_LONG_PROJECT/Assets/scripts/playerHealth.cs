@@ -21,6 +21,9 @@ public class playerHealth : MonoBehaviour
     public float MateralAlpha;*/
     public GameObject HurtPlayerOutline;
 
+    [Header("Music")]
+    public MusicManager MusicManager;
+
     private void Awake()
     {
         //MeshRenderer = GetComponent<MeshRenderer>();
@@ -48,6 +51,8 @@ public class playerHealth : MonoBehaviour
         currentHealth = currentHealth - 10f;
         StartCoroutine(RedOn());
 
+        MusicManager.SFX.PlayOneShot(MusicManager.HurtPlayer);
+
         if (currentHealth <= maxHealth / 2)
         {
             ImageAlpha += 0.1f;
@@ -63,6 +68,8 @@ public class playerHealth : MonoBehaviour
         currentHealth = currentHealth - 30f;
         StartCoroutine(RedOn());
 
+        MusicManager.SFX.PlayOneShot(MusicManager.HurtPlayer);
+
         if (currentHealth <= maxHealth / 2)
         {
             ImageAlpha += 0.3f;
@@ -77,6 +84,8 @@ public class playerHealth : MonoBehaviour
     {
         currentHealth = currentHealth - 50f;
         StartCoroutine(RedOn());
+
+        MusicManager.SFX.PlayOneShot(MusicManager.HurtPlayer);
 
         if (currentHealth <= maxHealth / 2)
         {

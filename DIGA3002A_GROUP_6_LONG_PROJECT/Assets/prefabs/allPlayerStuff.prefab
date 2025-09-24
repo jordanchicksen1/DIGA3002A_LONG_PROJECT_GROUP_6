@@ -168,6 +168,7 @@ Transform:
   - {fileID: 1400995223236533983}
   - {fileID: 8619958819268099024}
   - {fileID: 2998856201312907395}
+  - {fileID: 724286171915885303}
   m_Father: {fileID: 7253700039864142020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8787124806977383376
@@ -185,6 +186,8 @@ MonoBehaviour:
   BackgroundMusic: {fileID: 8669719031488185964}
   SFX: {fileID: 6069042141162189387}
   NormalBackground: {fileID: 8300000, guid: dd89a6714b09d124285c13d9e539f948, type: 3}
+  Laser: {fileID: 8300000, guid: ba4437d91d6de67468b98c50bc280a7b, type: 3}
+  HurtPlayer: {fileID: 0}
 --- !u!1 &792633527999017700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8662309942437554193
 Transform:
   m_ObjectHideFlags: 0
@@ -2080,7 +2083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &474030229310401667
 Transform:
   m_ObjectHideFlags: 0
@@ -2468,7 +2471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8869742427612456648
 Transform:
   m_ObjectHideFlags: 0
@@ -4402,6 +4405,8 @@ MonoBehaviour:
   gravity: -9.81
   isPaused: 0
   isCrouching: 0
+  MusicManager: {fileID: 8787124806977383376}
+  MiniGun: {fileID: 7975381159467353575}
   pauseScreen: {fileID: 792633527999017700}
   dashManager: {fileID: 6924484907784928906}
   playerHealth: {fileID: 7602213560361167328}
@@ -4416,10 +4421,10 @@ MonoBehaviour:
   basicLeftFirePoint: {fileID: 7015836346104604700}
   basicFireRate: 0.2
   isShootingLeftHeld: 0
-  leftBasicEquipped: 1
+  leftBasicEquipped: 0
   basicRightFirePoint: {fileID: 6881054948419884679}
   isShootingRightHeld: 0
-  rightBasicEquipped: 1
+  rightBasicEquipped: 0
   machineBulletPrefab: {fileID: 52489870082854467, guid: 7cca803cc2d78d44c9f381d2ece4bab0,
     type: 3}
   machineBulletSpeed: 15
@@ -4427,7 +4432,7 @@ MonoBehaviour:
   machineFireRate: 0.1
   leftMachineEquipped: 0
   machineRightFirePoint: {fileID: 3525770423822390384}
-  rightMachineEquipped: 0
+  rightMachineEquipped: 1
   assaultBulletPrefab: {fileID: 197834801783553869, guid: dbc3fc8d4a8b96f4a98cf302e8fef4f0,
     type: 3}
   assaultBulletSpeed: 12
@@ -4441,7 +4446,7 @@ MonoBehaviour:
   laserBulletSpeed: 20
   laserLeftFirePoint: {fileID: 5235278436699515297}
   laserFireRate: 0.8
-  leftLaserEquipped: 0
+  leftLaserEquipped: 1
   laserRightFirePoint: {fileID: 2095813425816242962}
   rightLaserEquipped: 0
   basicSuperEquipped: 1
@@ -4503,6 +4508,7 @@ MonoBehaviour:
   DamagedScreenImage: {fileID: 6822484339164519793}
   ImageAlpha: 0
   HurtPlayerOutline: {fileID: 4657151902578867488}
+  MusicManager: {fileID: 8787124806977383376}
 --- !u!114 &8746082115035360048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5689,6 +5695,134 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!1 &7975381159467353575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724286171915885303}
+  - component: {fileID: 504454257938553155}
+  m_Layer: 0
+  m_Name: Mini Gun Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &724286171915885303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975381159467353575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8317196928931835871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &504454257938553155
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975381159467353575}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1dd2638cf19b4f24fb3c51d2aa322246, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8169017535912200402
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,7 +6368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5473932228920757004
 Transform:
   m_ObjectHideFlags: 0
