@@ -89,12 +89,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Super Move Stuff")]
     public bool basicSuperEquipped = true;
-    public bool shieldSuperEquipped = false;
+    public bool missileSuperEquipped = false;
     public bool laserSuperEquipped = false;
     public superMoveBar superMoveBar;
     public GameObject basicSuper;
     public basicShieldHealth basicShieldHealth;
-
+    public GameObject quadLaser;
+    public bool isUsingQuadLaser = false;
 
 
     private void Awake()
@@ -238,7 +239,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLeftShootStarted(InputAction.CallbackContext ctx)
     {
-        if (isPaused == false) 
+        if (isPaused == false && isUsingQuadLaser == false) 
         {
             isShootingLeftHeld = true;
 
@@ -312,7 +313,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRightShootStarted(InputAction.CallbackContext ctx)
     {
-        if (isPaused == false)
+        if (isPaused == false && isUsingQuadLaser == false)
         {
             isShootingRightHeld = true;
 
@@ -390,7 +391,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        if (isPaused == false && playerPosture.isStaggered == false)
+        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false)
         {
             Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
             move = transform.TransformDirection(move);
@@ -404,7 +405,7 @@ public class PlayerController : MonoBehaviour
 
     public void Look()
     {
-        if (isPaused == true) 
+        if (isPaused == true || isUsingQuadLaser == true) 
         return;
 
         float lookX = _lookInput.x * lookSpeed;
@@ -424,7 +425,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jetpack()
     {
-        if (isPaused == false && playerPosture.isStaggered == false)
+        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false)
         {
             // Only thrust if we still have fuel
             if (dashManager.currentBoost > 0.5f)
@@ -597,7 +598,7 @@ public class PlayerController : MonoBehaviour
             basicShieldHealth.updateShieldHealthBar();
         }
 
-        if (shieldSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        if (missileSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
             superMoveBar.UseSuperBar();
             Debug.Log("used shield super");
@@ -606,6 +607,7 @@ public class PlayerController : MonoBehaviour
         if (laserSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
             superMoveBar.UseSuperBar();
+            StartCoroutine(QuadLaser());
             Debug.Log("used laser super");
         }
     }
@@ -819,6 +821,16 @@ public class PlayerController : MonoBehaviour
 
             ShootLaserRight();
         }
+    }
+
+    public IEnumerator QuadLaser()
+    {
+        yield return new WaitForSeconds(0f);
+        isUsingQuadLaser = true;
+        quadLaser.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        quadLaser.SetActive(false);
+        isUsingQuadLaser = false;
     }
 }
 
