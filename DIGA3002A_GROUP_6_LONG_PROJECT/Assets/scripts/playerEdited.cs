@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed = 2f;
     public float jumpHeight = 2f;
     public float gravity = -9.81f;
+    public float jetpackHeight = 20f;
 
     [Header("State Flags")]
     public bool isPaused = false;
@@ -427,6 +428,20 @@ public class PlayerController : MonoBehaviour
     {
         if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false)
         {
+            //height check with raycast
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+            {
+                float heightAboveGround = hit.distance;
+
+                // If too high, stop thrust immediately
+                if (heightAboveGround > jetpackHeight)
+                {
+                    isJumpingHeld = false;
+                    dashManager.shouldFillBar = true;
+                    return;
+                }
+            }
+
             // Only thrust if we still have fuel
             if (dashManager.currentBoost > 0.5f)
             {
@@ -444,7 +459,7 @@ public class PlayerController : MonoBehaviour
                 isJumpingHeld = false;
                 dashManager.shouldFillBar = true;
             }
-        } 
+        }
     }
 
     public void Dash()

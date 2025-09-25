@@ -4616,6 +4616,7 @@ MonoBehaviour:
   lookSpeed: 0.2
   jumpHeight: 2
   gravity: -9.81
+  jetpackHeight: 15
   isPaused: 0
   isCrouching: 0
   MusicManager: {fileID: 0}

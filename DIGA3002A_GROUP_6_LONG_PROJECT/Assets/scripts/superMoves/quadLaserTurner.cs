@@ -13,7 +13,7 @@ public class quadLaserTurner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rotateSpeed = 100f * Time.deltaTime;
+        float rotateSpeed = 150f * Time.deltaTime;
         this.transform.Rotate(0f, rotateSpeed, 0f);
         Debug.Log("is it working?");
     }
