@@ -4671,6 +4671,9 @@ MonoBehaviour:
   basicShieldHealth: {fileID: 4976138010949312040}
   quadLaser: {fileID: 7709922063516150953}
   isUsingQuadLaser: 0
+  smallRecoilForce: 1
+  mediumRecoilForce: 2
+  largeRecoilForce: 6
 --- !u!114 &6924484907784928906
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -98,6 +98,10 @@ public class PlayerController : MonoBehaviour
     public GameObject quadLaser;
     public bool isUsingQuadLaser = false;
 
+    [Header("Player Feedback")]
+    public float smallRecoilForce = 0f;
+    public float mediumRecoilForce = 2f;
+    public float largeRecoilForce = 4f;
 
     private void Awake()
     {
@@ -184,6 +188,7 @@ public class PlayerController : MonoBehaviour
         Move();
         Look();
         ApplyGravity();
+        DampHorizontalVelocity();
 
         if (isJumpingHeld)
         {
@@ -404,6 +409,41 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    private void ApplySmallRecoil(Vector3 direction)
+    {
+        // Only apply if not paused / staggered
+        if (isPaused || playerPosture.isStaggered) return;
+
+        // Add a short impulse to velocity
+        _velocity += direction.normalized * smallRecoilForce;
+    }
+
+    private void ApplyMediumRecoil(Vector3 direction)
+    {
+        // Only apply if not paused / staggered
+        if (isPaused || playerPosture.isStaggered) return;
+
+        // Add a short impulse to velocity
+        _velocity += direction.normalized * mediumRecoilForce;
+    }
+
+    private void ApplyLargeRecoil(Vector3 direction)
+    {
+        // Only apply if not paused / staggered
+        if (isPaused || playerPosture.isStaggered) return;
+
+        // Add a short impulse to velocity
+        _velocity += direction.normalized * largeRecoilForce;
+    }
+
+    private void DampHorizontalVelocity()
+    {
+        Vector3 horizontal = new Vector3(_velocity.x, 0, _velocity.z);
+        horizontal = Vector3.Lerp(horizontal, Vector3.zero, 5f * Time.deltaTime);
+        _velocity.x = horizontal.x;
+        _velocity.z = horizontal.z;
+    }
+
     public void Look()
     {
         if (isPaused == true || isUsingQuadLaser == true) 
@@ -505,6 +545,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         leftAmmoManager.BasicShot();
 
+        ApplySmallRecoil(-basicLeftFirePoint.forward);
         Debug.Log("basic shot left");
     }
     public void ShootBasicRight() 
@@ -517,6 +558,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         rightAmmoManager.BasicShot();
 
+        ApplySmallRecoil(-basicRightFirePoint.forward);
         Debug.Log("basic shot right");
     }
 
@@ -530,7 +572,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
         Destroy(projectile, 0.8f);
         leftAmmoManager.MachineShot();
-
+        ApplySmallRecoil(-machineLeftFirePoint.forward);
         Debug.Log("machine shot left");
     }
 
@@ -544,7 +586,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
         Destroy(projectile, 0.8f);
         rightAmmoManager.MachineShot();
-
+        ApplySmallRecoil(-machineRightFirePoint.forward);
         Debug.Log("machine shot right");
     }
 
@@ -557,6 +599,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
         Destroy(projectile, 1f);
         leftAmmoManager.AssaultShot();
+        ApplyMediumRecoil(-assaultLeftFirePoint.forward);
 
         Debug.Log("assault shot left");
     }
@@ -570,6 +613,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
         Destroy(projectile, 1f);
         rightAmmoManager.AssaultShot();
+        ApplyMediumRecoil(-assaultRightFirePoint.forward);
 
         Debug.Log("assault shot right");
     }
@@ -578,12 +622,13 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserLeftFirePoint == null) return;
 
-        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+       // MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
         Destroy(projectile, 1.5f);
         leftAmmoManager.LaserShot();
+        ApplyLargeRecoil(-laserLeftFirePoint.forward);
 
         Debug.Log("laser shot left");
     }
@@ -592,12 +637,13 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserRightFirePoint == null) return;
 
-        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+      //  MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
         Destroy(projectile, 1.5f);
         rightAmmoManager.LaserShot();
+        ApplyLargeRecoil(-laserRightFirePoint.forward);
 
         Debug.Log("assault shot right");
     }
@@ -718,6 +764,7 @@ public class PlayerController : MonoBehaviour
           
             if(leftAmmoManager.currentAmmo <= 0)
             {
+              
                 isShootingLeftHeld = false;
                 yield break;
             }
@@ -734,6 +781,7 @@ public class PlayerController : MonoBehaviour
 
             if (rightAmmoManager.currentAmmo <= 0)
             {
+                
                 isShootingRightHeld = false;
                 yield break;
             }
