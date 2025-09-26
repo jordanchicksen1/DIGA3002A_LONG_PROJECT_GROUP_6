@@ -99,13 +99,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("Super Move Stuff")]
     public bool basicSuperEquipped = true;
-    public bool missileSuperEquipped = false;
+    public bool orbitalSuperEquipped = false;
     public bool laserSuperEquipped = false;
+    public bool isUsingOrbital = false;
     public superMoveBar superMoveBar;
     public GameObject basicSuper;
     public basicShieldHealth basicShieldHealth;
     public GameObject quadLaser;
     public bool isUsingQuadLaser = false;
+    public GameObject orbitalAimer;
 
     [Header("Player Feedback")]
     public float smallRecoilForce = 0f;
@@ -690,10 +692,20 @@ public class PlayerController : MonoBehaviour
             basicShieldHealth.updateShieldHealthBar();
         }
 
-        if (missileSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        if (orbitalSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
+            StartCoroutine(StartedOrbital());
             superMoveBar.UseSuperBar();
-            Debug.Log("used shield super");
+            Debug.Log("started orbital");
+        }
+
+        if (isUsingOrbital == true) 
+        { 
+            isUsingOrbital = false;
+            orbitalAimer.SetActive(false);
+            Debug.Log("used orbital");
+
+
         }
 
         if (laserSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
@@ -925,6 +937,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         quadLaser.SetActive(false);
         isUsingQuadLaser = false;
+    }
+
+    public IEnumerator StartedOrbital()
+    {
+        yield return new WaitForSeconds(0f);
+        orbitalAimer.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        isUsingOrbital = true;
     }
 }
 

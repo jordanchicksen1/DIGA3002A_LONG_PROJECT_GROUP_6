@@ -4128,7 +4128,7 @@ PrefabInstance:
     - target: {fileID: 3036123052696751533, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: laserSuperEquipped
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036123052696751533, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
@@ -4139,6 +4139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rightLaserEquipped
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036123052696751533, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: orbitalSuperEquipped
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4005749573184019194, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}

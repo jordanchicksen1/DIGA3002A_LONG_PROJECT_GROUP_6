@@ -4665,13 +4665,15 @@ MonoBehaviour:
   laserRightFirePoint: {fileID: 2095813425816242962}
   rightLaserEquipped: 0
   basicSuperEquipped: 1
-  missileSuperEquipped: 0
+  orbitalSuperEquipped: 0
   laserSuperEquipped: 0
+  isUsingOrbital: 0
   superMoveBar: {fileID: 565028174742674133}
   basicSuper: {fileID: 1705403001099674601}
   basicShieldHealth: {fileID: 4976138010949312040}
   quadLaser: {fileID: 7709922063516150953}
   isUsingQuadLaser: 0
+  orbitalAimer: {fileID: 7005558943820647914}
   smallRecoilForce: 1
   mediumRecoilForce: 2
   largeRecoilForce: 6
@@ -5393,7 +5395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7682515752826268701
 RectTransform:
   m_ObjectHideFlags: 0
