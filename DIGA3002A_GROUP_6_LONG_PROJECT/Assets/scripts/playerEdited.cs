@@ -53,7 +53,9 @@ public class PlayerController : MonoBehaviour
     public bool isShootingRightHeld = false;
     public Coroutine basicRightCoroutine;
     public bool rightBasicEquipped = true;
-    
+    private float lastBasicLeftShotTime = -999f;
+    private float lastBasicRightShotTime = -999f;
+
 
     [Header("Machine Gun Info")]
     public GameObject machineBulletPrefab;
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour
     public Transform machineRightFirePoint;
     public Coroutine machineRightCoroutine;
     public bool rightMachineEquipped = false;
+    private float lastMachineLeftShotTime = -999f;
+    private float lastMachineRightShotTime = -999f;
 
     [Header("Assault Gun Info")]
     public GameObject assaultBulletPrefab;
@@ -76,6 +80,8 @@ public class PlayerController : MonoBehaviour
     public Transform assaultRightFirePoint;
     public Coroutine assaultRightCoroutine;
     public bool rightAssaultEquipped = false;
+    private float lastAssaultLeftShotTime = -999f;
+    private float lastAssaultRightShotTime = -999f;
 
     [Header("Laser Gun Info")]
     public GameObject laserBulletPrefab;
@@ -87,6 +93,9 @@ public class PlayerController : MonoBehaviour
     public Transform laserRightFirePoint;
     public Coroutine laserRightCoroutine;
     public bool rightLaserEquipped = false;
+    private float lastLaserLeftShotTime = -999f;
+    private float lastLaserRightShotTime = -999f;
+
 
     [Header("Super Move Stuff")]
     public bool basicSuperEquipped = true;
@@ -539,6 +548,9 @@ public class PlayerController : MonoBehaviour
     {
         if (basicBulletPrefab == null || basicLeftFirePoint == null) return;
 
+        if (Time.time < lastBasicLeftShotTime + basicFireRate) return;
+        lastBasicLeftShotTime = Time.time;
+
         var projectile = Instantiate(basicBulletPrefab, basicLeftFirePoint.position, basicLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicLeftFirePoint.forward * basicBulletSpeed;
@@ -551,6 +563,9 @@ public class PlayerController : MonoBehaviour
     public void ShootBasicRight() 
     {
         if (basicBulletPrefab == null || basicRightFirePoint == null) return;
+
+        if (Time.time < lastBasicRightShotTime + basicFireRate) return;
+        lastBasicRightShotTime = Time.time;
 
         var projectile = Instantiate(basicBulletPrefab, basicRightFirePoint.position, basicRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
@@ -566,7 +581,9 @@ public class PlayerController : MonoBehaviour
     {
         if (machineBulletPrefab == null || machineLeftFirePoint == null) return;
 
-             
+        if (Time.time < lastMachineLeftShotTime + machineFireRate) return;
+        lastMachineLeftShotTime = Time.time;
+
         var projectile = Instantiate(machineBulletPrefab, machineLeftFirePoint.position, machineLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
@@ -580,7 +597,9 @@ public class PlayerController : MonoBehaviour
     {
         if (machineBulletPrefab == null || machineRightFirePoint == null) return;
 
-       
+        if (Time.time < lastMachineRightShotTime + machineFireRate) return;
+        lastMachineRightShotTime = Time.time;
+
         var projectile = Instantiate(machineBulletPrefab, machineRightFirePoint.position, machineRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
@@ -593,6 +612,9 @@ public class PlayerController : MonoBehaviour
     public void ShootAssaultLeft()
     {
         if (assaultBulletPrefab == null || assaultLeftFirePoint == null) return;
+
+        if (Time.time < lastAssaultLeftShotTime + assaultFireRate) return;
+        lastAssaultLeftShotTime = Time.time;
 
         var projectile = Instantiate(assaultBulletPrefab, assaultLeftFirePoint.position, assaultLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
@@ -608,6 +630,9 @@ public class PlayerController : MonoBehaviour
     {
         if (assaultBulletPrefab == null || assaultRightFirePoint == null) return;
 
+        if (Time.time < lastAssaultRightShotTime + assaultFireRate) return;
+        lastAssaultRightShotTime = Time.time;
+
         var projectile = Instantiate(assaultBulletPrefab, assaultRightFirePoint.position, assaultRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
@@ -621,8 +646,11 @@ public class PlayerController : MonoBehaviour
     public void ShootLaserLeft()
     {
         if (laserBulletPrefab == null || laserLeftFirePoint == null) return;
+        
+        if (Time.time < lastLaserLeftShotTime + laserFireRate) return;
+        lastLaserLeftShotTime = Time.time;
 
-       // MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+        // MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
@@ -637,7 +665,10 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserRightFirePoint == null) return;
 
-      //  MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+        if (Time.time < lastLaserRightShotTime + laserFireRate) return;
+        lastLaserRightShotTime = Time.time;
+
+        //  MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
