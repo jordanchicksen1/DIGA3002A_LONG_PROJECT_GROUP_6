@@ -16,7 +16,4 @@ public class MusicManager : MonoBehaviour
     [Header("Gun sounds")]
     public AudioClip Laser;
     //public AudioClip MiniGun;
-
-    [Header("Player")]
-    public AudioClip HurtPlayer;
 }
