@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed = 2f;
     public float jumpHeight = 2f;
     public float gravity = -9.81f;
+    public float jetpackHeight = 20f;
 
     [Header("State Flags")]
     public bool isPaused = false;
@@ -89,13 +90,18 @@ public class PlayerController : MonoBehaviour
 
     [Header("Super Move Stuff")]
     public bool basicSuperEquipped = true;
-    public bool shieldSuperEquipped = false;
+    public bool missileSuperEquipped = false;
     public bool laserSuperEquipped = false;
     public superMoveBar superMoveBar;
     public GameObject basicSuper;
     public basicShieldHealth basicShieldHealth;
+    public GameObject quadLaser;
+    public bool isUsingQuadLaser = false;
 
-
+    [Header("Player Feedback")]
+    public float smallRecoilForce = 0f;
+    public float mediumRecoilForce = 2f;
+    public float largeRecoilForce = 4f;
 
     private void Awake()
     {
@@ -182,6 +188,7 @@ public class PlayerController : MonoBehaviour
         Move();
         Look();
         ApplyGravity();
+        DampHorizontalVelocity();
 
         if (isJumpingHeld)
         {
@@ -238,7 +245,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLeftShootStarted(InputAction.CallbackContext ctx)
     {
-        if (isPaused == false) 
+        if (isPaused == false && isUsingQuadLaser == false) 
         {
             isShootingLeftHeld = true;
 
@@ -312,7 +319,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRightShootStarted(InputAction.CallbackContext ctx)
     {
-        if (isPaused == false)
+        if (isPaused == false && isUsingQuadLaser == false)
         {
             isShootingRightHeld = true;
 
@@ -390,7 +397,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        if (isPaused == false && playerPosture.isStaggered == false)
+        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false)
         {
             Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
             move = transform.TransformDirection(move);
@@ -402,9 +409,44 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    private void ApplySmallRecoil(Vector3 direction)
+    {
+        // Only apply if not paused / staggered
+        if (isPaused || playerPosture.isStaggered) return;
+
+        // Add a short impulse to velocity
+        _velocity += direction.normalized * smallRecoilForce;
+    }
+
+    private void ApplyMediumRecoil(Vector3 direction)
+    {
+        // Only apply if not paused / staggered
+        if (isPaused || playerPosture.isStaggered) return;
+
+        // Add a short impulse to velocity
+        _velocity += direction.normalized * mediumRecoilForce;
+    }
+
+    private void ApplyLargeRecoil(Vector3 direction)
+    {
+        // Only apply if not paused / staggered
+        if (isPaused || playerPosture.isStaggered) return;
+
+        // Add a short impulse to velocity
+        _velocity += direction.normalized * largeRecoilForce;
+    }
+
+    private void DampHorizontalVelocity()
+    {
+        Vector3 horizontal = new Vector3(_velocity.x, 0, _velocity.z);
+        horizontal = Vector3.Lerp(horizontal, Vector3.zero, 5f * Time.deltaTime);
+        _velocity.x = horizontal.x;
+        _velocity.z = horizontal.z;
+    }
+
     public void Look()
     {
-        if (isPaused == true) 
+        if (isPaused == true || isUsingQuadLaser == true) 
         return;
 
         float lookX = _lookInput.x * lookSpeed;
@@ -424,8 +466,22 @@ public class PlayerController : MonoBehaviour
 
     public void Jetpack()
     {
-        if (isPaused == false && playerPosture.isStaggered == false)
+        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false)
         {
+            //height check with raycast
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+            {
+                float heightAboveGround = hit.distance;
+
+                // If too high, stop thrust immediately
+                if (heightAboveGround > jetpackHeight)
+                {
+                    isJumpingHeld = false;
+                    dashManager.shouldFillBar = true;
+                    return;
+                }
+            }
+
             // Only thrust if we still have fuel
             if (dashManager.currentBoost > 0.5f)
             {
@@ -443,7 +499,7 @@ public class PlayerController : MonoBehaviour
                 isJumpingHeld = false;
                 dashManager.shouldFillBar = true;
             }
-        } 
+        }
     }
 
     public void Dash()
@@ -489,6 +545,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         leftAmmoManager.BasicShot();
 
+        ApplySmallRecoil(-basicLeftFirePoint.forward);
         Debug.Log("basic shot left");
     }
     public void ShootBasicRight() 
@@ -501,6 +558,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1f);
         rightAmmoManager.BasicShot();
 
+        ApplySmallRecoil(-basicRightFirePoint.forward);
         Debug.Log("basic shot right");
     }
 
@@ -514,7 +572,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
         Destroy(projectile, 0.8f);
         leftAmmoManager.MachineShot();
-
+        ApplySmallRecoil(-machineLeftFirePoint.forward);
         Debug.Log("machine shot left");
     }
 
@@ -528,7 +586,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
         Destroy(projectile, 0.8f);
         rightAmmoManager.MachineShot();
-
+        ApplySmallRecoil(-machineRightFirePoint.forward);
         Debug.Log("machine shot right");
     }
 
@@ -541,6 +599,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
         Destroy(projectile, 1f);
         leftAmmoManager.AssaultShot();
+        ApplyMediumRecoil(-assaultLeftFirePoint.forward);
 
         Debug.Log("assault shot left");
     }
@@ -554,6 +613,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
         Destroy(projectile, 1f);
         rightAmmoManager.AssaultShot();
+        ApplyMediumRecoil(-assaultRightFirePoint.forward);
 
         Debug.Log("assault shot right");
     }
@@ -562,12 +622,13 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserLeftFirePoint == null) return;
 
-        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+       // MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
         Destroy(projectile, 1.5f);
         leftAmmoManager.LaserShot();
+        ApplyLargeRecoil(-laserLeftFirePoint.forward);
 
         Debug.Log("laser shot left");
     }
@@ -576,12 +637,13 @@ public class PlayerController : MonoBehaviour
     {
         if (laserBulletPrefab == null || laserRightFirePoint == null) return;
 
-        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+      //  MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
         Destroy(projectile, 1.5f);
         rightAmmoManager.LaserShot();
+        ApplyLargeRecoil(-laserRightFirePoint.forward);
 
         Debug.Log("assault shot right");
     }
@@ -597,7 +659,7 @@ public class PlayerController : MonoBehaviour
             basicShieldHealth.updateShieldHealthBar();
         }
 
-        if (shieldSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        if (missileSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
             superMoveBar.UseSuperBar();
             Debug.Log("used shield super");
@@ -606,6 +668,7 @@ public class PlayerController : MonoBehaviour
         if (laserSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
             superMoveBar.UseSuperBar();
+            StartCoroutine(QuadLaser());
             Debug.Log("used laser super");
         }
     }
@@ -701,6 +764,7 @@ public class PlayerController : MonoBehaviour
           
             if(leftAmmoManager.currentAmmo <= 0)
             {
+              
                 isShootingLeftHeld = false;
                 yield break;
             }
@@ -717,6 +781,7 @@ public class PlayerController : MonoBehaviour
 
             if (rightAmmoManager.currentAmmo <= 0)
             {
+                
                 isShootingRightHeld = false;
                 yield break;
             }
@@ -819,6 +884,16 @@ public class PlayerController : MonoBehaviour
 
             ShootLaserRight();
         }
+    }
+
+    public IEnumerator QuadLaser()
+    {
+        yield return new WaitForSeconds(0f);
+        isUsingQuadLaser = true;
+        quadLaser.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        quadLaser.SetActive(false);
+        isUsingQuadLaser = false;
     }
 }
 
