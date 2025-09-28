@@ -216,6 +216,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth - 25f;
         playerHealth.updateHealthBar();
         speedHead.SetActive(false);
+        speedHeadEquipped = false;
         yield return new WaitForSeconds(0.5f);
         //equip basic head
         playerEdited.moveSpeed = playerEdited.moveSpeed + 1.67f;
@@ -223,6 +224,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.3f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicHeadEquipped = true;
         basicHead.SetActive(true);
 
     }
@@ -236,6 +238,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth - 50f;
         playerHealth.updateHealthBar();
         standardHead.SetActive(false);
+        standardHeadEquipped = false;
         yield return new WaitForSeconds(0.5f);
         //equip basic head
         playerEdited.moveSpeed = playerEdited.moveSpeed + 1.67f;
@@ -243,6 +246,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.3f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicHeadEquipped = true;
         basicHead.SetActive(true);
 
     }
@@ -255,6 +259,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 1.33f;
         playerHealth.maxHealth = playerHealth.maxHealth - 66.67f;
         playerHealth.updateHealthBar();
+        defenceHeadEquipped = false;
         defenceHead.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic head
@@ -263,6 +268,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.3f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicHeadEquipped = true;
         basicHead.SetActive(true);
 
     }
@@ -295,6 +301,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 3f;
         playerHealth.maxHealth = playerHealth.maxHealth - 25f;
         playerHealth.updateHealthBar();
+        speedTorsoEquipped = false;
         speedTorso.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic torso
@@ -303,6 +310,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.4f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicTorsoEquipped = true;
         basicTorso.SetActive(true);
 
     }
@@ -315,6 +323,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 2f;
         playerHealth.maxHealth = playerHealth.maxHealth - 50f;
         playerHealth.updateHealthBar();
+        standardTorsoEquipped = false;
         standardTorso.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic torso
@@ -323,6 +332,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.4f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicTorsoEquipped = true;
         basicTorso.SetActive(true);
 
     }
@@ -335,6 +345,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 1.33f;
         playerHealth.maxHealth = playerHealth.maxHealth - 66.67f;
         playerHealth.updateHealthBar();
+        defenceTorsoEquipped = false;
         defenceTorso.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic torso
@@ -343,6 +354,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.4f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicTorsoEquipped = true;
         basicTorso.SetActive(true);
 
     }
@@ -375,6 +387,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 3f;
         playerHealth.maxHealth = playerHealth.maxHealth - 25f;
         playerHealth.updateHealthBar();
+        speedLegsEquipped = false;
         speedLegs.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic legs
@@ -383,6 +396,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.3f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicLegsEquipped = true;
         basicLegs.SetActive(true);
 
     }
@@ -395,6 +409,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 2f;
         playerHealth.maxHealth = playerHealth.maxHealth - 50f;
         playerHealth.updateHealthBar();
+        standardLegsEquipped = false;
         standardLegs.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic legs
@@ -403,6 +418,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.3f;
         playerHealth.updateHealthBar();
         playerHealth.currentHealth = playerHealth.maxHealth;
+        basicLegsEquipped = true;
         basicLegs.SetActive(true);
 
     }
@@ -415,6 +431,7 @@ public class equipment : MonoBehaviour
         playerEdited.originalSpeed = playerEdited.originalSpeed - 1.34f;
         playerHealth.maxHealth = playerHealth.maxHealth - 66.67f;
         playerHealth.updateHealthBar();
+        defenceLegsEquipped = false;
         defenceLegs.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //equip basic legs
@@ -423,6 +440,7 @@ public class equipment : MonoBehaviour
         playerHealth.maxHealth = playerHealth.maxHealth + 33.3f;
         playerHealth.currentHealth = playerHealth.maxHealth;
         playerHealth.updateHealthBar();
+        basicLegsEquipped = true;
         basicLegs.SetActive(true);
 
     }
