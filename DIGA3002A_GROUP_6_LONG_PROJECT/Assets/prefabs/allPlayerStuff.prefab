@@ -10075,6 +10075,7 @@ GameObject:
   - component: {fileID: 2421205393565308800}
   - component: {fileID: 5204252677447129056}
   - component: {fileID: 565028174742674133}
+  - component: {fileID: 410251973462087174}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -10395,6 +10396,52 @@ MonoBehaviour:
   maxSuperBar: 100
   currentSuperBar: 0
   superBarPic: {fileID: 5077824381519331819}
+--- !u!114 &410251973462087174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6157256343834927344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98aee261671edc44db6c1d718b406887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 7602213560361167328}
+  playerEdited: {fileID: 3036123052696751533}
+  basicHeadEquipped: 1
+  basicTorsoEquipped: 1
+  basicLegsEquipped: 1
+  standardHeadEquipped: 0
+  standardTorsoEquipped: 0
+  standardLegsEquipped: 0
+  speedHeadEquipped: 0
+  speedTorsoEquipped: 0
+  speedLegsEquipped: 0
+  defenceHeadEquipped: 0
+  defenceTorsoEquipped: 0
+  defenceLegsEquipped: 0
+  basicHead: {fileID: 601969041387544850}
+  basicTorso: {fileID: 2000541233854421916}
+  basicLegs: {fileID: 5076763508782410389}
+  standardHead: {fileID: 6652685765503499538}
+  standardTorso: {fileID: 1509891621315505392}
+  standardLegs: {fileID: 4295804806392268452}
+  speedHead: {fileID: 2245505125977406672}
+  speedTorso: {fileID: 5686358226111725543}
+  speedLegs: {fileID: 3916220658666731684}
+  defenceHead: {fileID: 723721911929718549}
+  defenceTorso: {fileID: 473500671874689408}
+  defenceLegs: {fileID: 6939482383101427397}
+  basicGunLeft: {fileID: 2139428140847786501}
+  basicGunRight: {fileID: 4005749573184019194}
+  machineGunLeft: {fileID: 7548356256462236664}
+  machineGunRight: {fileID: 3648878356623328542}
+  assaultGunLeft: {fileID: 6916924532566938589}
+  assaultGunRight: {fileID: 8809736193700983499}
+  laserGunLeft: {fileID: 9217857645013029296}
+  laserGunRight: {fileID: 1814355551994095411}
 --- !u!1 &6185350436996162475
 GameObject:
   m_ObjectHideFlags: 0
