@@ -8,7 +8,7 @@ public class equipment : MonoBehaviour
     [Header("Scripts")]
     public playerHealth playerHealth;
     public PlayerController playerEdited;
-
+    
     [Header("Bools")]
     public bool basicHeadEquipped = true;
     public bool basicTorsoEquipped = true;
@@ -122,6 +122,8 @@ public class equipment : MonoBehaviour
         equippedAssaultGunLeft.SetActive(false);
         equippedMachineGunLeft.SetActive(false);
         equippedLaserGunLeft.SetActive(false);
+
+        
     }
 
     [ContextMenu("Basic Gun Right")]
@@ -671,6 +673,7 @@ public class equipment : MonoBehaviour
             StartCoroutine(SpeedTorsoToStandardTorso());
             equippedSpeedTorso.SetActive(false);
             equippedStandardTorso.SetActive(true);
+            Debug.Log("took off speed torso and put on standard torso");
         }
 
         if (defenceTorsoEquipped == true)
@@ -678,6 +681,7 @@ public class equipment : MonoBehaviour
             StartCoroutine(DefenceTorsoToStandardTorso());
             equippedDefenceTorso.SetActive(false);
             equippedStandardTorso.SetActive(true);
+            Debug.Log("took off defence torso and put on standard torso");
         }
 
         if (basicTorsoEquipped == true)
@@ -685,6 +689,7 @@ public class equipment : MonoBehaviour
             StartCoroutine(BasicTorsoToStandardTorso());
             equippedBasicTorso.SetActive(false);
             equippedStandardTorso.SetActive(true);
+            Debug.Log("took off basic torso and put on standard torso");
         }
 
     }

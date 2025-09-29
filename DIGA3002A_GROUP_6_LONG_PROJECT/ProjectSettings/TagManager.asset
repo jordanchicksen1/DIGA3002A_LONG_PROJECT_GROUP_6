@@ -15,6 +15,7 @@ TagManager:
   - MachineBullet
   - LaserBullet
   - Beam
+  - TerminalTrigger
   layers:
   - Default
   - TransparentFX
