@@ -10075,7 +10075,7 @@ GameObject:
   - component: {fileID: 2421205393565308800}
   - component: {fileID: 5204252677447129056}
   - component: {fileID: 565028174742674133}
-  - component: {fileID: 410251973462087174}
+  - component: {fileID: 2958276595036791724}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -10396,7 +10396,7 @@ MonoBehaviour:
   maxSuperBar: 100
   currentSuperBar: 0
   superBarPic: {fileID: 5077824381519331819}
---- !u!114 &410251973462087174
+--- !u!114 &2958276595036791724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10422,6 +10422,30 @@ MonoBehaviour:
   defenceHeadEquipped: 0
   defenceTorsoEquipped: 0
   defenceLegsEquipped: 0
+  basicHeadHP: 33.3
+  basicHeadSpeed: 1.67
+  basicTorsoHP: 33.4
+  basicTorsoSpeed: 1.67
+  basicLegsHP: 33.3
+  basicLegsSpeed: 1.67
+  standardHeadHP: 50
+  standardHeadSpeed: 2
+  standardTorsoHP: 50
+  standardTorsoSpeed: 2
+  standardLegsHP: 50
+  standardLegsSpeed: 2
+  speedHeadHP: 25
+  speedHeadSpeed: 3
+  speedTorsoHP: 25
+  speedTorsoSpeed: 3
+  speedLegsHP: 25
+  speedLegsSpeed: 3
+  defenceHeadHP: 66.67
+  defenceHeadSpeed: 1.33
+  defenceTorsoHP: 66.67
+  defenceTorsoSpeed: 1.34
+  defenceLegsHP: 66.67
+  defenceLegsSpeed: 1.33
   basicHead: {fileID: 601969041387544850}
   basicTorso: {fileID: 2000541233854421916}
   basicLegs: {fileID: 5076763508782410389}
