@@ -4108,7 +4108,7 @@ PrefabInstance:
     - target: {fileID: 772451257957156791, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1258718884728234749, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
@@ -4180,9 +4180,19 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142590904010208397, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6652685765503499538, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822484339164519793, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7181830466683480134, guid: df3f1474b9cb9174285f1f034a7c84ec,
