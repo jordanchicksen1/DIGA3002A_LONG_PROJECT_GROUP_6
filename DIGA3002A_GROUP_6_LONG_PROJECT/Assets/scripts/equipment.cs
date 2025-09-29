@@ -78,7 +78,28 @@ public class equipment : MonoBehaviour
     public GameObject laserGunLeft;
     public GameObject laserGunRight;
 
-
+    [Header("UI Equipped Images")]
+    public GameObject equippedBasicHead;
+    public GameObject equippedBasicTorso;
+    public GameObject equippedBasicLegs;
+    public GameObject equippedStandardHead;
+    public GameObject equippedStandardTorso;
+    public GameObject equippedStandardLegs;
+    public GameObject equippedSpeedHead;
+    public GameObject equippedSpeedTorso;
+    public GameObject equippedSpeedLegs;
+    public GameObject equippedDefenceHead;
+    public GameObject equippedDefenceTorso;
+    public GameObject equippedDefenceLegs;
+    public GameObject equippedBasicGunLeft;
+    public GameObject equippedBasicGunRight;
+    public GameObject equippedAssaultGunLeft;
+    public GameObject equippedAssaultGunRight;
+    public GameObject equippedLaserGunLeft;
+    public GameObject equippedLaserGunRight;
+    public GameObject equippedShieldSuper;
+    public GameObject equippedLaserSuper;
+    public GameObject equippedOrbitalSuper;
 
     //weapon equipping
 
