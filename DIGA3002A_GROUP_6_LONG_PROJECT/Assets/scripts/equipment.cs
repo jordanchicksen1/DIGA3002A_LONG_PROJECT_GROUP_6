@@ -993,6 +993,264 @@ public class equipment : MonoBehaviour
         speedLegs.SetActive(true);
 
     }
+
+    [ContextMenu("Defence Head")]
+    public void EquipDefenceHead()
+    {
+        if (standardHeadEquipped == true)
+        {
+            StartCoroutine(StandardHeadToDefenceHead());
+        }
+
+        if (speedHeadEquipped == true)
+        {
+            StartCoroutine(SpeedHeadToDefenceHead());
+        }
+
+        if (basicHeadEquipped == true)
+        {
+            StartCoroutine(BasicHeadToDefenceHead());
+        }
+
+    }
+
+    public IEnumerator StandardHeadToDefenceHead()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip standard head
+        playerEdited.moveSpeed = playerEdited.moveSpeed - standardHeadSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - standardHeadSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - standardHeadHP;
+        playerHealth.updateHealthBar();
+        standardHead.SetActive(false);
+        standardHeadEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence head
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceHeadSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceHeadSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceHeadHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceHeadEquipped = true;
+        defenceHead.SetActive(true);
+
+    }
+
+    public IEnumerator SpeedHeadToDefenceHead()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip defence head
+        playerEdited.moveSpeed = playerEdited.moveSpeed - speedHeadSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - speedHeadSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - speedHeadHP;
+        playerHealth.updateHealthBar();
+        speedHead.SetActive(false);
+        speedHeadEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence head
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceHeadSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceHeadSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceHeadHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceHeadEquipped = true;
+        defenceHead.SetActive(true);
+
+    }
+
+    public IEnumerator BasicHeadToDefenceHead()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip basic head
+        playerEdited.moveSpeed = playerEdited.moveSpeed - basicHeadSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - basicHeadSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - basicHeadHP;
+        playerHealth.updateHealthBar();
+        basicHead.SetActive(false);
+        basicHeadEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence head
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceHeadSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceHeadSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceHeadHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceHeadEquipped = true;
+        defenceHead.SetActive(true);
+
+    }
+
+    [ContextMenu("Defence Torso")]
+    public void EquipDefenceTorso()
+    {
+        if (standardTorsoEquipped == true)
+        {
+            StartCoroutine(StandardTorsoToDefenceTorso());
+        }
+
+        if (speedTorsoEquipped == true)
+        {
+            StartCoroutine(SpeedTorsoToDefenceTorso());
+        }
+
+        if (basicTorsoEquipped == true)
+        {
+            StartCoroutine(BasicTorsoToDefenceTorso());
+        }
+
+    }
+
+    public IEnumerator StandardTorsoToDefenceTorso()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip standard torso
+        playerEdited.moveSpeed = playerEdited.moveSpeed - standardTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - standardTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - standardTorsoHP;
+        playerHealth.updateHealthBar();
+        standardTorso.SetActive(false);
+        standardTorsoEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence torso
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceTorsoHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceTorsoEquipped = true;
+        defenceTorso.SetActive(true);
+
+    }
+
+    public IEnumerator SpeedTorsoToDefenceTorso()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip defence head
+        playerEdited.moveSpeed = playerEdited.moveSpeed - speedTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - speedTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - speedTorsoHP;
+        playerHealth.updateHealthBar();
+        speedTorso.SetActive(false);
+        speedTorsoEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence torso
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceTorsoHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceTorsoEquipped = true;
+        defenceTorso.SetActive(true);
+
+    }
+
+    public IEnumerator BasicTorsoToDefenceTorso()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip basic head
+        playerEdited.moveSpeed = playerEdited.moveSpeed - basicTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - basicTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - basicTorsoHP;
+        playerHealth.updateHealthBar();
+        basicTorso.SetActive(false);
+        basicTorsoEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence torso
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceTorsoHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceTorsoEquipped = true;
+        defenceTorso.SetActive(true);
+
+    }
+
+    [ContextMenu("Defence Legs")]
+    public void EquipDefenceLegs()
+    {
+        if (standardLegsEquipped == true)
+        {
+            StartCoroutine(StandardLegsToDefenceLegs());
+        }
+
+        if (speedLegsEquipped == true)
+        {
+            StartCoroutine(SpeedLegsToDefenceLegs());
+        }
+
+        if (basicLegsEquipped == true)
+        {
+            StartCoroutine(BasicLegsToDefenceLegs());
+        }
+
+    }
+
+    public IEnumerator StandardLegsToDefenceLegs()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip standard legs
+        playerEdited.moveSpeed = playerEdited.moveSpeed - standardLegsSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - standardLegsSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - standardLegsHP;
+        playerHealth.updateHealthBar();
+        standardLegs.SetActive(false);
+        standardLegsEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence legs
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceLegsSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceLegsSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceLegsHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceLegsEquipped = true;
+        defenceLegs.SetActive(true);
+
+    }
+
+    public IEnumerator SpeedLegsToDefenceLegs()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip defence head
+        playerEdited.moveSpeed = playerEdited.moveSpeed - speedLegsSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - speedLegsSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - speedLegsHP;
+        playerHealth.updateHealthBar();
+        speedLegs.SetActive(false);
+        speedLegsEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence legs
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceLegsSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceLegsSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceLegsHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceLegsEquipped = true;
+        defenceLegs.SetActive(true);
+
+    }
+
+    public IEnumerator BasicLegsToDefenceLegs()
+    {
+        yield return new WaitForSeconds(0f);
+        //de-equip basic legs
+        playerEdited.moveSpeed = playerEdited.moveSpeed - basicLegsSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed - basicLegsSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth - basicLegsHP;
+        playerHealth.updateHealthBar();
+        basicLegs.SetActive(false);
+        basicLegsEquipped = false;
+        yield return new WaitForSeconds(0.1f);
+        //equip defence torso
+        playerEdited.moveSpeed = playerEdited.moveSpeed + defenceTorsoSpeed;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + defenceTorsoSpeed;
+        playerHealth.maxHealth = playerHealth.maxHealth + defenceTorsoHP;
+        playerHealth.updateHealthBar();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        defenceLegsEquipped = true;
+        defenceLegs.SetActive(true);
+
+    }
 }
 
 
