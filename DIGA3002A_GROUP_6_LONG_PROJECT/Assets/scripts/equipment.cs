@@ -95,6 +95,8 @@ public class equipment : MonoBehaviour
     public GameObject equippedBasicGunRight;
     public GameObject equippedAssaultGunLeft;
     public GameObject equippedAssaultGunRight;
+    public GameObject equippedMachineGunLeft;
+    public GameObject equippedMachineGunRight;
     public GameObject equippedLaserGunLeft;
     public GameObject equippedLaserGunRight;
     public GameObject equippedShieldSuper;
@@ -115,6 +117,11 @@ public class equipment : MonoBehaviour
         machineGunLeft.SetActive(false);
         assaultGunLeft.SetActive(false);
         laserGunLeft.SetActive(false);
+
+        equippedBasicGunLeft.SetActive(true);
+        equippedAssaultGunLeft.SetActive(false);
+        equippedMachineGunLeft.SetActive(false);
+        equippedLaserGunLeft.SetActive(false);
     }
 
     [ContextMenu("Basic Gun Right")]
@@ -129,6 +136,11 @@ public class equipment : MonoBehaviour
         machineGunRight.SetActive(false);
         assaultGunRight.SetActive(false);
         laserGunRight.SetActive(false);
+
+        equippedBasicGunRight.SetActive(true);
+        equippedAssaultGunRight.SetActive(false);
+        equippedMachineGunRight.SetActive(false);
+        equippedLaserGunRight.SetActive(false);
     }
 
     [ContextMenu("Machine Gun Left")]
@@ -143,6 +155,11 @@ public class equipment : MonoBehaviour
         machineGunLeft.SetActive(true);
         assaultGunLeft.SetActive(false);
         laserGunLeft.SetActive(false);
+
+        equippedBasicGunLeft.SetActive(false);
+        equippedAssaultGunLeft.SetActive(false);
+        equippedMachineGunLeft.SetActive(true);
+        equippedLaserGunLeft.SetActive(false);
     }
 
     [ContextMenu("Machine Gun Right")]
@@ -157,6 +174,11 @@ public class equipment : MonoBehaviour
         machineGunRight.SetActive(true);
         assaultGunRight.SetActive(false);
         laserGunRight.SetActive(false);
+
+        equippedBasicGunRight.SetActive(false);
+        equippedAssaultGunRight.SetActive(false);
+        equippedMachineGunRight.SetActive(true);
+        equippedLaserGunRight.SetActive(false);
     }
 
     [ContextMenu("Assault Gun Left")]
@@ -171,6 +193,11 @@ public class equipment : MonoBehaviour
         machineGunLeft.SetActive(false);
         assaultGunLeft.SetActive(true);
         laserGunLeft.SetActive(false);
+
+        equippedBasicGunLeft.SetActive(false);
+        equippedAssaultGunLeft.SetActive(true);
+        equippedMachineGunLeft.SetActive(false);
+        equippedLaserGunLeft.SetActive(false);
     }
 
     [ContextMenu("Assault Gun Right")]
@@ -185,6 +212,11 @@ public class equipment : MonoBehaviour
         machineGunRight.SetActive(false);
         assaultGunRight.SetActive(true);
         laserGunRight.SetActive(false);
+
+        equippedBasicGunRight.SetActive(false);
+        equippedAssaultGunRight.SetActive(true);
+        equippedMachineGunRight.SetActive(false);
+        equippedLaserGunRight.SetActive(false);
     }
 
     [ContextMenu("Laser Gun Left")]
@@ -199,6 +231,11 @@ public class equipment : MonoBehaviour
         machineGunLeft.SetActive(false);
         assaultGunLeft.SetActive(false);
         laserGunLeft.SetActive(true);
+
+        equippedBasicGunLeft.SetActive(false);
+        equippedAssaultGunLeft.SetActive(false);
+        equippedMachineGunLeft.SetActive(false);
+        equippedLaserGunLeft.SetActive(true);
     }
 
     [ContextMenu("Laser Gun Right")]
@@ -213,6 +250,11 @@ public class equipment : MonoBehaviour
         machineGunRight.SetActive(false);
         assaultGunRight.SetActive(false);
         laserGunRight.SetActive(true);
+
+        equippedBasicGunRight.SetActive(false);
+        equippedAssaultGunRight.SetActive(false);
+        equippedMachineGunRight.SetActive(false);
+        equippedLaserGunRight.SetActive(true);
     }
 
     //super move equipping
@@ -222,6 +264,10 @@ public class equipment : MonoBehaviour
         playerEdited.basicSuperEquipped = true;
         playerEdited.laserSuperEquipped = false;
         playerEdited.orbitalSuperEquipped = false;
+
+        equippedShieldSuper.SetActive(true);
+        equippedLaserSuper.SetActive(false);
+        equippedOrbitalSuper.SetActive(false);
     }
 
     [ContextMenu("Laser Super")]
@@ -230,6 +276,10 @@ public class equipment : MonoBehaviour
         playerEdited.basicSuperEquipped = false;
         playerEdited.laserSuperEquipped = true;
         playerEdited.orbitalSuperEquipped = false;
+
+        equippedShieldSuper.SetActive(false);
+        equippedLaserSuper.SetActive(true);
+        equippedOrbitalSuper.SetActive(false);
     }
 
     [ContextMenu("Orbital Super")]
@@ -238,6 +288,10 @@ public class equipment : MonoBehaviour
         playerEdited.basicSuperEquipped = false;
         playerEdited.laserSuperEquipped = false;
         playerEdited.orbitalSuperEquipped = true;
+
+        equippedShieldSuper.SetActive(false);
+        equippedLaserSuper.SetActive(false);
+        equippedOrbitalSuper.SetActive(true);
     }
 
     //euipping robo parts
@@ -247,16 +301,22 @@ public class equipment : MonoBehaviour
         if (speedHeadEquipped == true)
         {
             StartCoroutine(SpeedHeadToBasicHead());
+            equippedSpeedHead.SetActive(false);
+            equippedBasicHead.SetActive(true);
         }
 
         if (standardHeadEquipped == true)
         {
             StartCoroutine(StandardHeadToBasicHead());
+            equippedStandardHead.SetActive(false);
+            equippedBasicHead.SetActive(true);
         }
 
         if (defenceHeadEquipped == true)
         {
             StartCoroutine(DefenceHeadToBasicHead());
+            equippedDefenceHead.SetActive(false);
+            equippedBasicHead.SetActive(true);
         }
 
     }
@@ -333,16 +393,22 @@ public class equipment : MonoBehaviour
         if (speedTorsoEquipped == true)
         {
             StartCoroutine(SpeedTorsoToBasicTorso());
+            equippedSpeedTorso.SetActive(false);
+            equippedBasicTorso.SetActive(true);
         }
 
         if (standardTorsoEquipped == true)
         {
             StartCoroutine(StandardTorsoToBasicTorso());
+            equippedStandardLegs.SetActive(false);
+            equippedBasicTorso.SetActive(true);
         }
 
         if (defenceTorsoEquipped == true)
         {
             StartCoroutine(DefenceTorsoToBasicTorso());
+            equippedDefenceTorso.SetActive(false);
+            equippedBasicTorso.SetActive(true);
         }
 
     }
@@ -419,16 +485,22 @@ public class equipment : MonoBehaviour
         if (speedLegsEquipped == true)
         {
             StartCoroutine(SpeedLegsToBasicLegs());
+            equippedSpeedLegs.SetActive(false);
+            equippedBasicLegs.SetActive(true);
         }
 
         if (standardLegsEquipped == true)
         {
             StartCoroutine(StandardLegsToBasicLegs());
+            equippedStandardLegs.SetActive(false);
+            equippedBasicLegs.SetActive(true);
         }
 
         if (defenceLegsEquipped == true)
         {
             StartCoroutine(DefenceLegsToBasicLegs());
+            equippedDefenceLegs.SetActive(false);
+            equippedBasicLegs.SetActive(true);
         }
 
     }
@@ -505,16 +577,22 @@ public class equipment : MonoBehaviour
         if (speedHeadEquipped == true)
         {
             StartCoroutine(SpeedHeadToStandardHead());
+            equippedSpeedHead.SetActive(false);
+            equippedStandardHead.SetActive(true);
         }
 
         if (defenceHeadEquipped == true)
         {
             StartCoroutine(DefenceHeadToStandardHead());
+            equippedDefenceHead.SetActive(false);
+            equippedStandardHead.SetActive(true);
         }
 
         if(basicHeadEquipped == true)
         {
             StartCoroutine(BasicHeadToStandardHead());
+            equippedBasicHead.SetActive(false);
+            equippedStandardHead.SetActive(true);
         }
 
     }
@@ -591,16 +669,22 @@ public class equipment : MonoBehaviour
         if (speedTorsoEquipped == true)
         {
             StartCoroutine(SpeedTorsoToStandardTorso());
+            equippedSpeedTorso.SetActive(false);
+            equippedStandardTorso.SetActive(true);
         }
 
         if (defenceTorsoEquipped == true)
         {
             StartCoroutine(DefenceTorsoToStandardTorso());
+            equippedDefenceTorso.SetActive(false);
+            equippedStandardTorso.SetActive(true);
         }
 
         if (basicTorsoEquipped == true)
         {
             StartCoroutine(BasicTorsoToStandardTorso());
+            equippedBasicTorso.SetActive(false);
+            equippedStandardTorso.SetActive(true);
         }
 
     }
@@ -677,16 +761,22 @@ public class equipment : MonoBehaviour
         if (speedLegsEquipped == true)
         {
             StartCoroutine(SpeedLegsToStandardLegs());
+            equippedSpeedLegs.SetActive(false);
+            equippedStandardLegs.SetActive(true);
         }
 
         if (defenceLegsEquipped == true)
         {
             StartCoroutine(DefenceLegsToStandardLegs());
+            equippedDefenceLegs.SetActive(false);
+            equippedStandardLegs.SetActive(true);
         }
 
         if (basicLegsEquipped == true)
         {
             StartCoroutine(BasicLegsToStandardLegs());
+            equippedBasicLegs.SetActive(false);
+            equippedStandardLegs.SetActive(true);
         }
 
     }
@@ -763,16 +853,22 @@ public class equipment : MonoBehaviour
         if (standardHeadEquipped == true)
         {
             StartCoroutine(StandardHeadToSpeedHead());
+            equippedStandardHead.SetActive(false);
+            equippedSpeedHead.SetActive(true);
         }
 
         if (defenceHeadEquipped == true)
         {
             StartCoroutine(DefenceHeadToSpeedHead());
+            equippedDefenceHead.SetActive(false);
+            equippedSpeedHead.SetActive(true);
         }
 
         if (basicHeadEquipped == true)
         {
             StartCoroutine(BasicHeadToSpeedHead());
+            equippedBasicHead.SetActive(false);
+            equippedSpeedHead.SetActive(true);
         }
 
     }
@@ -849,16 +945,22 @@ public class equipment : MonoBehaviour
         if (standardTorsoEquipped == true)
         {
             StartCoroutine(StandardTorsoToSpeedTorso());
+            equippedStandardTorso.SetActive(false);
+            equippedSpeedTorso.SetActive(true);
         }
 
         if (defenceTorsoEquipped == true)
         {
             StartCoroutine(DefenceTorsoToSpeedTorso());
+            equippedDefenceTorso.SetActive(false);
+            equippedSpeedTorso.SetActive(true);
         }
 
         if (basicTorsoEquipped == true)
         {
             StartCoroutine(BasicTorsoToSpeedTorso());
+            equippedBasicTorso.SetActive(false);
+            equippedSpeedTorso.SetActive(true);
         }
 
     }
@@ -935,16 +1037,22 @@ public class equipment : MonoBehaviour
         if (standardLegsEquipped == true)
         {
             StartCoroutine(StandardLegsToSpeedLegs());
+            equippedStandardLegs.SetActive(false);
+            equippedSpeedLegs.SetActive(true);
         }
 
         if (defenceLegsEquipped == true)
         {
             StartCoroutine(DefenceLegsToSpeedLegs());
+            equippedDefenceLegs.SetActive(false);
+            equippedSpeedLegs.SetActive(true);
         }
 
         if (basicLegsEquipped == true)
         {
             StartCoroutine(BasicLegsToSpeedLegs());
+            equippedBasicLegs.SetActive(false);
+            equippedSpeedLegs.SetActive(true);
         }
 
     }
@@ -1021,16 +1129,22 @@ public class equipment : MonoBehaviour
         if (standardHeadEquipped == true)
         {
             StartCoroutine(StandardHeadToDefenceHead());
+            equippedStandardHead.SetActive(false);
+            equippedDefenceHead.SetActive(true);
         }
 
         if (speedHeadEquipped == true)
         {
             StartCoroutine(SpeedHeadToDefenceHead());
+            equippedSpeedHead.SetActive(false);
+            equippedDefenceHead.SetActive(true);
         }
 
         if (basicHeadEquipped == true)
         {
             StartCoroutine(BasicHeadToDefenceHead());
+            equippedBasicHead.SetActive(false);
+            equippedDefenceHead.SetActive(true);
         }
 
     }
@@ -1107,16 +1221,22 @@ public class equipment : MonoBehaviour
         if (standardTorsoEquipped == true)
         {
             StartCoroutine(StandardTorsoToDefenceTorso());
+            equippedStandardTorso.SetActive(false);
+            equippedDefenceTorso.SetActive(true);
         }
 
         if (speedTorsoEquipped == true)
         {
             StartCoroutine(SpeedTorsoToDefenceTorso());
+            equippedSpeedTorso.SetActive(false);
+            equippedDefenceTorso.SetActive(true);
         }
 
         if (basicTorsoEquipped == true)
         {
             StartCoroutine(BasicTorsoToDefenceTorso());
+            equippedBasicTorso.SetActive(false);
+            equippedDefenceTorso.SetActive(true);
         }
 
     }
@@ -1193,16 +1313,22 @@ public class equipment : MonoBehaviour
         if (standardLegsEquipped == true)
         {
             StartCoroutine(StandardLegsToDefenceLegs());
+            equippedStandardLegs.SetActive(false);
+            equippedDefenceLegs.SetActive(true);
         }
 
         if (speedLegsEquipped == true)
         {
             StartCoroutine(SpeedLegsToDefenceLegs());
+            equippedSpeedLegs.SetActive(false);
+            equippedDefenceLegs.SetActive(true);
         }
 
         if (basicLegsEquipped == true)
         {
             StartCoroutine(BasicLegsToDefenceLegs());
+            equippedBasicLegs.SetActive(false);
+            equippedDefenceLegs.SetActive(true);
         }
 
     }
