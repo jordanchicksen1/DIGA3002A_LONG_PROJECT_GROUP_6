@@ -69,8 +69,6 @@ public class boss1Posture : MonoBehaviour
     
         
 
-    
-
     public IEnumerator GotStaggered()
     {
         yield return new WaitForSeconds(3f);

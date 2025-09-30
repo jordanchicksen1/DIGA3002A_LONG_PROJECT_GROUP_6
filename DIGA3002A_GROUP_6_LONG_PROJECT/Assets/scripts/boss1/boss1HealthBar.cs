@@ -59,6 +59,15 @@ public class boss1HealthBar : MonoBehaviour
        boss1Posture.BigPostureHit();
     }
 
+    [ContextMenu("BeamHit")]
+    public void BeamHit()
+    {
+        currentHealth = currentHealth - 50f;
+
+        updateHealthBar();
+        boss1Posture.BigPostureHit();
+    }
+
     public void Heal()
     {
         currentHealth = maxHealth;

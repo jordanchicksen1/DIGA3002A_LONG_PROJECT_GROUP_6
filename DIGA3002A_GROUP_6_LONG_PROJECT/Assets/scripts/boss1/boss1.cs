@@ -12,6 +12,7 @@ public class boss1 : MonoBehaviour
     public Transform player;
     public float knockbackForce = 1f;
     public float knockbackDuration = 0.2f;
+    public superMoveBar superMoveBar;
 
     private bool isKnockedBack = false;
 
@@ -39,6 +40,7 @@ public class boss1 : MonoBehaviour
             boss1HealthBar.BasicHit();
             boss1Posture.PostureHitALot();
             StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.BasicHit();
         }
 
         if (other.CompareTag("MachineBullet"))
@@ -47,6 +49,7 @@ public class boss1 : MonoBehaviour
             boss1HealthBar.LaserHit();
             boss1Posture.SmallPostureHit();
             StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.MachineHit();
         }
 
         if (other.CompareTag("AssaultBullet"))
@@ -55,6 +58,7 @@ public class boss1 : MonoBehaviour
             boss1HealthBar.AssaultHit();
             boss1Posture.PostureHitALot();
             StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.AssaultHit();
         }
 
         if (other.CompareTag("LaserBullet"))
@@ -63,7 +67,16 @@ public class boss1 : MonoBehaviour
             boss1HealthBar.LaserHit();
             boss1Posture.BigPostureHit();
             StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.LaserHit();
         }
+
+        if (other.CompareTag("Beam"))
+        {
+            boss1HealthBar.BeamHit();
+            boss1Posture.BigPostureHit();
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+        }
+
     }
 
     private IEnumerator ApplyKnockback(Vector3 direction)
