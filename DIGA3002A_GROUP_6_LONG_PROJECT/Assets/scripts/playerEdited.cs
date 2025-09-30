@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public GameObject pauseScreen;
+    public GameObject roboBuildingScreen;
     public dashManager dashManager;
     public playerHealth playerHealth;
     public healManager healManager;
@@ -99,18 +100,26 @@ public class PlayerController : MonoBehaviour
 
     [Header("Super Move Stuff")]
     public bool basicSuperEquipped = true;
-    public bool missileSuperEquipped = false;
+    public bool orbitalSuperEquipped = false;
     public bool laserSuperEquipped = false;
+    public bool isUsingOrbital = false;
     public superMoveBar superMoveBar;
     public GameObject basicSuper;
     public basicShieldHealth basicShieldHealth;
     public GameObject quadLaser;
     public bool isUsingQuadLaser = false;
+    public GameObject orbitalAimer;
 
     [Header("Player Feedback")]
     public float smallRecoilForce = 0f;
     public float mediumRecoilForce = 2f;
     public float largeRecoilForce = 4f;
+
+    [Header("Garage Stuff")]
+    public GameObject dummyBars;
+    public boss1Posture boss1Posture;
+    public boss1HealthBar boss1HealthBar;
+    public GameObject missionScreen;
 
     private void Awake()
     {
@@ -191,6 +200,8 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         moveSpeed = originalSpeed;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void Update()
     {
@@ -532,6 +543,8 @@ public class PlayerController : MonoBehaviour
             pauseScreen.SetActive(true);
             isPaused = true;
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         else if (isPaused == true)
@@ -539,6 +552,8 @@ public class PlayerController : MonoBehaviour
             pauseScreen.SetActive(false);
             isPaused = false;
             Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
 
@@ -690,10 +705,20 @@ public class PlayerController : MonoBehaviour
             basicShieldHealth.updateShieldHealthBar();
         }
 
-        if (missileSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
+        if (orbitalSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
         {
+            StartCoroutine(StartedOrbital());
             superMoveBar.UseSuperBar();
-            Debug.Log("used shield super");
+            Debug.Log("started orbital");
+        }
+
+        if (isUsingOrbital == true) 
+        { 
+            isUsingOrbital = false;
+            orbitalAimer.SetActive(false);
+            Debug.Log("used orbital");
+
+
         }
 
         if (laserSuperEquipped == true && superMoveBar.currentSuperBar >= 100f)
@@ -750,9 +775,39 @@ public class PlayerController : MonoBehaviour
             Debug.Log("big hit");
             StartCoroutine(BulletHit());
         }
+
+        if(other.tag == "TerminalTrigger")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            roboBuildingScreen.SetActive(true);
+        }
+
+        if (other.tag == "MissionTerminalTrigger")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            missionScreen.SetActive(true);
+        }
+
+        if (other.tag == "DummyAreaTrigger")
+        {
+            dummyBars.SetActive(true);
+        }
     }
 
-    
+   
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "DummyAreaTrigger")
+        {
+            dummyBars.SetActive(false);
+            boss1Posture.DummyPostureHeal();
+            boss1HealthBar.Heal();
+        }
+    }
+
+
 
     //coroutines
 
@@ -925,6 +980,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         quadLaser.SetActive(false);
         isUsingQuadLaser = false;
+    }
+
+    public IEnumerator StartedOrbital()
+    {
+        yield return new WaitForSeconds(0f);
+        orbitalAimer.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        isUsingOrbital = true;
     }
 }
 

@@ -8,7 +8,7 @@ public class superMoveBar : MonoBehaviour
     public float maxSuperBar = 100f;
     public float currentSuperBar;
     public Image superBarPic;
-    
+    public GameObject superReady;
 
     public void Start()
     {
@@ -19,7 +19,10 @@ public class superMoveBar : MonoBehaviour
 
     public void Update()
     {
-        
+        if(currentSuperBar >= 100f)
+        {
+            superReady.SetActive(true);
+        }
     }
 
 
@@ -60,6 +63,7 @@ public class superMoveBar : MonoBehaviour
     {
         currentSuperBar = 0f;
         updateSuperBar();
+        superReady.SetActive(false);
     }
 
     [ContextMenu("FullSuperTest")]
