@@ -18,6 +18,7 @@ TagManager:
   - TerminalTrigger
   - MissionTerminalTrigger
   - Boss1
+  - DummyAreaTrigger
   layers:
   - Default
   - TransparentFX

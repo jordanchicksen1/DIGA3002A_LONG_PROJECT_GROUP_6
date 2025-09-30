@@ -115,6 +115,11 @@ public class PlayerController : MonoBehaviour
     public float mediumRecoilForce = 2f;
     public float largeRecoilForce = 4f;
 
+    [Header("Garage Stuff")]
+    public GameObject dummyBars;
+    public boss1Posture boss1Posture;
+    public boss1HealthBar boss1HealthBar;
+
     private void Awake()
     {
         playerInput = new PlayerControls();
@@ -776,9 +781,25 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = true;
             roboBuildingScreen.SetActive(true);
         }
+
+        if (other.tag == "DummyAreaTrigger")
+        {
+            dummyBars.SetActive(true);
+        }
     }
 
-    
+   
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "DummyAreaTrigger")
+        {
+            dummyBars.SetActive(false);
+            boss1Posture.DummyPostureHeal();
+            boss1HealthBar.Heal();
+        }
+    }
+
+
 
     //coroutines
 

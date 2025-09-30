@@ -17,12 +17,16 @@ public class boss1 : MonoBehaviour
 
     void Update()
     {
-        if (!isKnockedBack)
+        if(boss1Posture.isStaggered == false)
         {
-            Vector3 newPos = Vector3.MoveTowards(transform.position, dummyTarget.position, dummySpeed * Time.deltaTime);
-            dummyRigidbody.MovePosition(newPos);   // Rigidbody-safe movement
-            transform.LookAt(player);
+            if (!isKnockedBack)
+            {
+                Vector3 newPos = Vector3.MoveTowards(transform.position, dummyTarget.position, dummySpeed * Time.deltaTime);
+                dummyRigidbody.MovePosition(newPos);   // Rigidbody-safe movement
+                transform.LookAt(player);
+            }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -10,7 +10,7 @@ public class boss1Posture : MonoBehaviour
     public float currentPosture;
     public Image postureBarPic;
     public bool isStaggered = false;
-
+    public GameObject staggeredText;
     public PlayerController playerController;
 
 
@@ -31,7 +31,8 @@ public class boss1Posture : MonoBehaviour
         if (currentPosture >= maxPosture)
         {
             isStaggered = true;
-            //bossScript.BossStaggered
+            staggeredText.SetActive(true);
+            StartCoroutine(GotStaggered());
 
         }
     }
@@ -59,10 +60,23 @@ public class boss1Posture : MonoBehaviour
     }
 
     [ContextMenu("PostureHeal")]
-    public void PostureHeal()
+    public void DummyPostureHeal()
     {
         currentPosture = minPosture;
         updatePostureBar();
+    }
+
+    
+        
+
+    
+
+    public IEnumerator GotStaggered()
+    {
+        yield return new WaitForSeconds(3f);
+        isStaggered = false;
+        staggeredText.SetActive(false);
+        DummyPostureHeal();
     }
 
     public void updatePosture(float amount)

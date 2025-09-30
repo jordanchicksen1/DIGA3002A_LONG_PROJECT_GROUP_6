@@ -59,6 +59,11 @@ public class boss1HealthBar : MonoBehaviour
        boss1Posture.BigPostureHit();
     }
 
+    public void Heal()
+    {
+        currentHealth = maxHealth;
+        updateHealthBar();
+    }
 
 
 
