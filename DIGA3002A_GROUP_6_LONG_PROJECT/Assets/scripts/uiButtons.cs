@@ -18,6 +18,14 @@ public class uiButtons : MonoBehaviour
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
 
+    [Header("Mission Stuff")]
+    public GameObject player;
+    public CharacterController characterController;
+    public GameObject globalVolumes;
+    public GameObject levelMusic;
+    public bool isDoingMissionOne;
+    public bool isDoingMissionTwo;
+
     public void GoBackToRoboBuilding()
     {
         headsScreen.SetActive(false);
@@ -103,5 +111,9 @@ public class uiButtons : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 }

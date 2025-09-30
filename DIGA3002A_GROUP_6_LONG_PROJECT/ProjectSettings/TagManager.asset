@@ -16,6 +16,8 @@ TagManager:
   - LaserBullet
   - Beam
   - TerminalTrigger
+  - MissionTerminalTrigger
+  - Boss1
   layers:
   - Default
   - TransparentFX
