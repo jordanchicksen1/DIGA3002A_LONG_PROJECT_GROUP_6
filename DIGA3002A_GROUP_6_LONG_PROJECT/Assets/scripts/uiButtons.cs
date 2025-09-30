@@ -6,6 +6,7 @@ public class uiButtons : MonoBehaviour
 {
     [Header("Screens")]
     public GameObject roboBuildingScreen;
+    public GameObject missionScreen;
     public GameObject headsScreen;
     public GameObject torsosScreen;
     public GameObject legsScreen;
@@ -24,7 +25,9 @@ public class uiButtons : MonoBehaviour
     public GameObject globalVolumes;
     public GameObject levelMusic;
     public bool isDoingMissionOne;
-    public bool isDoingMissionTwo;
+    public GameObject mission1Screen;
+    public Transform teleporterLevel;
+    
 
     public void GoBackToRoboBuilding()
     {
@@ -109,6 +112,25 @@ public class uiButtons : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        leftAmmoManager.currentAmmo = leftAmmoManager.maxAmmo;
+        leftAmmoManager.updateAmmoBar();
+        rightAmmoManager.currentAmmo = rightAmmoManager.maxAmmo;
+        rightAmmoManager.updateAmmoBar();
+    }
+
+    public void CloseMissionScreen()
+    {
+        missionScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void StartMissionOne()
+    {
+        missionScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        StartCoroutine(MissionOne());
     }
 
     public void QuitGame()
@@ -116,4 +138,17 @@ public class uiButtons : MonoBehaviour
         Application.Quit();
     }
 
+    public IEnumerator MissionOne()
+    {
+        yield return new WaitForSeconds(0f);
+        mission1Screen.SetActive(true);
+        isDoingMissionOne = true;
+        characterController.enabled = false;
+        player.transform.position = teleporterLevel.transform.position;
+        yield return new WaitForSeconds(1f);
+        characterController.enabled = true;
+        mission1Screen.SetActive(false);
+        globalVolumes.SetActive(true);
+        levelMusic.SetActive(true);
+    }
 }

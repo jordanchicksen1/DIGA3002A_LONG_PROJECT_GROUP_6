@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
     public GameObject dummyBars;
     public boss1Posture boss1Posture;
     public boss1HealthBar boss1HealthBar;
+    public GameObject missionScreen;
 
     private void Awake()
     {
@@ -780,6 +781,13 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             roboBuildingScreen.SetActive(true);
+        }
+
+        if (other.tag == "MissionTerminalTrigger")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            missionScreen.SetActive(true);
         }
 
         if (other.tag == "DummyAreaTrigger")

@@ -9958,9 +9958,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1586476997997136267, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
+      propertyPath: globalVolumes
+      value: 
+      objectReference: {fileID: 1202336085}
+    - target: {fileID: 1586476997997136267, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
       propertyPath: leftAmmoManager
       value: 
       objectReference: {fileID: 386650870}
+    - target: {fileID: 1586476997997136267, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: teleporterLevel
+      value: 
+      objectReference: {fileID: 694999939}
     - target: {fileID: 1586476997997136267, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: rightAmmoManager
@@ -10946,6 +10956,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463373312}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &465957087
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1967385286466142556, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -525.48157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 55.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2590.3657
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7156486178574353954, guid: d90c2b28155e51046acaa78d6f6c60b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d90c2b28155e51046acaa78d6f6c60b5, type: 3}
+--- !u!1 &473834452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4280574729547179501, guid: df3f1474b9cb9174285f1f034a7c84ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 422606959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &479811866
 GameObject:
   m_ObjectHideFlags: 0
@@ -16459,6 +16543,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693824544}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &694999939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7192347529871845179, guid: e73db08cb7726ea45b2863b1f5ad4771,
+    type: 3}
+  m_PrefabInstance: {fileID: 1052134214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &718084665
 GameObject:
   m_ObjectHideFlags: 0
@@ -21178,16 +21268,806 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 420881794219684487, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 420881794219684487, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 420881794219684487, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 427900921551787368, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 427900921551787368, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 427900921551787368, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 549954545602570639, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 549954545602570639, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 549954545602570639, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 651785246437277182, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 651785246437277182, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 651785246437277182, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 881436271828615151, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 881436271828615151, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 881436271828615151, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 904063815090829766, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 904063815090829766, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 904063815090829766, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 1036510904263191463, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 1036510904263191463, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 1036510904263191463, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 1141914462417805718, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 1141914462417805718, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 1141914462417805718, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 1329744285713522200, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 1329744285713522200, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 1329744285713522200, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 1595496400326666519, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 1595496400326666519, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 1595496400326666519, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 2325671565338850466, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 2325671565338850466, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 2325671565338850466, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 2899833753600231389, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 2899833753600231389, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 2899833753600231389, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 2950066429414693285, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 2950066429414693285, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 2950066429414693285, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3150383924230820538, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3150383924230820538, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3150383924230820538, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3252372192988706575, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3252372192988706575, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3252372192988706575, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
     - target: {fileID: 3354540067679539604, guid: e73db08cb7726ea45b2863b1f5ad4771,
         type: 3}
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 3388067638663196341, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3388067638663196341, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3388067638663196341, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3391372478720324063, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3391372478720324063, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3391372478720324063, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3453941269592908341, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3453941269592908341, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3453941269592908341, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3557182368692551621, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3557182368692551621, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3557182368692551621, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3569775245786874796, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 3569775245786874796, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3569775245786874796, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3660972582176586616, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 3660972582176586616, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 3660972582176586616, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 4082335835327530275, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 4082335835327530275, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 4082335835327530275, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 4143642548542655006, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 4143642548542655006, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 4143642548542655006, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 4200779042778974836, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 4200779042778974836, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 4200779042778974836, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 4720126842364032896, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 4720126842364032896, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 4720126842364032896, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 4906002425530967017, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 4906002425530967017, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 4906002425530967017, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 4940493606129204435, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 4940493606129204435, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 4940493606129204435, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5115416633613879949, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5115416633613879949, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5115416633613879949, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5260996862916906613, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5260996862916906613, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5260996862916906613, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5290345951146416552, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5290345951146416552, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5290345951146416552, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5434713773971359832, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5434713773971359832, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5434713773971359832, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5460909395653791429, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5460909395653791429, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5460909395653791429, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5473796198385985136, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5473796198385985136, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5473796198385985136, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5512112638854048697, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5512112638854048697, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5512112638854048697, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5615273383377597636, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5615273383377597636, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5615273383377597636, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5653039158794646787, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5653039158794646787, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5653039158794646787, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 5660478204629555908, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 5660478204629555908, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 5660478204629555908, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 6314430056227728322, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 6314430056227728322, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 6314430056227728322, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 6346086432526830436, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 6346086432526830436, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 6346086432526830436, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 6468434934286659151, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 6468434934286659151, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 6468434934286659151, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 6935411507289071436, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 6935411507289071436, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 6935411507289071436, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7133843849342906968, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7133843849342906968, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7133843849342906968, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7159954188197216603, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7159954188197216603, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7159954188197216603, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7192347529871845179, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -171
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192347529871845179, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 520
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364001286554287668, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7364001286554287668, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7364001286554287668, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7428320061092140828, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7428320061092140828, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7428320061092140828, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7464627911280314382, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7464627911280314382, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7464627911280314382, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7621957250336824104, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7621957250336824104, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7621957250336824104, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7624790272915456050, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 7624790272915456050, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7624790272915456050, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7992118292559119850, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 7992118292559119850, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 7992118292559119850, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 8091887667686122173, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 8091887667686122173, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 8091887667686122173, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
     - target: {fileID: 8576406462233857439, guid: e73db08cb7726ea45b2863b1f5ad4771,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8855064411514701300, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 8855064411514701300, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 8855064411514701300, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
+    - target: {fileID: 9185114175182510643, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: AcitveBackground
+      value: 
+      objectReference: {fileID: 473834452}
+    - target: {fileID: 9185114175182510643, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground1
+      value: 
+      objectReference: {fileID: 1073337760}
+    - target: {fileID: 9185114175182510643, guid: e73db08cb7726ea45b2863b1f5ad4771,
+        type: 3}
+      propertyPath: OtherBackground2
+      value: 
+      objectReference: {fileID: 1739188808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21617,6 +22497,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068632170}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1073337760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1988720638846305143, guid: df3f1474b9cb9174285f1f034a7c84ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 422606959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081103197
 GameObject:
   m_ObjectHideFlags: 0
@@ -24150,6 +25036,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202319013}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1202336085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 289319469256305607, guid: e73db08cb7726ea45b2863b1f5ad4771,
+    type: 3}
+  m_PrefabInstance: {fileID: 1052134214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1212593379
 GameObject:
   m_ObjectHideFlags: 0
@@ -32202,7 +33094,7 @@ Transform:
   m_GameObject: {fileID: 1666733944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.8, y: 1.69, z: -30.4}
+  m_LocalPosition: {x: 20, y: 1.69, z: -4.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32950,6 +33842,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731762799}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1739188808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6820232498682726143, guid: df3f1474b9cb9174285f1f034a7c84ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 422606959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1742344826
 GameObject:
   m_ObjectHideFlags: 0
@@ -41917,3 +42815,4 @@ SceneRoots:
   - {fileID: 422606959}
   - {fileID: 1052134214}
   - {fileID: 1213679515}
+  - {fileID: 465957087}
