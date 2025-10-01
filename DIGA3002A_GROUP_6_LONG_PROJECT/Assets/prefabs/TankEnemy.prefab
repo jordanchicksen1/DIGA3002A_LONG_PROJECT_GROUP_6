@@ -202,6 +202,7 @@ MonoBehaviour:
   enemyHealthBarPic: {fileID: 1923007170311116059}
   explosion: {fileID: 5272594534915021925, guid: bae6683475ac62a4d8666ad8964260a5,
     type: 3}
+  isDead: 0
 --- !u!1 &2082206873143245344
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,8 +409,8 @@ Transform:
   m_GameObject: {fileID: 3166823654229173073}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.636, y: 15.493009, z: 1.593}
-  m_LocalScale: {x: 0.68, y: 0.68, z: 0.68}
+  m_LocalPosition: {x: -0.01, y: 15.493009, z: 0.74}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1474623515004121195}
@@ -768,6 +769,8 @@ MonoBehaviour:
   explosion: {fileID: 5272594534915021925, guid: bae6683475ac62a4d8666ad8964260a5,
     type: 3}
   tankEnemy: {fileID: 1357085147180553053}
+  superMoveBar: {fileID: 0}
+  isDead: 0
 --- !u!1 &6926806652855325188
 GameObject:
   m_ObjectHideFlags: 0

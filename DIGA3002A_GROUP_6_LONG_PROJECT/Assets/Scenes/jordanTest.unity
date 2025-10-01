@@ -4431,9 +4431,9 @@ Transform:
   m_GameObject: {fileID: 198124339}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.54999995, y: 16, z: 0.040000916}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.06, y: 16, z: 0.040000916}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1897894819}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -4713,7 +4713,7 @@ GameObject:
   - component: {fileID: 216076237}
   - component: {fileID: 216076236}
   - component: {fileID: 216076235}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9170,7 +9170,7 @@ GameObject:
   - component: {fileID: 392213785}
   - component: {fileID: 392213784}
   - component: {fileID: 392213783}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10690,7 +10690,7 @@ GameObject:
   - component: {fileID: 437934600}
   - component: {fileID: 437934599}
   - component: {fileID: 437934598}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: missionTerminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11524,7 +11524,7 @@ GameObject:
   - component: {fileID: 481107862}
   - component: {fileID: 481107864}
   - component: {fileID: 481107863}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14120,7 +14120,7 @@ Transform:
   m_GameObject: {fileID: 568472204}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0}
+  m_LocalPosition: {x: 0, y: 1.69, z: 0.54}
   m_LocalScale: {x: 0.34371793, y: 0.7501889, z: 0.34371793}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18290,7 +18290,7 @@ GameObject:
   - component: {fileID: 764499368}
   - component: {fileID: 764499367}
   - component: {fileID: 764499366}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: garageTerminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18709,7 +18709,7 @@ Transform:
   m_GameObject: {fileID: 790506189}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.107, y: 3.42, z: -0.4}
+  m_LocalPosition: {x: -0.107, y: 3.42, z: 0.69}
   m_LocalScale: {x: 0.29935524, y: 0.66865534, z: 1.0179727}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21811,7 +21811,7 @@ Transform:
   m_GameObject: {fileID: 966273860}
   serializedVersion: 2
   m_LocalRotation: {x: -0.2756374, y: -0, z: -0, w: -0.96126175}
-  m_LocalPosition: {x: -0.01999998, y: 20.76018, z: -22.543886}
+  m_LocalPosition: {x: -0.01999998, y: 30.4, z: -38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22531,7 +22531,7 @@ GameObject:
   - component: {fileID: 1027086101}
   - component: {fileID: 1027086100}
   - component: {fileID: 1027086099}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: terminalTrigger
   m_TagString: MissionTerminalTrigger
   m_Icon: {fileID: 0}
@@ -25827,7 +25827,7 @@ GameObject:
   - component: {fileID: 1094603259}
   - component: {fileID: 1094603261}
   - component: {fileID: 1094603260}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26482,7 +26482,7 @@ GameObject:
   - component: {fileID: 1147387702}
   - component: {fileID: 1147387701}
   - component: {fileID: 1147387700}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: table (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42690,7 +42690,7 @@ GameObject:
   - component: {fileID: 1959436455}
   - component: {fileID: 1959436454}
   - component: {fileID: 1959436453}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: table (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47102,7 +47102,7 @@ GameObject:
   - component: {fileID: 2136360316}
   - component: {fileID: 2136360315}
   - component: {fileID: 2136360314}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: terminalTrigger
   m_TagString: TerminalTrigger
   m_Icon: {fileID: 0}

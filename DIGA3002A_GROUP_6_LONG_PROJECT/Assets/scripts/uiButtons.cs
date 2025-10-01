@@ -35,6 +35,7 @@ public class uiButtons : MonoBehaviour
     public GameObject gameOverScreen;
     
 
+
     public void GoBackToRoboBuilding()
     {
         headsScreen.SetActive(false);
@@ -168,14 +169,15 @@ public class uiButtons : MonoBehaviour
     public IEnumerator BackToTheGarage()
     {
         yield return new WaitForSeconds(0f);
-        playerHealth.Heal();
-        gameOverScreen.SetActive(false);
         characterController.enabled = false;
         yield return new WaitForSeconds(0.5f);
         player.transform.position = garageTeleporter.transform.position;
         characterController.enabled = true;
-        
-        
-        
+        globalVolumes.SetActive(false);
+        levelMusic.SetActive(false);
+        gameOverScreen.SetActive(false);
+        playerHealth.Heal();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
