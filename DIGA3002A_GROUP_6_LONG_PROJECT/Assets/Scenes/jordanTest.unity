@@ -10690,6 +10690,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 979000421891078895, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1258718884728234749, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_IsActive
@@ -10855,6 +10860,15 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5727424854417619940, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_text
+      value: 'Orbital
+
+        Super Move
+
+        (Not working)'
+      objectReference: {fileID: 0}
     - target: {fileID: 6142590904010208397, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_IsActive
@@ -10984,6 +10998,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107382470489769027, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_text
+      value: 'Laser Rifle
+
+        Right'
       objectReference: {fileID: 0}
     - target: {fileID: 9217857645013029296, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
