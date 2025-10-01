@@ -27,6 +27,10 @@ public class EnemyTankShooting : MonoBehaviour
 
     public ParticleSystem explosion;
 
+    public bool isDead = false;
+
+    public static event System.Action<EnemyTankShooting> OnEnemyDeath;
+
     private void Start()
     {
         currentEnemyHealth = maxEnemyHealth;
@@ -56,88 +60,7 @@ public class EnemyTankShooting : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("BasicBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(gameObject);
-            }
-        }
-
-        else if (other.CompareTag("LaserBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(gameObject);
-            }
-        }
-
-        else if (other.CompareTag("MachineBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(gameObject);
-            }
-        }
-
-        else if (other.CompareTag("AssaultBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(gameObject);
-            }
-        }
-    }
+    
 
     private void UpdateEnemyHealthBar()
     {

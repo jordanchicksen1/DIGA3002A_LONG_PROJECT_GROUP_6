@@ -30,8 +30,13 @@ public class EnemyMovement : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
 
     public ParticleSystem explosion;
-    public ParticleSystem muzzleEffect; 
-    
+    public ParticleSystem muzzleEffect;
+
+    public static event System.Action<EnemyMovement> OnEnemyDeath;
+
+    public bool isDead = false;
+
+    public superMoveBar superMoveBar;
     private void Awake()
     {
         player= GameObject.Find("player").transform;
@@ -176,13 +181,16 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("BasicBullet"))
         {
-            currentEnemyHealth--;
+            currentEnemyHealth = currentEnemyHealth - 5f;
             currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
+            superMoveBar.BasicHit();
             UpdateEnemyHealthBar();
 
             if (currentEnemyHealth <= 0)
             {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
                 if (explosion != null)
                 {
                     ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
@@ -190,19 +198,24 @@ public class EnemyMovement : MonoBehaviour
                     Destroy(ps.gameObject, ps.main.duration);
                 }
 
+                OnEnemyDeath?.Invoke(this);
                 Destroy(gameObject);
+                
             }
         }
 
         else if (other.CompareTag("LaserBullet"))
         {
-            currentEnemyHealth--;
+            currentEnemyHealth = currentEnemyHealth - 10f;
             currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
+            superMoveBar.LaserHit();
             UpdateEnemyHealthBar();
 
             if (currentEnemyHealth <= 0)
             {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
                 if (explosion != null)
                 {
                     ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
@@ -210,19 +223,24 @@ public class EnemyMovement : MonoBehaviour
                     Destroy(ps.gameObject, ps.main.duration);
                 }
 
+                OnEnemyDeath?.Invoke(this);
                 Destroy(gameObject);
+                
             }
         }
 
         else if (other.CompareTag("MachineBullet"))
         {
-            currentEnemyHealth--;
+            currentEnemyHealth = currentEnemyHealth - 2f;
             currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
+            superMoveBar.MachineHit();
             UpdateEnemyHealthBar();
 
             if (currentEnemyHealth <= 0)
             {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
                 if (explosion != null)
                 {
                     ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
@@ -230,19 +248,24 @@ public class EnemyMovement : MonoBehaviour
                     Destroy(ps.gameObject, ps.main.duration);
                 }
 
+                OnEnemyDeath?.Invoke(this);
                 Destroy(gameObject);
+                
             }
         }
 
         else if (other.CompareTag("AssaultBullet"))
         {
-            currentEnemyHealth--;
+            currentEnemyHealth = currentEnemyHealth - 4f;
             currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
+            superMoveBar.AssaultHit();
             UpdateEnemyHealthBar();
 
             if (currentEnemyHealth <= 0)
             {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
                 if (explosion != null)
                 {
                     ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
@@ -250,7 +273,9 @@ public class EnemyMovement : MonoBehaviour
                     Destroy(ps.gameObject, ps.main.duration);
                 }
 
+                OnEnemyDeath?.Invoke(this);
                 Destroy(gameObject);
+                
             }
         }
     }

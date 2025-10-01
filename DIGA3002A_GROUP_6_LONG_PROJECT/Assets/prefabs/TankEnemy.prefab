@@ -197,8 +197,8 @@ MonoBehaviour:
   burstCount: 3
   cooldownTime: 5
   projectileForce: 30
-  currentEnemyHealth: 50
-  maxEnemyHealth: 50
+  currentEnemyHealth: 150
+  maxEnemyHealth: 150
   enemyHealthBarPic: {fileID: 1923007170311116059}
   explosion: {fileID: 5272594534915021925, guid: bae6683475ac62a4d8666ad8964260a5,
     type: 3}

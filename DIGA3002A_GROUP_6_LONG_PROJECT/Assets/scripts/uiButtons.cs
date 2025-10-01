@@ -27,6 +27,7 @@ public class uiButtons : MonoBehaviour
     public bool isDoingMissionOne;
     public GameObject mission1Screen;
     public Transform teleporterLevel;
+    public GameObject missionOneEnemies;
     
 
     public void GoBackToRoboBuilding()
@@ -150,5 +151,6 @@ public class uiButtons : MonoBehaviour
         mission1Screen.SetActive(false);
         globalVolumes.SetActive(true);
         levelMusic.SetActive(true);
+        missionOneEnemies.SetActive(true);
     }
 }

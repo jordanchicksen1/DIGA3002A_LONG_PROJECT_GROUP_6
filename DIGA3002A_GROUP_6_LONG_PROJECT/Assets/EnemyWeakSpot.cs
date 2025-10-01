@@ -11,7 +11,14 @@ public class EnemyWeakSpot : MonoBehaviour
 
     public ParticleSystem explosion;
 
-    public GameObject tankEnemy; 
+    public GameObject tankEnemy;
+    public superMoveBar superMoveBar;
+
+
+    public static event System.Action<EnemyWeakSpot> OnEnemyDeath;
+
+    public bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,85 +28,40 @@ public class EnemyWeakSpot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BasicBullet"))
+        if (other.CompareTag("BasicBullet")) TakeDamage(5f);
+        else if (other.CompareTag("LaserBullet")) TakeDamage(10f);
+        else if (other.CompareTag("MachineBullet")) TakeDamage(2f);
+        else if (other.CompareTag("AssaultBullet")) TakeDamage(4f);
+    }
+
+    private void TakeDamage(float amount)
+    {
+        currentEnemyHealth -= amount;
+        currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+        UpdateEnemyHealthBar();
+        superMoveBar.AssaultHit();
+        if (currentEnemyHealth <= 0)
         {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+            Die();  // now Die() is called exactly once
+        }
+    }
 
-            UpdateEnemyHealthBar();
+    private void Die()
+    {
+        if (isDead) return;
+        isDead = true;
 
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
+        Debug.Log("EnemyTankShooting Die() called!");
 
-                Destroy(tankEnemy);
-            }
+        if (explosion != null)
+        {
+            ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+            ps.Play();
+            Destroy(ps.gameObject, ps.main.duration);
         }
 
-        else if (other.CompareTag("LaserBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(tankEnemy);
-            }
-        }
-
-        else if (other.CompareTag("MachineBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(tankEnemy);
-            }
-        }
-
-        else if (other.CompareTag("AssaultBullet"))
-        {
-            currentEnemyHealth--;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                Destroy(tankEnemy);
-            }
-        }
+        OnEnemyDeath?.Invoke(this);
+        Destroy(tankEnemy);
     }
 
     private void UpdateEnemyHealthBar()
