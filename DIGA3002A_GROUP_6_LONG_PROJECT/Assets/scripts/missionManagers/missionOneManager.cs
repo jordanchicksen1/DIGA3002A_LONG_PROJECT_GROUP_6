@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,7 +13,9 @@ public class missionOneManager : MonoBehaviour
     public GameObject player;
     public Transform garageTeleporter;
     public CharacterController characterController;
-
+    public GameObject globalVolumes;
+    public GameObject levelMusic;
+    public playerHealth playerHealth;
     private void OnEnable()
     {
         EnemyWeakSpot.OnEnemyDeath += HandleTankDeath;
@@ -64,7 +67,9 @@ public class missionOneManager : MonoBehaviour
         player.transform.position = garageTeleporter.transform.position;
         characterController.enabled = true;
         mission1CompleteScreen.SetActive(false);
-
+        playerHealth.Heal();
+        globalVolumes.SetActive(false);
+        levelMusic.SetActive(false);
 
     }
 }
