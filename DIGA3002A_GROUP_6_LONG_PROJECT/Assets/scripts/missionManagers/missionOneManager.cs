@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class missionOneManager : MonoBehaviour
 {
     public int requiredKills = 6;   // how many enemies must be killed
     public int currentKills = 0;
-
+    public TextMeshProUGUI currentKillsText;
     public GameObject mission1CompleteScreen;
     public GameObject player;
     public Transform garageTeleporter;
@@ -39,6 +40,7 @@ public class missionOneManager : MonoBehaviour
     private void CountKill()
     {
         currentKills++;
+        currentKillsText.text = currentKills.ToString();
         Debug.Log("Enemy destroyed! Total: " + currentKills);
 
         if (currentKills >= requiredKills)

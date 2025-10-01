@@ -18,6 +18,8 @@ public class uiButtons : MonoBehaviour
     [Header("Scripts")]
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
+    public playerHealth playerHealth;
+
 
     [Header("Mission Stuff")]
     public GameObject player;
@@ -28,6 +30,9 @@ public class uiButtons : MonoBehaviour
     public GameObject mission1Screen;
     public Transform teleporterLevel;
     public GameObject missionOneEnemies;
+    public GameObject currentKillsCounter;
+    public Transform garageTeleporter;
+    public GameObject gameOverScreen;
     
 
     public void GoBackToRoboBuilding()
@@ -134,6 +139,11 @@ public class uiButtons : MonoBehaviour
         StartCoroutine(MissionOne());
     }
 
+    public void BackGarage()
+    {
+        StartCoroutine(BackToTheGarage());
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -152,5 +162,20 @@ public class uiButtons : MonoBehaviour
         globalVolumes.SetActive(true);
         levelMusic.SetActive(true);
         missionOneEnemies.SetActive(true);
+        currentKillsCounter.SetActive(true);
+    }
+
+    public IEnumerator BackToTheGarage()
+    {
+        yield return new WaitForSeconds(0f);
+        playerHealth.Heal();
+        gameOverScreen.SetActive(false);
+        characterController.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        player.transform.position = garageTeleporter.transform.position;
+        characterController.enabled = true;
+        
+        
+        
     }
 }
