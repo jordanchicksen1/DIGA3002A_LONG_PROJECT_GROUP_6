@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public GameObject pauseScreen;
+    public GameObject roboBuildingScreen;
     public dashManager dashManager;
     public playerHealth playerHealth;
     public healManager healManager;
@@ -114,6 +115,12 @@ public class PlayerController : MonoBehaviour
     public float mediumRecoilForce = 2f;
     public float largeRecoilForce = 4f;
 
+    [Header("Garage Stuff")]
+    public GameObject dummyBars;
+    public boss1Posture boss1Posture;
+    public boss1HealthBar boss1HealthBar;
+    public GameObject missionScreen;
+
     private void Awake()
     {
         playerInput = new PlayerControls();
@@ -193,6 +200,8 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         moveSpeed = originalSpeed;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void Update()
     {
@@ -534,6 +543,8 @@ public class PlayerController : MonoBehaviour
             pauseScreen.SetActive(true);
             isPaused = true;
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         else if (isPaused == true)
@@ -541,6 +552,8 @@ public class PlayerController : MonoBehaviour
             pauseScreen.SetActive(false);
             isPaused = false;
             Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
 
@@ -762,9 +775,39 @@ public class PlayerController : MonoBehaviour
             Debug.Log("big hit");
             StartCoroutine(BulletHit());
         }
+
+        if(other.tag == "TerminalTrigger")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            roboBuildingScreen.SetActive(true);
+        }
+
+        if (other.tag == "MissionTerminalTrigger")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            missionScreen.SetActive(true);
+        }
+
+        if (other.tag == "DummyAreaTrigger")
+        {
+            dummyBars.SetActive(true);
+        }
     }
 
-    
+   
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "DummyAreaTrigger")
+        {
+            dummyBars.SetActive(false);
+            boss1Posture.DummyPostureHeal();
+            boss1HealthBar.Heal();
+        }
+    }
+
+
 
     //coroutines
 

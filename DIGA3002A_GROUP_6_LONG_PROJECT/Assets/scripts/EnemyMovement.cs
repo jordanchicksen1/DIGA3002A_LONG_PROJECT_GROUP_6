@@ -15,9 +15,10 @@ public class EnemyMovement : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public float fireRate = 8f;
+    private float nextTimeToFire = 0f;
     public GameObject projectile;
+    public float projectileForce = 32f;
 
     public float currentEnemyHealth;
     public float maxEnemyHealth;
@@ -28,8 +29,14 @@ public class EnemyMovement : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    public ParticleSystem explosion; 
-    
+    public ParticleSystem explosion;
+    public ParticleSystem muzzleEffect;
+
+    public static event System.Action<EnemyMovement> OnEnemyDeath;
+
+    public bool isDead = false;
+
+    public superMoveBar superMoveBar;
     private void Awake()
     {
         player= GameObject.Find("player").transform;
@@ -89,23 +96,33 @@ public class EnemyMovement : MonoBehaviour
         Vector3 targetPos = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(targetPos);
 
-        if (!alreadyAttacked)
+        if (Time.time >= nextTimeToFire)
         {
-            Rigidbody rb = Instantiate(projectile, firePosition.position, Quaternion.identity).GetComponent<Rigidbody>();
-
-            Vector3 direction = (player.position - firePosition.position).normalized;
-
-            rb.AddForce(direction * 32f, ForceMode.Impulse);
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            FireProjectile();
+            nextTimeToFire = Time.time + (1f / fireRate);
         }
     }
 
-    private void ResetAttack()
+    private void FireProjectile()
     {
-        alreadyAttacked = false; 
+        if (projectile == null || firePosition == null || player == null)
+        {
+            return;
+        }
+
+        if (muzzleEffect != null)
+        {
+            muzzleEffect.Play(); 
+        }
+
+        Rigidbody rb = Instantiate(projectile, firePosition.position, Quaternion.identity).GetComponent<Rigidbody>();
+        Vector3 direction = (player.position - firePosition.position).normalized; 
+
+        rb.AddForce(direction * projectileForce, ForceMode.Impulse);
+
+        rb.transform.forward = direction; 
     }
+
 
     //public void TakeDamage(int damage)
     //{
@@ -120,11 +137,12 @@ public class EnemyMovement : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     // Update is called once per frame
     private void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
@@ -145,7 +163,7 @@ public class EnemyMovement : MonoBehaviour
 
         //if (!playerInSightRange && !playerInAttackRange)
         //{
-        //    Patrolling(); 
+        //    Patrolling();
         //}
 
         //else if (playerInSightRange && !playerInAttackRange)
@@ -163,27 +181,111 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("BasicBullet"))
         {
-            currentEnemyHealth--;
+            currentEnemyHealth = currentEnemyHealth - 5f;
             currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-
+            superMoveBar.BasicHit();
             UpdateEnemyHealthBar();
 
             if (currentEnemyHealth <= 0)
             {
-                if(explosion != null)
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
+                if (explosion != null)
                 {
                     ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
                     ps.Play();
                     Destroy(ps.gameObject, ps.main.duration);
                 }
 
+                OnEnemyDeath?.Invoke(this);
                 Destroy(gameObject);
+                
+            }
+        }
+
+        else if (other.CompareTag("LaserBullet"))
+        {
+            currentEnemyHealth = currentEnemyHealth - 10f;
+            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+            superMoveBar.LaserHit();
+            UpdateEnemyHealthBar();
+
+            if (currentEnemyHealth <= 0)
+            {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
+                if (explosion != null)
+                {
+                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+                    ps.Play();
+                    Destroy(ps.gameObject, ps.main.duration);
+                }
+
+                OnEnemyDeath?.Invoke(this);
+                Destroy(gameObject);
+                
+            }
+        }
+
+        else if (other.CompareTag("MachineBullet"))
+        {
+            currentEnemyHealth = currentEnemyHealth - 2f;
+            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+            superMoveBar.MachineHit();
+            UpdateEnemyHealthBar();
+
+            if (currentEnemyHealth <= 0)
+            {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
+                if (explosion != null)
+                {
+                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+                    ps.Play();
+                    Destroy(ps.gameObject, ps.main.duration);
+                }
+
+                OnEnemyDeath?.Invoke(this);
+                Destroy(gameObject);
+                
+            }
+        }
+
+        else if (other.CompareTag("AssaultBullet"))
+        {
+            currentEnemyHealth = currentEnemyHealth - 4f;
+            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
+            superMoveBar.AssaultHit();
+            UpdateEnemyHealthBar();
+
+            if (currentEnemyHealth <= 0)
+            {
+                if (isDead) return;  // prevent multiple deaths
+                isDead = true;
+
+                if (explosion != null)
+                {
+                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+                    ps.Play();
+                    Destroy(ps.gameObject, ps.main.duration);
+                }
+
+                OnEnemyDeath?.Invoke(this);
+                Destroy(gameObject);
+                
             }
         }
     }
 
     private void UpdateEnemyHealthBar()
     {
+        if (enemyHealthBarPic == null)
+        {
+            return; 
+        }
         float targetFillAmount = currentEnemyHealth / maxEnemyHealth;
         enemyHealthBarPic.fillAmount = targetFillAmount;
     }

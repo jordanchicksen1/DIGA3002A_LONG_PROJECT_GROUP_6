@@ -14,7 +14,7 @@ public class playerHealth : MonoBehaviour
     [Header("Damage")]
     public Image DamagedScreenImage;
     public float ImageAlpha;
-
+    public GameObject gameOverScreen;
     [Header("Player Hurt Comunication")]
     /*public MeshRenderer MeshRenderer;
     public Material HurtPlayerMat;
@@ -39,6 +39,13 @@ public class playerHealth : MonoBehaviour
     {
         //put player death here
         DamagedPlayerScreen();
+
+        if(currentHealth <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
 

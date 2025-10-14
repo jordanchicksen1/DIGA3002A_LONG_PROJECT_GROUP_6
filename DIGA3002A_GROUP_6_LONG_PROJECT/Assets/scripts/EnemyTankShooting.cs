@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class EnemyTankShooting : MonoBehaviour
 {
@@ -19,6 +20,22 @@ public class EnemyTankShooting : MonoBehaviour
     private float fireTimer = 0f;
     private bool inCooldown = false;
     private float cooldownTimer = 0f;
+
+    public float currentEnemyHealth;
+    public float maxEnemyHealth;
+    public Image enemyHealthBarPic;
+
+    public ParticleSystem explosion;
+
+    public bool isDead = false;
+
+    public static event System.Action<EnemyTankShooting> OnEnemyDeath;
+
+    private void Start()
+    {
+        currentEnemyHealth = maxEnemyHealth;
+        UpdateEnemyHealthBar();
+    }
 
     void Update()
     {
@@ -41,6 +58,18 @@ public class EnemyTankShooting : MonoBehaviour
                 StartCooldown();
             }
         }
+    }
+
+    
+
+    private void UpdateEnemyHealthBar()
+    {
+        if (enemyHealthBarPic == null)
+        {
+            return;
+        }
+        float targetFillAmount = currentEnemyHealth / maxEnemyHealth;
+        enemyHealthBarPic.fillAmount = targetFillAmount;
     }
 
     private void Shoot()

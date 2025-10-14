@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class equipment : MonoBehaviour
@@ -8,7 +9,7 @@ public class equipment : MonoBehaviour
     [Header("Scripts")]
     public playerHealth playerHealth;
     public PlayerController playerEdited;
-
+    
     [Header("Bools")]
     public bool basicHeadEquipped = true;
     public bool basicTorsoEquipped = true;
@@ -103,8 +104,29 @@ public class equipment : MonoBehaviour
     public GameObject equippedLaserSuper;
     public GameObject equippedOrbitalSuper;
 
-    //weapon equipping
+    [Header("Text")]
+    public TextMeshProUGUI hpRoboBuilding;
+    public TextMeshProUGUI speedRoboBuilding;
+    public TextMeshProUGUI hpHeadsPage;
+    public TextMeshProUGUI speedHeadsPage;
+    public TextMeshProUGUI hpLegsPage;
+    public TextMeshProUGUI speedLegsPage;
+    public TextMeshProUGUI hpTorsosPage;
+    public TextMeshProUGUI speedTorsosPage;
 
+    public void Start()
+    {
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
+    }
+
+    //weapon equipping
     [ContextMenu("Basic Gun Left")]
     public void EquipBasicGunLeft()
     {
@@ -122,6 +144,8 @@ public class equipment : MonoBehaviour
         equippedAssaultGunLeft.SetActive(false);
         equippedMachineGunLeft.SetActive(false);
         equippedLaserGunLeft.SetActive(false);
+
+        
     }
 
     [ContextMenu("Basic Gun Right")]
@@ -341,6 +365,15 @@ public class equipment : MonoBehaviour
         basicHeadEquipped = true;
         basicHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
+
     }
 
     public IEnumerator StandardHeadToBasicHead()
@@ -363,6 +396,15 @@ public class equipment : MonoBehaviour
         basicHeadEquipped = true;
         basicHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
+
     }
 
     public IEnumerator DefenceHeadToBasicHead()
@@ -384,6 +426,15 @@ public class equipment : MonoBehaviour
         playerHealth.currentHealth = playerHealth.maxHealth;
         basicHeadEquipped = true;
         basicHead.SetActive(true);
+
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
 
     }
 
@@ -433,6 +484,15 @@ public class equipment : MonoBehaviour
         basicTorsoEquipped = true;
         basicTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
+
     }
 
     public IEnumerator StandardTorsoToBasicTorso()
@@ -455,6 +515,14 @@ public class equipment : MonoBehaviour
         basicTorsoEquipped = true;
         basicTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceTorsoToBasicTorso()
@@ -477,6 +545,14 @@ public class equipment : MonoBehaviour
         basicTorsoEquipped = true;
         basicTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Basic Legs")]
@@ -525,6 +601,14 @@ public class equipment : MonoBehaviour
         basicLegsEquipped = true;
         basicLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator StandardLegsToBasicLegs()
@@ -547,6 +631,14 @@ public class equipment : MonoBehaviour
         basicLegsEquipped = true;
         basicLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceLegsToBasicLegs()
@@ -569,6 +661,14 @@ public class equipment : MonoBehaviour
         basicLegsEquipped = true;
         basicLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Standard Head")]
@@ -617,6 +717,14 @@ public class equipment : MonoBehaviour
         standardHeadEquipped = true;
         standardHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceHeadToStandardHead()
@@ -639,6 +747,14 @@ public class equipment : MonoBehaviour
         standardHeadEquipped = true;
         standardHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicHeadToStandardHead()
@@ -661,6 +777,14 @@ public class equipment : MonoBehaviour
         standardHeadEquipped = true;
         standardHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Standard Torso")]
@@ -671,6 +795,7 @@ public class equipment : MonoBehaviour
             StartCoroutine(SpeedTorsoToStandardTorso());
             equippedSpeedTorso.SetActive(false);
             equippedStandardTorso.SetActive(true);
+            Debug.Log("took off speed torso and put on standard torso");
         }
 
         if (defenceTorsoEquipped == true)
@@ -678,6 +803,7 @@ public class equipment : MonoBehaviour
             StartCoroutine(DefenceTorsoToStandardTorso());
             equippedDefenceTorso.SetActive(false);
             equippedStandardTorso.SetActive(true);
+            Debug.Log("took off defence torso and put on standard torso");
         }
 
         if (basicTorsoEquipped == true)
@@ -685,6 +811,7 @@ public class equipment : MonoBehaviour
             StartCoroutine(BasicTorsoToStandardTorso());
             equippedBasicTorso.SetActive(false);
             equippedStandardTorso.SetActive(true);
+            Debug.Log("took off basic torso and put on standard torso");
         }
 
     }
@@ -709,6 +836,14 @@ public class equipment : MonoBehaviour
         standardTorsoEquipped = true;
         standardTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceTorsoToStandardTorso()
@@ -731,6 +866,14 @@ public class equipment : MonoBehaviour
         standardTorsoEquipped = true;
         standardTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicTorsoToStandardTorso()
@@ -753,6 +896,14 @@ public class equipment : MonoBehaviour
         standardTorsoEquipped = true;
         standardTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Standard Legs")]
@@ -801,6 +952,14 @@ public class equipment : MonoBehaviour
         standardLegsEquipped = true;
         standardLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceLegsToStandardLegs()
@@ -823,6 +982,14 @@ public class equipment : MonoBehaviour
         standardLegsEquipped = true;
         standardLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicLegsToStandardLegs()
@@ -845,6 +1012,14 @@ public class equipment : MonoBehaviour
         standardLegsEquipped = true;
         standardLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Speed Head")]
@@ -893,6 +1068,14 @@ public class equipment : MonoBehaviour
         speedHeadEquipped = true;
         speedHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceHeadToSpeedHead()
@@ -915,6 +1098,14 @@ public class equipment : MonoBehaviour
         speedHeadEquipped = true;
         speedHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicHeadToSpeedHead()
@@ -937,6 +1128,14 @@ public class equipment : MonoBehaviour
         speedHeadEquipped = true;
         speedHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Speed Torso")]
@@ -985,6 +1184,14 @@ public class equipment : MonoBehaviour
         speedTorsoEquipped = true;
         speedTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceTorsoToSpeedTorso()
@@ -1007,6 +1214,14 @@ public class equipment : MonoBehaviour
         speedTorsoEquipped = true;
         speedTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicTorsoToSpeedTorso()
@@ -1029,6 +1244,14 @@ public class equipment : MonoBehaviour
         speedTorsoEquipped = true;
         speedTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Speed Legs")]
@@ -1077,6 +1300,14 @@ public class equipment : MonoBehaviour
         speedLegsEquipped = true;
         speedLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator DefenceLegsToSpeedLegs()
@@ -1099,6 +1330,14 @@ public class equipment : MonoBehaviour
         speedLegsEquipped = true;
         speedLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicLegsToSpeedLegs()
@@ -1121,6 +1360,14 @@ public class equipment : MonoBehaviour
         speedLegsEquipped = true;
         speedLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Defence Head")]
@@ -1169,6 +1416,14 @@ public class equipment : MonoBehaviour
         defenceHeadEquipped = true;
         defenceHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator SpeedHeadToDefenceHead()
@@ -1191,6 +1446,14 @@ public class equipment : MonoBehaviour
         defenceHeadEquipped = true;
         defenceHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicHeadToDefenceHead()
@@ -1213,6 +1476,14 @@ public class equipment : MonoBehaviour
         defenceHeadEquipped = true;
         defenceHead.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Defence Torso")]
@@ -1261,6 +1532,14 @@ public class equipment : MonoBehaviour
         defenceTorsoEquipped = true;
         defenceTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator SpeedTorsoToDefenceTorso()
@@ -1283,6 +1562,14 @@ public class equipment : MonoBehaviour
         defenceTorsoEquipped = true;
         defenceTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicTorsoToDefenceTorso()
@@ -1305,6 +1592,14 @@ public class equipment : MonoBehaviour
         defenceTorsoEquipped = true;
         defenceTorso.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     [ContextMenu("Defence Legs")]
@@ -1353,6 +1648,14 @@ public class equipment : MonoBehaviour
         defenceLegsEquipped = true;
         defenceLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator SpeedLegsToDefenceLegs()
@@ -1375,6 +1678,14 @@ public class equipment : MonoBehaviour
         defenceLegsEquipped = true;
         defenceLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 
     public IEnumerator BasicLegsToDefenceLegs()
@@ -1397,6 +1708,14 @@ public class equipment : MonoBehaviour
         defenceLegsEquipped = true;
         defenceLegs.SetActive(true);
 
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
 }
 
