@@ -10884,6 +10884,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.474
       objectReference: {fileID: 0}
+    - target: {fileID: 6069042141162189387, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6142590904010208397, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: m_IsActive
@@ -11009,6 +11014,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8787124806977383376, guid: df3f1474b9cb9174285f1f034a7c84ec,
+        type: 3}
+      propertyPath: Basic
+      value: 
+      objectReference: {fileID: 8300000, guid: d2d1dd16d0af8e247914075e350faf3d, type: 3}
     - target: {fileID: 8787124806977383376, guid: df3f1474b9cb9174285f1f034a7c84ec,
         type: 3}
       propertyPath: Laser

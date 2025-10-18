@@ -566,6 +566,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastBasicLeftShotTime + basicFireRate) return;
         lastBasicLeftShotTime = Time.time;
 
+        MusicManager.SFX.PlayOneShot(MusicManager.Basic);
         var projectile = Instantiate(basicBulletPrefab, basicLeftFirePoint.position, basicLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicLeftFirePoint.forward * basicBulletSpeed;
@@ -582,6 +583,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastBasicRightShotTime + basicFireRate) return;
         lastBasicRightShotTime = Time.time;
 
+        MusicManager.SFX.PlayOneShot(MusicManager.Basic);
         var projectile = Instantiate(basicBulletPrefab, basicRightFirePoint.position, basicRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicRightFirePoint.forward * basicBulletSpeed;
