@@ -631,6 +631,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastAssaultLeftShotTime + assaultFireRate) return;
         lastAssaultLeftShotTime = Time.time;
 
+        MusicManager.SFX.PlayOneShot(MusicManager.Rifle);
         var projectile = Instantiate(assaultBulletPrefab, assaultLeftFirePoint.position, assaultLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
@@ -648,6 +649,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastAssaultRightShotTime + assaultFireRate) return;
         lastAssaultRightShotTime = Time.time;
 
+        MusicManager.SFX.PlayOneShot(MusicManager.Rifle);
         var projectile = Instantiate(assaultBulletPrefab, assaultRightFirePoint.position, assaultRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
@@ -665,7 +667,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastLaserLeftShotTime + laserFireRate) return;
         lastLaserLeftShotTime = Time.time;
 
-        // MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
@@ -683,7 +685,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastLaserRightShotTime + laserFireRate) return;
         lastLaserRightShotTime = Time.time;
 
-        //  MusicManager.SFX.PlayOneShot(MusicManager.Laser);
+        MusicManager.SFX.PlayOneShot(MusicManager.Laser);
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
