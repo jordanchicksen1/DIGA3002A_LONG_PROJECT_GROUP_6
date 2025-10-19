@@ -10,33 +10,54 @@ public class EnemyMovement : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
-
-    public float fireRate = 8f;
-    private float nextTimeToFire = 0f;
-    public GameObject projectile;
-    public float projectileForce = 32f;
-
-    public float currentEnemyHealth;
-    public float maxEnemyHealth;
-    public Image enemyHealthBarPic; 
-
     public Transform firePosition;
-
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
+    public GameObject projectile;
+    public Image enemyHealthBarPic;
     public ParticleSystem explosion;
     public ParticleSystem muzzleEffect;
 
-    public static event System.Action<EnemyMovement> OnEnemyDeath;
+    public float fireRate = 8f;
+    private float nextTimeToFire = 0f;
+    
+    public float maxEnemyHealth;
+    public float currentEnemyHealth;
+    public float sightRange, attackRange;
+    public float projectileForce = 32f;
 
+    public float fireCooldown = 1.5f;
+    [SerializeField] private int burstCount = 3;
+    [SerializeField] private float burstInterval = 0.1f;
+    [SerializeField] private float burstCooldown = 2f;
+    public float timeBetweenShots = 0.2f;
+    public float aimSpread = 0.05f;
+
+    private int shotsFired = 0;
+    private bool isCoolingDown = false;
+
+    public float walkPointRange;
+    public float strafeSpeed = 3f;
+    public float retreatThreshold = 0.3f;
+
+    public Vector3 walkPoint;
+    private bool walkPointSet;
+    private float lastAttackTime = 0f;
+    private bool strafeLeft; 
+    private bool hasCalledBackup = false;
+
+    public bool playerInSightRange, playerInAttackRange;
     public bool isDead = false;
 
-    public superMoveBar superMoveBar;
+    public static event System.Action<EnemyMovement> OnEnemyDeath;
+
+    private enum EnemyState { Patrol, Chase, Attack, Retreat }
+    private EnemyState currentState = EnemyState.Patrol;
+
+    [SerializeField] private float minFireRate = 2f; // slowest shots per second
+    [SerializeField] private float maxFireRate = 6f;
+    private float currentFireRate;
+    private float nextFireTime;
+
+
     private void Awake()
     {
         player= GameObject.Find("player").transform;
@@ -48,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
         currentEnemyHealth = maxEnemyHealth;
         UpdateEnemyHealthBar();
     }
-    
+
     private void Patrolling()
     {
         if (!walkPointSet)
@@ -61,9 +82,7 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(walkPoint);
         }
 
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (Vector3.Distance(transform.position, walkPoint) < 1f)
         {
             walkPointSet = false;
         }
@@ -85,44 +104,114 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChasePlayer()
     {
+        agent.isStopped = false;
         agent.SetDestination(player.position);
         Debug.Log("is working");
     }
 
     private void AttackPlayer()
     {
-        agent.SetDestination(player.position);
+        agent.isStopped = true;
 
         Vector3 targetPos = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(targetPos);
 
-        if (Time.time >= nextTimeToFire)
+        Strafe(); 
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        currentFireRate = Mathf.Lerp(maxFireRate, minFireRate, distance / attackRange);
+
+        if (!isCoolingDown && Time.time >= nextFireTime)
         {
             FireProjectile();
-            nextTimeToFire = Time.time + (1f / fireRate);
+            shotsFired++;
+            nextFireTime = Time.time + burstInterval;
+
+            if (shotsFired >= burstCount)
+            {
+                isCoolingDown = true;
+                shotsFired = 0;
+                Invoke(nameof(ResetCooldown), burstCooldown);
+            }
+        }
+    }
+
+    private void ResetCooldown()
+    {
+        isCoolingDown = false;
+    }
+
+    private IEnumerator FireBurst()
+    {
+        for (int i = 0; i < burstCount; i++)
+        {
+            FireProjectile();
+            yield return new WaitForSeconds(timeBetweenShots);
         }
     }
 
     private void FireProjectile()
     {
-        if (projectile == null || firePosition == null || player == null)
+        if (projectile == null || firePosition == null || player == null) return;
+
+        Rigidbody rb = Instantiate(projectile, firePosition.position, Quaternion.identity).GetComponent<Rigidbody>();
+        Vector3 direction = (player.position - firePosition.position).normalized;
+
+        float spread = 0.05f;
+        direction += new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0);
+
+        rb.AddForce(direction.normalized * projectileForce, ForceMode.Impulse);
+        rb.transform.forward = direction.normalized;
+
+        if (muzzleEffect != null)
+            muzzleEffect.Play();
+    }
+
+
+    private void Strafe()
+    {
+        Vector3 strafeDir = strafeLeft ? -transform.right : transform.right;
+        agent.Move(strafeDir * strafeSpeed * Time.deltaTime);
+
+        if (Random.value > 0.99f)
+        {
+            strafeLeft = !strafeLeft; 
+        }
+    }
+
+    private void TakeCover()
+    {
+        Collider[] covers = Physics.OverlapSphere(transform.position, 15f, LayerMask.GetMask("Cover"));
+        if (covers.Length == 0)
         {
             return;
         }
 
-        if (muzzleEffect != null)
+        Transform bestCover = covers[0].transform;
+        float shortest = Vector3.Distance(transform.position, bestCover.position);
+
+        foreach (Collider c in covers)
         {
-            muzzleEffect.Play(); 
+            float dist = Vector3.Distance(transform.position, c.transform.position);
+
+            if (dist < shortest)
+            {
+                shortest = dist;
+                bestCover = c.transform;
+            }
         }
 
-        Rigidbody rb = Instantiate(projectile, firePosition.position, Quaternion.identity).GetComponent<Rigidbody>();
-        Vector3 direction = (player.position - firePosition.position).normalized; 
-
-        rb.AddForce(direction * projectileForce, ForceMode.Impulse);
-
-        rb.transform.forward = direction; 
+        agent.isStopped = false;
+        agent.SetDestination(bestCover.position); 
     }
 
+    private bool CanSeePlayer()
+    {
+        Vector3 dirToPlayer = (player.position - transform.position).normalized;
+        if (Physics.Raycast(transform.position + Vector3.up, dirToPlayer, out RaycastHit hit, sightRange))
+            return hit.transform.CompareTag("Player");
+        return false;
+    }
 
     //public void TakeDamage(int damage)
     //{
@@ -141,23 +230,42 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
-
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        walkPointRange = distance;
-        if (walkPointRange <= 10)
+        if (isDead)
         {
-            ChasePlayer();
-            AttackPlayer();
-            Debug.Log(distance);
-
+            return;
         }
-        else if (distance > 10)
-        {
-            Patrolling();
 
+        playerInSightRange = CanSeePlayer(); 
+        playerInAttackRange = Vector3.Distance(transform.position, player.position) <= attackRange;
+
+        switch (currentState)
+        {
+            case EnemyState.Patrol:
+                Patrolling();
+                if (playerInSightRange)
+                {
+                    currentState = EnemyState.Chase; 
+                }
+                break;
+
+            case EnemyState.Chase:
+                ChasePlayer();
+                if (playerInAttackRange && playerInSightRange) currentState = EnemyState.Attack;
+                else if (!playerInSightRange) currentState = EnemyState.Patrol;
+                break;
+
+            case EnemyState.Attack:
+                AttackPlayer();
+                if (!playerInAttackRange || !playerInSightRange) currentState = EnemyState.Chase;
+                if (currentEnemyHealth <= maxEnemyHealth * retreatThreshold)
+                    currentState = EnemyState.Retreat;
+                break;
+
+            case EnemyState.Retreat:
+                TakeCover();
+                if (currentEnemyHealth > maxEnemyHealth * retreatThreshold)
+                    currentState = EnemyState.Chase;
+                break; 
         }
 
 
@@ -179,114 +287,47 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BasicBullet"))
+        if (isDead) return;
+
+        float damage = 0f;
+
+        if (other.CompareTag("BasicBullet")) damage = 5f;
+        else if (other.CompareTag("LaserBullet")) damage = 10f;
+        else if (other.CompareTag("MachineBullet")) damage = 2f;
+        else if (other.CompareTag("AssaultBullet")) damage = 4f;
+
+        if (damage > 0)
+            ApplyDamage(damage);
+    }
+
+    private void ApplyDamage(float amount)
+    {
+        currentEnemyHealth = Mathf.Clamp(currentEnemyHealth - amount, 0, maxEnemyHealth);
+        UpdateEnemyHealthBar();
+
+        if (currentEnemyHealth <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        if (explosion != null)
         {
-            currentEnemyHealth = currentEnemyHealth - 5f;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-            superMoveBar.BasicHit();
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (isDead) return;  // prevent multiple deaths
-                isDead = true;
-
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                OnEnemyDeath?.Invoke(this);
-                Destroy(gameObject);
-                
-            }
+            ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+            ps.Play();
+            Destroy(ps.gameObject, ps.main.duration);
         }
 
-        else if (other.CompareTag("LaserBullet"))
-        {
-            currentEnemyHealth = currentEnemyHealth - 10f;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-            superMoveBar.LaserHit();
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (isDead) return;  // prevent multiple deaths
-                isDead = true;
-
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                OnEnemyDeath?.Invoke(this);
-                Destroy(gameObject);
-                
-            }
-        }
-
-        else if (other.CompareTag("MachineBullet"))
-        {
-            currentEnemyHealth = currentEnemyHealth - 2f;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-            superMoveBar.MachineHit();
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (isDead) return;  // prevent multiple deaths
-                isDead = true;
-
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                OnEnemyDeath?.Invoke(this);
-                Destroy(gameObject);
-                
-            }
-        }
-
-        else if (other.CompareTag("AssaultBullet"))
-        {
-            currentEnemyHealth = currentEnemyHealth - 4f;
-            currentEnemyHealth = Mathf.Clamp(currentEnemyHealth, 0, maxEnemyHealth);
-            superMoveBar.AssaultHit();
-            UpdateEnemyHealthBar();
-
-            if (currentEnemyHealth <= 0)
-            {
-                if (isDead) return;  // prevent multiple deaths
-                isDead = true;
-
-                if (explosion != null)
-                {
-                    ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
-                    ps.Play();
-                    Destroy(ps.gameObject, ps.main.duration);
-                }
-
-                OnEnemyDeath?.Invoke(this);
-                Destroy(gameObject);
-                
-            }
-        }
+        OnEnemyDeath?.Invoke(this);
+        Destroy(gameObject);
     }
 
     private void UpdateEnemyHealthBar()
     {
-        if (enemyHealthBarPic == null)
-        {
-            return; 
-        }
-        float targetFillAmount = currentEnemyHealth / maxEnemyHealth;
-        enemyHealthBarPic.fillAmount = targetFillAmount;
+        if (enemyHealthBarPic != null)
+            enemyHealthBarPic.fillAmount = currentEnemyHealth / maxEnemyHealth;
     }
 }
