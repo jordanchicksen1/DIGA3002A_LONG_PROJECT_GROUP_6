@@ -17397,7 +17397,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -26051,8 +26051,8 @@ MonoBehaviour:
   quadLaser: {fileID: 7709922063516150953}
   isUsingQuadLaser: 0
   orbitalAimer: {fileID: 7005558943820647914}
-  smallRecoilForce: 1
-  mediumRecoilForce: 2
+  smallRecoilForce: 0.5
+  mediumRecoilForce: 1
   largeRecoilForce: 6
   dummyBars: {fileID: 8168274209781820321}
   boss1Posture: {fileID: 0}
