@@ -289,16 +289,28 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isDead) return;
 
-        float damage = 0f;
-
-        if (other.CompareTag("BasicBullet")) damage = 5f;
-        else if (other.CompareTag("LaserBullet")) damage = 10f;
-        else if (other.CompareTag("MachineBullet")) damage = 2f;
-        else if (other.CompareTag("AssaultBullet")) damage = 4f;
-
-        if (damage > 0)
-            ApplyDamage(damage);
+        if (other.CompareTag("BasicBullet"))
+        {
+            ApplyDamage(5f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("LaserBullet"))
+        {
+            ApplyDamage(10f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("MachineBullet"))
+        {
+            ApplyDamage(2f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("AssaultBullet"))
+        {
+            ApplyDamage(4f);
+            Destroy(other.gameObject);
+        }
     }
+
 
     private void ApplyDamage(float amount)
     {
