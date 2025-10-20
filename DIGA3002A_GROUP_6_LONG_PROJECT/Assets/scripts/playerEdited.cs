@@ -570,7 +570,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(basicBulletPrefab, basicLeftFirePoint.position, basicLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicLeftFirePoint.forward * basicBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         leftAmmoManager.BasicShot();
 
         ApplySmallRecoil(-basicLeftFirePoint.forward);
@@ -587,7 +587,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(basicBulletPrefab, basicRightFirePoint.position, basicRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicRightFirePoint.forward * basicBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         rightAmmoManager.BasicShot();
 
         ApplySmallRecoil(-basicRightFirePoint.forward);
@@ -604,7 +604,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(machineBulletPrefab, machineLeftFirePoint.position, machineLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
-        Destroy(projectile, 0.8f);
+        Destroy(projectile, 1.6f);
         leftAmmoManager.MachineShot();
         ApplySmallRecoil(-machineLeftFirePoint.forward);
         Debug.Log("machine shot left");
@@ -620,7 +620,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(machineBulletPrefab, machineRightFirePoint.position, machineRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
-        Destroy(projectile, 0.8f);
+        Destroy(projectile, 1.6f);
         rightAmmoManager.MachineShot();
         ApplySmallRecoil(-machineRightFirePoint.forward);
         Debug.Log("machine shot right");
@@ -637,7 +637,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(assaultBulletPrefab, assaultLeftFirePoint.position, assaultLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         leftAmmoManager.AssaultShot();
         ApplyMediumRecoil(-assaultLeftFirePoint.forward);
 
@@ -655,7 +655,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(assaultBulletPrefab, assaultRightFirePoint.position, assaultRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         rightAmmoManager.AssaultShot();
         ApplyMediumRecoil(-assaultRightFirePoint.forward);
 
@@ -673,7 +673,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
-        Destroy(projectile, 1.5f);
+        Destroy(projectile, 3f);
         leftAmmoManager.LaserShot();
         ApplyLargeRecoil(-laserLeftFirePoint.forward);
 
@@ -691,7 +691,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
-        Destroy(projectile, 1.5f);
+        Destroy(projectile, 3f);
         rightAmmoManager.LaserShot();
         ApplyLargeRecoil(-laserRightFirePoint.forward);
 
