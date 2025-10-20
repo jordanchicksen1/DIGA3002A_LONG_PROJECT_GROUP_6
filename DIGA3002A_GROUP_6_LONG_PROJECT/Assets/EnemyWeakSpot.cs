@@ -28,10 +28,22 @@ public class EnemyWeakSpot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BasicBullet")) TakeDamage(5f);
-        else if (other.CompareTag("LaserBullet")) TakeDamage(10f);
-        else if (other.CompareTag("MachineBullet")) TakeDamage(2f);
-        else if (other.CompareTag("AssaultBullet")) TakeDamage(4f);
+        if (other.CompareTag("BasicBullet"))
+        {
+            TakeDamage(5f);
+        }     
+        else if (other.CompareTag("LaserBullet"))
+        {
+            TakeDamage(10f);
+        }
+        else if (other.CompareTag("MachineBullet"))
+        {
+            TakeDamage(2f);
+        } 
+        else if (other.CompareTag("AssaultBullet"))
+        {
+            TakeDamage(4f);
+        } 
     }
 
     private void TakeDamage(float amount)
@@ -42,7 +54,7 @@ public class EnemyWeakSpot : MonoBehaviour
         superMoveBar.AssaultHit();
         if (currentEnemyHealth <= 0)
         {
-            Die();  // now Die() is called exactly once
+            Die();
         }
     }
 
