@@ -26143,6 +26143,7 @@ MonoBehaviour:
   staggeredText: {fileID: 1318711416766302661}
   leftAmmoManager: {fileID: 2421205393565308800}
   rightAmmoManager: {fileID: 5204252677447129056}
+  equipment: {fileID: 2958276595036791724}
   basicBulletPrefab: {fileID: 5553052499940522874, guid: ed3916ecb3934894d87a4aa1e9bcfde2,
     type: 3}
   basicBulletSpeed: 10

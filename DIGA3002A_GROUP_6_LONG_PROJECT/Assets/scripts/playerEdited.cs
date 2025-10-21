@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public GameObject staggeredText;
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
+    public equipment equipment;
 
     [Header("Basic Gun Info")]
     public GameObject basicBulletPrefab;
@@ -430,6 +431,11 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    public void UpgradeSpeed()
+    {
+        moveSpeed = moveSpeed + 0.5f;
+    }
+
     private void ApplySmallRecoil(Vector3 direction)
     {
         // Only apply if not paused / staggered
@@ -805,6 +811,18 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             healManager.AddHeal();
             StartCoroutine(GotHeal());
+        }
+
+        if(other.tag == "HealthUpgrade")
+        {
+            Destroy(other.gameObject);
+            equipment.GotHealthUpgrade();
+        }
+
+        if (other.tag == "SpeedUpgrade")
+        {
+            Destroy(other.gameObject);
+            equipment.GotSpeedUpgrade();
         }
     }
 

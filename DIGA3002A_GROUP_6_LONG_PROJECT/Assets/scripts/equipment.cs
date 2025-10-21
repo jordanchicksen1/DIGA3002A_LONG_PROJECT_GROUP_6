@@ -1717,6 +1717,39 @@ public class equipment : MonoBehaviour
         hpLegsPage.text = playerHealth.maxHealth.ToString();
         speedLegsPage.text = playerEdited.moveSpeed.ToString();
     }
+
+    public void GotHealthUpgrade()
+    {
+        playerHealth.maxHealth = playerHealth.maxHealth + 10f;
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        playerHealth.updateHealthBar();
+
+        hpRoboBuilding.text = playerHealth.maxHealth.ToString();
+       
+        hpHeadsPage.text = playerHealth.maxHealth.ToString();
+       
+        hpTorsosPage.text = playerHealth.maxHealth.ToString();
+       
+        hpLegsPage.text = playerHealth.maxHealth.ToString();
+        
+    }
+
+    public void GotSpeedUpgrade()
+    {
+        playerEdited.moveSpeed = playerEdited.moveSpeed + 0.5f;
+        playerEdited.originalSpeed = playerEdited.originalSpeed + 0.5f;
+
+        
+        speedRoboBuilding.text = playerEdited.moveSpeed.ToString();
+      
+        speedHeadsPage.text = playerEdited.moveSpeed.ToString();
+        
+        speedTorsosPage.text = playerEdited.moveSpeed.ToString();
+      
+        speedLegsPage.text = playerEdited.moveSpeed.ToString();
+
+
+    }
 }
 
 
