@@ -764,7 +764,7 @@ public class PlayerController : MonoBehaviour
         {
             hasHit = true;
             Destroy(other.gameObject);
-            playerHealth.PlayerHit();
+            playerHealth.PlayerHit(transform.position);
             Debug.Log("small hit");
             StartCoroutine(BulletHit());
         }
