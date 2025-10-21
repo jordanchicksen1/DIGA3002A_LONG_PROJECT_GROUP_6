@@ -79,6 +79,14 @@ public class boss1 : MonoBehaviour
 
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+         if(other.tag == "DummyAreaTrigger")
+        {
+            transform.position = dummyTarget.transform.position;
+        }
+    }
+
     private IEnumerator ApplyKnockback(Vector3 direction)
     {
         isKnockedBack = true;
