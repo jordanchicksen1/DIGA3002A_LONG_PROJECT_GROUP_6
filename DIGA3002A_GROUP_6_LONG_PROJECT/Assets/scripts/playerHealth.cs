@@ -49,6 +49,26 @@ public class playerHealth : MonoBehaviour
         }
     }
 
+    public void PlayerHitFrom(Vector3 attackerPosition, float damage)
+    {
+        currentHealth -= damage;
+        StartCoroutine(RedOn());
+        updateHealthBar();
+
+        if (attackIndicator != null)
+        {
+            Vector3 attackDir = attackerPosition - transform.position;
+            attackIndicator.ShowIndicator(attackDir);
+        }
+
+        if (currentHealth <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
 
     [ContextMenu("PlayerHit")]
     public void PlayerHit(Vector3 attackerPosition)

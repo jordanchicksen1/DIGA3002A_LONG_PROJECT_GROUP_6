@@ -51,7 +51,10 @@ public class TacticalDroneAI : MonoBehaviour
     private bool inCooldown = false;
     private bool nextIsA = true; // For alternate mode
     private Vector3 startPosition;
+    public bool isDead = false;
+    public ParticleSystem explosion;
 
+    public static event System.Action<TacticalDroneAI> OnDroneDeath;
     void Start()
     {
         startPosition = transform.position;
@@ -175,6 +178,41 @@ public class TacticalDroneAI : MonoBehaviour
         Destroy(proj, 8f);
     }
 
+    private void ApplyDamage(float amount)
+    {
+        currentEnemyHealth = Mathf.Clamp(currentEnemyHealth - amount, 0, maxEnemyHealth);
+        UpdateEnemyHealthBar();
+
+        if (currentEnemyHealth <= 0)
+            Die();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isDead) return;
+
+        if (other.CompareTag("BasicBullet"))
+        {
+            ApplyDamage(5f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("LaserBullet"))
+        {
+            ApplyDamage(10f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("MachineBullet"))
+        {
+            ApplyDamage(2f);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("AssaultBullet"))
+        {
+            ApplyDamage(4f);
+            Destroy(other.gameObject);
+        }
+    }
+
     private IEnumerator FlashLight(Light light)
     {
         light.enabled = true;
@@ -194,4 +232,21 @@ public class TacticalDroneAI : MonoBehaviour
         if (enemyHealthBarPic != null)
             enemyHealthBarPic.fillAmount = currentEnemyHealth / maxEnemyHealth;
     }
+
+    private void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        if (explosion != null)
+        {
+            ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+            ps.Play();
+            Destroy(ps.gameObject, ps.main.duration);
+        }
+
+        OnDroneDeath?.Invoke(this); 
+        Destroy(gameObject);
+    }
+
 }
