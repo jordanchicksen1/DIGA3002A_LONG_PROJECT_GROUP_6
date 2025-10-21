@@ -591,6 +591,9 @@ MonoBehaviour:
   currentEnemyHealth: 30
   enemyHealthBarPic: {fileID: 1943075231563046472}
   rotationSpeed: 5
+  isDead: 0
+  explosion: {fileID: 5272594534915021925, guid: bae6683475ac62a4d8666ad8964260a5,
+    type: 3}
 --- !u!1 &7487559571070405770
 GameObject:
   m_ObjectHideFlags: 0
