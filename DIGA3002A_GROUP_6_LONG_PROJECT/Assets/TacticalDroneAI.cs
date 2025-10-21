@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; 
 
 public class TacticalDroneAI : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class TacticalDroneAI : MonoBehaviour
     public Light flashLightB;
     public float flashDuration = 0.05f;
 
+    [Header("Health")]
+    public float maxEnemyHealth;
+    public float currentEnemyHealth;
+    public Image enemyHealthBarPic;
+
     [Header("Rotation Settings")]
     public float rotationSpeed = 5f; // How quickly the drone tracks the player
 
@@ -49,7 +55,11 @@ public class TacticalDroneAI : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+    
+        currentEnemyHealth = maxEnemyHealth;
+        UpdateEnemyHealthBar();
     }
+
 
     void Update()
     {
@@ -177,5 +187,11 @@ public class TacticalDroneAI : MonoBehaviour
         yield return new WaitForSeconds(burstCooldown);
         inCooldown = false;
         fireTimer = 0f;
+    }
+
+    private void UpdateEnemyHealthBar()
+    {
+        if (enemyHealthBarPic != null)
+            enemyHealthBarPic.fillAmount = currentEnemyHealth / maxEnemyHealth;
     }
 }
