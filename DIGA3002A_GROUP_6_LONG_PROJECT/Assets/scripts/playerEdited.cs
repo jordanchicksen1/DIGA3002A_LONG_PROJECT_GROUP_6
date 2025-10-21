@@ -37,10 +37,12 @@ public class PlayerController : MonoBehaviour
     public dashManager dashManager;
     public playerHealth playerHealth;
     public healManager healManager;
+    public GameObject gotHealText;
     public playerPosture playerPosture;
     public GameObject staggeredText;
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
+    public equipment equipment;
 
     [Header("Basic Gun Info")]
     public GameObject basicBulletPrefab;
@@ -429,6 +431,11 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    public void UpgradeSpeed()
+    {
+        moveSpeed = moveSpeed + 0.5f;
+    }
+
     private void ApplySmallRecoil(Vector3 direction)
     {
         // Only apply if not paused / staggered
@@ -570,7 +577,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(basicBulletPrefab, basicLeftFirePoint.position, basicLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicLeftFirePoint.forward * basicBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         leftAmmoManager.BasicShot();
 
         ApplySmallRecoil(-basicLeftFirePoint.forward);
@@ -587,7 +594,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(basicBulletPrefab, basicRightFirePoint.position, basicRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = basicRightFirePoint.forward * basicBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         rightAmmoManager.BasicShot();
 
         ApplySmallRecoil(-basicRightFirePoint.forward);
@@ -604,7 +611,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(machineBulletPrefab, machineLeftFirePoint.position, machineLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineLeftFirePoint.forward * machineBulletSpeed;
-        Destroy(projectile, 0.8f);
+        Destroy(projectile, 1.6f);
         leftAmmoManager.MachineShot();
         ApplySmallRecoil(-machineLeftFirePoint.forward);
         Debug.Log("machine shot left");
@@ -620,7 +627,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(machineBulletPrefab, machineRightFirePoint.position, machineRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = machineRightFirePoint.forward * machineBulletSpeed;
-        Destroy(projectile, 0.8f);
+        Destroy(projectile, 1.6f);
         rightAmmoManager.MachineShot();
         ApplySmallRecoil(-machineRightFirePoint.forward);
         Debug.Log("machine shot right");
@@ -637,7 +644,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(assaultBulletPrefab, assaultLeftFirePoint.position, assaultLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         leftAmmoManager.AssaultShot();
         ApplyMediumRecoil(-assaultLeftFirePoint.forward);
 
@@ -655,7 +662,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(assaultBulletPrefab, assaultRightFirePoint.position, assaultRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
-        Destroy(projectile, 1f);
+        Destroy(projectile, 2f);
         rightAmmoManager.AssaultShot();
         ApplyMediumRecoil(-assaultRightFirePoint.forward);
 
@@ -673,7 +680,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(laserBulletPrefab, laserLeftFirePoint.position, laserLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserLeftFirePoint.forward * laserBulletSpeed;
-        Destroy(projectile, 1.5f);
+        Destroy(projectile, 3f);
         leftAmmoManager.LaserShot();
         ApplyLargeRecoil(-laserLeftFirePoint.forward);
 
@@ -691,7 +698,7 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(laserBulletPrefab, laserRightFirePoint.position, laserRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = laserRightFirePoint.forward * laserBulletSpeed;
-        Destroy(projectile, 1.5f);
+        Destroy(projectile, 3f);
         rightAmmoManager.LaserShot();
         ApplyLargeRecoil(-laserRightFirePoint.forward);
 
@@ -797,6 +804,25 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "DummyAreaTrigger")
         {
             dummyBars.SetActive(true);
+        }
+
+        if(other.tag == "Heal")
+        {
+            Destroy(other.gameObject);
+            healManager.AddHeal();
+            StartCoroutine(GotHeal());
+        }
+
+        if(other.tag == "HealthUpgrade")
+        {
+            Destroy(other.gameObject);
+            equipment.GotHealthUpgrade();
+        }
+
+        if (other.tag == "SpeedUpgrade")
+        {
+            Destroy(other.gameObject);
+            equipment.GotSpeedUpgrade();
         }
     }
 
@@ -992,6 +1018,14 @@ public class PlayerController : MonoBehaviour
         orbitalAimer.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         isUsingOrbital = true;
+    }
+
+    public IEnumerator GotHeal()
+    {
+        yield return new WaitForSeconds(0f);
+        gotHealText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        gotHealText.SetActive(false);
     }
 }
 

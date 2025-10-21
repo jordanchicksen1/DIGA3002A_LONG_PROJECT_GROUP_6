@@ -105,6 +105,8 @@ public class playerHealth : MonoBehaviour
         playerPosture.PostureHeal();    
     }
 
+    
+
 
     public void updateHealth(float amount)
     {
