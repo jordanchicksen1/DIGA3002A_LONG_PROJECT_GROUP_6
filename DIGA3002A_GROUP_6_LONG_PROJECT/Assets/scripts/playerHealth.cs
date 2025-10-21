@@ -20,6 +20,7 @@ public class playerHealth : MonoBehaviour
     public Material HurtPlayerMat;
     public float MateralAlpha;*/
     public GameObject HurtPlayerOutline;
+    public AttackIndicator attackIndicator;
 
     private void Awake()
     {
@@ -50,19 +51,24 @@ public class playerHealth : MonoBehaviour
 
 
     [ContextMenu("PlayerHit")]
-    public void PlayerHit()
+    public void PlayerHit(Vector3 attackerPosition)
     {
-        currentHealth = currentHealth - 10f;
+        currentHealth -= 10f;
         StartCoroutine(RedOn());
 
-        if (currentHealth <= maxHealth / 2)
+        if (attackIndicator != null)
         {
-            ImageAlpha += 0.1f;
+            Vector3 attackDirection = attackerPosition - transform.position;
+            attackIndicator.ShowIndicator(attackDirection);
         }
+
+        if (currentHealth <= maxHealth / 2)
+            ImageAlpha += 0.1f;
 
         updateHealthBar();
         playerPosture.PlayerPostureHit();
     }
+
 
     [ContextMenu("PlayerHitALot")]
     public void PlayerHitALot()
