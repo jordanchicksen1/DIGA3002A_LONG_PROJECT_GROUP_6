@@ -19,6 +19,7 @@ TagManager:
   - MissionTerminalTrigger
   - Boss1
   - DummyAreaTrigger
+  - Heal
   layers:
   - Default
   - TransparentFX

@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public dashManager dashManager;
     public playerHealth playerHealth;
     public healManager healManager;
+    public GameObject gotHealText;
     public playerPosture playerPosture;
     public GameObject staggeredText;
     public leftAmmoManager leftAmmoManager;
@@ -798,6 +799,13 @@ public class PlayerController : MonoBehaviour
         {
             dummyBars.SetActive(true);
         }
+
+        if(other.tag == "Heal")
+        {
+            Destroy(other.gameObject);
+            healManager.AddHeal();
+            StartCoroutine(GotHeal());
+        }
     }
 
    
@@ -992,6 +1000,14 @@ public class PlayerController : MonoBehaviour
         orbitalAimer.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         isUsingOrbital = true;
+    }
+
+    public IEnumerator GotHeal()
+    {
+        yield return new WaitForSeconds(0f);
+        gotHealText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        gotHealText.SetActive(false);
     }
 }
 
