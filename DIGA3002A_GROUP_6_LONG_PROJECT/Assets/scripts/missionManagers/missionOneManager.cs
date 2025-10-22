@@ -9,6 +9,7 @@ public class missionOneManager : MonoBehaviour
     public int requiredKills = 6;   // how many enemies must be killed
     public int currentKills = 0;
     public TextMeshProUGUI currentKillsText;
+    public GameObject currentKillsTextObject;
     public GameObject mission1CompleteScreen;
     public GameObject player;
     public Transform garageTeleporter;
@@ -16,16 +17,20 @@ public class missionOneManager : MonoBehaviour
     public GameObject globalVolumes;
     public GameObject levelMusic;
     public playerHealth playerHealth;
+    public uiButtons uiButtons;
+    public GameObject lobbyMusic;
     private void OnEnable()
     {
         EnemyWeakSpot.OnEnemyDeath += HandleTankDeath;
         EnemyMovement.OnEnemyDeath += HandleMovementDeath;
+        TacticalDroneAI.OnDroneDeath += HandleDroneDeath;
     }
 
     private void OnDisable()
     {
         EnemyWeakSpot.OnEnemyDeath -= HandleTankDeath;
         EnemyMovement.OnEnemyDeath -= HandleMovementDeath;
+        TacticalDroneAI.OnDroneDeath += HandleDroneDeath;
     }
 
     private void HandleTankDeath(EnemyWeakSpot enemy)
@@ -38,6 +43,12 @@ public class missionOneManager : MonoBehaviour
     {
         CountKill();
         Debug.Log("MissionManager received MovementDeath event!");
+    }
+
+    private void HandleDroneDeath(TacticalDroneAI enemy)
+    {
+        CountKill();
+        Debug.Log("MissionManager received TacticalDroneAI Event!");
     }
 
     private void CountKill()
@@ -70,6 +81,8 @@ public class missionOneManager : MonoBehaviour
         playerHealth.Heal();
         globalVolumes.SetActive(false);
         levelMusic.SetActive(false);
-
+        uiButtons.isDoingMissionOne = false;
+        currentKillsTextObject.SetActive(false);
+        lobbyMusic.SetActive(true);
     }
 }
