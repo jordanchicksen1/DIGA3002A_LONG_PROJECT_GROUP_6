@@ -1,16 +1,15 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class missionOneManager : MonoBehaviour
+public class tutorial1 : MonoBehaviour
 {
-    public int requiredKills = 6;   // how many enemies must be killed
+    public int requiredKills = 3;   // how many enemies must be killed
     public int currentKills = 0;
     public TextMeshProUGUI currentKillsText;
     public GameObject currentKillsTextObject;
-    public GameObject mission1CompleteScreen;
+    public GameObject tutorial1CompleteScreen;
     public GameObject player;
     public Transform garageTeleporter;
     public CharacterController characterController;
@@ -19,37 +18,29 @@ public class missionOneManager : MonoBehaviour
     public playerHealth playerHealth;
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
+    public GameObject tutorial2Icon;
     private void OnEnable()
     {
-        EnemyWeakSpot.OnEnemyDeath += HandleTankDeath;
+        
         EnemyMovement.OnEnemyDeath += HandleMovementDeath;
-        TacticalDroneAI.OnDroneDeath += HandleDroneDeath;
+        
     }
 
     private void OnDisable()
     {
-        EnemyWeakSpot.OnEnemyDeath -= HandleTankDeath;
+        
         EnemyMovement.OnEnemyDeath -= HandleMovementDeath;
-        TacticalDroneAI.OnDroneDeath += HandleDroneDeath;
+   
     }
 
-    private void HandleTankDeath(EnemyWeakSpot enemy)
-    {
-        CountKill();
-        Debug.Log("MissionManager received TankDeath event!");
-    }
-
+  
     private void HandleMovementDeath(EnemyMovement enemy)
     {
         CountKill();
         Debug.Log("MissionManager received MovementDeath event!");
     }
 
-    private void HandleDroneDeath(TacticalDroneAI enemy)
-    {
-        CountKill();
-        Debug.Log("MissionManager received TacticalDroneAI Event!");
-    }
+    
 
     private void CountKill()
     {
@@ -66,23 +57,24 @@ public class missionOneManager : MonoBehaviour
     public void MissionComplete()
     {
         Debug.Log("Mission Complete!");
-        StartCoroutine(MissionOneComplete());
+        StartCoroutine(TutorialOneComplete());
     }
 
-    public IEnumerator MissionOneComplete()
+    public IEnumerator TutorialOneComplete()
     {
         yield return new WaitForSeconds(2f);
-        mission1CompleteScreen.SetActive(true);
+        tutorial1CompleteScreen.SetActive(true);
         characterController.enabled = false;
         yield return new WaitForSeconds(2f);
         player.transform.position = garageTeleporter.transform.position;
         characterController.enabled = true;
-        mission1CompleteScreen.SetActive(false);
+        tutorial1CompleteScreen.SetActive(false);
         playerHealth.Heal();
         globalVolumes.SetActive(false);
         levelMusic.SetActive(false);
-        uiButtons.isDoingMissionOne = false;
         currentKillsTextObject.SetActive(false);
+        uiButtons.isDoingTutorialOne = false;
         lobbyMusic.SetActive(true);
+        tutorial2Icon.SetActive(true);
     }
 }
