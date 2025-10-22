@@ -173,6 +173,13 @@ public class uiButtons : MonoBehaviour
         StartCoroutine(TutorialTwo());
     }
 
+    public void StartTutorialThree()
+    {
+        missionScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        StartCoroutine(TutorialThree());
+    }
 
     public void BackGarage()
     {
@@ -194,7 +201,7 @@ public class uiButtons : MonoBehaviour
         lobbyMusic.SetActive(false);
         tutorialOneEnemies.SetActive(false);   
         tutorialTwoEnemies.SetActive(false);
-       // tutorialThreeEnemies.SetActive(false);
+        tutorialThreeEnemies.SetActive(false);
         yield return new WaitForSeconds(1f);
         characterController.enabled = true;
         mission1Screen.SetActive(false);
@@ -212,7 +219,7 @@ public class uiButtons : MonoBehaviour
         characterController.enabled = false;
         player.transform.position = teleporterLevel.transform.position;
         lobbyMusic.SetActive(false);
-       // tutorialThreeEnemies.SetActive(false);
+        tutorialThreeEnemies.SetActive(false);
         tutorialTwoEnemies.SetActive(false);
         missionOneEnemies.SetActive(false);
         yield return new WaitForSeconds(1f);
@@ -233,7 +240,7 @@ public class uiButtons : MonoBehaviour
         player.transform.position = teleporterLevel.transform.position;
         lobbyMusic.SetActive(false);
         tutorialOneEnemies.SetActive(false);
-       // tutorialThreeEnemies.SetActive(false);
+        tutorialThreeEnemies.SetActive(false);
         missionOneEnemies.SetActive(false);
         yield return new WaitForSeconds(1f);
         characterController.enabled = true;
@@ -242,6 +249,26 @@ public class uiButtons : MonoBehaviour
         levelMusic.SetActive(true);
         tutorialTwoEnemies.SetActive(true);
         currentKillsCounterTut2.SetActive(true);
+    }
+
+    public IEnumerator TutorialThree()
+    {
+        yield return new WaitForSeconds(0f);
+        tutorial3Screen.SetActive(true);
+        isDoingTutorialThree = true;
+        characterController.enabled = false;
+        player.transform.position = teleporterLevel.transform.position;
+        lobbyMusic.SetActive(false);
+        tutorialOneEnemies.SetActive(false);
+        tutorialTwoEnemies.SetActive(false);
+        missionOneEnemies.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        characterController.enabled = true;
+        tutorial3Screen.SetActive(false);
+        globalVolumes.SetActive(true);
+        levelMusic.SetActive(true);
+        tutorialThreeEnemies.SetActive(true);
+        currentKillsCounterTut3.SetActive(true);
     }
 
     public IEnumerator BackToTheGarage()
