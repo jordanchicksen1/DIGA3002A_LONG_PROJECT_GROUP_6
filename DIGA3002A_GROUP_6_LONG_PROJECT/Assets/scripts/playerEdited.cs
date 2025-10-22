@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
     public equipment equipment;
+    public GameObject healthUpgradedText;
+    public GameObject speedUpgradedText;
 
     [Header("Basic Gun Info")]
     public GameObject basicBulletPrefab;
@@ -817,12 +819,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             equipment.GotHealthUpgrade();
+            StartCoroutine(GotHealthUpgrade());
         }
 
         if (other.tag == "SpeedUpgrade")
         {
             Destroy(other.gameObject);
             equipment.GotSpeedUpgrade();
+            StartCoroutine(GotSpeedUpgrade());
         }
     }
 
@@ -1026,6 +1030,22 @@ public class PlayerController : MonoBehaviour
         gotHealText.SetActive(true);
         yield return new WaitForSeconds(2f);
         gotHealText.SetActive(false);
+    }
+
+    public IEnumerator GotHealthUpgrade()
+    {
+        yield return new WaitForSeconds(0f);
+        healthUpgradedText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        healthUpgradedText.SetActive(false);
+    }
+
+    public IEnumerator GotSpeedUpgrade()
+    {
+        yield return new WaitForSeconds(0f);
+        speedUpgradedText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        speedUpgradedText.SetActive(false);
     }
 }
 

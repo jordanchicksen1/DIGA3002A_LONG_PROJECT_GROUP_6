@@ -30,6 +30,8 @@ public class uiButtons : MonoBehaviour
     public bool isDoingMissionOne = false;
     public GameObject mission1Screen;
     public Transform teleporterLevel;
+    public Transform teleporterLevelDesert;
+    public Transform teleporterLevelSnow;
     public GameObject missionOneEnemies;
     public GameObject currentKillsCounter;
     public Transform garageTeleporter;
@@ -237,7 +239,7 @@ public class uiButtons : MonoBehaviour
         tutorial2Screen.SetActive(true);
         isDoingTutorialTwo = true;
         characterController.enabled = false;
-        player.transform.position = teleporterLevel.transform.position;
+        player.transform.position = teleporterLevelDesert.transform.position;
         lobbyMusic.SetActive(false);
         tutorialOneEnemies.SetActive(false);
         tutorialThreeEnemies.SetActive(false);
@@ -257,7 +259,7 @@ public class uiButtons : MonoBehaviour
         tutorial3Screen.SetActive(true);
         isDoingTutorialThree = true;
         characterController.enabled = false;
-        player.transform.position = teleporterLevel.transform.position;
+        player.transform.position = teleporterLevelSnow.transform.position;
         lobbyMusic.SetActive(false);
         tutorialOneEnemies.SetActive(false);
         tutorialTwoEnemies.SetActive(false);
