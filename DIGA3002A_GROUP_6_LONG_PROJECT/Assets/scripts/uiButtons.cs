@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class uiButtons : MonoBehaviour
@@ -15,12 +16,15 @@ public class uiButtons : MonoBehaviour
     public GameObject pauseScreen;
     public PlayerController playerEdited;
 
+    [Header("Control Stuff")]
+    public GameObject controlTypeAEquippedPic;
+    public GameObject controlTypeBEquippedPic;
 
     [Header("Scripts")]
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
     public playerHealth playerHealth;
-
+   
 
     [Header("Mission Stuff")]
     public GameObject player;
@@ -181,6 +185,22 @@ public class uiButtons : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         StartCoroutine(TutorialThree());
+    }
+
+    public void EquipControlTypeA()
+    {
+        playerEdited.controlTypeA = true;
+        playerEdited.controlTypeB = false;
+        controlTypeAEquippedPic.SetActive(true);
+        controlTypeBEquippedPic.SetActive(false);
+    }
+
+    public void EquipControlTypeB()
+    {
+        playerEdited.controlTypeA = false;
+        playerEdited.controlTypeB = true;
+        controlTypeAEquippedPic.SetActive(false);
+        controlTypeBEquippedPic.SetActive(true);
     }
 
     public void BackGarage()
