@@ -560,7 +560,7 @@ MonoBehaviour:
   player: {fileID: 0}
   firePointA: {fileID: 49620541317852402}
   firePointB: {fileID: 1296522968834106603}
-  projectilePrefab: {fileID: 5553052499940522874, guid: ed3916ecb3934894d87a4aa1e9bcfde2,
+  projectilePrefab: {fileID: 2468328226880774565, guid: 016714a27b8c2a14c980a26f61ff1384,
     type: 3}
   waypoints:
   - {fileID: 0}

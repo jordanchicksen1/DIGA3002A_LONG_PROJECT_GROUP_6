@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 2f;
     public float gravity = -9.81f;
     public float jetpackHeight = 20f;
+    public bool controlTypeA = true;
+    public bool controlTypeB = false;
 
     [Header("State Flags")]
     public bool isPaused = false;
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
     public leftAmmoManager leftAmmoManager;
     public rightAmmoManager rightAmmoManager;
     public equipment equipment;
+    public GameObject healthUpgradedText;
+    public GameObject speedUpgradedText;
 
     [Header("Basic Gun Info")]
     public GameObject basicBulletPrefab;
@@ -419,7 +423,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false)
+        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false && controlTypeA == true)
         {
             Vector3 move = new Vector3(-_moveInput.x, 0, -_moveInput.y);
             move = transform.TransformDirection(move);
@@ -427,8 +431,22 @@ public class PlayerController : MonoBehaviour
             float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
             _characterController.Move(move * currentSpeed * Time.deltaTime);
         }
-       
-       
+
+        if (isPaused == false && playerPosture.isStaggered == false && isUsingQuadLaser == false && controlTypeB == true)
+        {
+            float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
+
+            // Read input
+            Vector3 move = new Vector3(-_moveInput.x, 0f, -_moveInput.y);
+
+            // Normalize to prevent faster diagonal movement
+            if (move.sqrMagnitude > 1f)
+                move.Normalize();
+
+            // Move in *world space*, not relative to player rotation
+            _characterController.Move(move * currentSpeed * Time.deltaTime);
+        }
+        
     }
 
     public void UpgradeSpeed()
@@ -817,12 +835,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             equipment.GotHealthUpgrade();
+            StartCoroutine(GotHealthUpgrade());
         }
 
         if (other.tag == "SpeedUpgrade")
         {
             Destroy(other.gameObject);
             equipment.GotSpeedUpgrade();
+            StartCoroutine(GotSpeedUpgrade());
         }
     }
 
@@ -1026,6 +1046,22 @@ public class PlayerController : MonoBehaviour
         gotHealText.SetActive(true);
         yield return new WaitForSeconds(2f);
         gotHealText.SetActive(false);
+    }
+
+    public IEnumerator GotHealthUpgrade()
+    {
+        yield return new WaitForSeconds(0f);
+        healthUpgradedText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        healthUpgradedText.SetActive(false);
+    }
+
+    public IEnumerator GotSpeedUpgrade()
+    {
+        yield return new WaitForSeconds(0f);
+        speedUpgradedText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        speedUpgradedText.SetActive(false);
     }
 }
 
