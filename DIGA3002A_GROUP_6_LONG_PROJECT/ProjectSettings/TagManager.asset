@@ -22,6 +22,7 @@ TagManager:
   - Heal
   - HealthUpgrade
   - SpeedUpgrade
+  - FirstBoss
   layers:
   - Default
   - TransparentFX
