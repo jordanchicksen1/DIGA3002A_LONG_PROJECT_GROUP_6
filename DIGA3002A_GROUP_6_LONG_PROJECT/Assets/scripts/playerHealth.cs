@@ -171,4 +171,27 @@ public class playerHealth : MonoBehaviour
         yield return new WaitForSeconds(1);
         HurtPlayerOutline.SetActive(false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyBulletSmall"))  // your bullet tag
+        {
+            // Get direction from bullet to player
+            Vector3 attackDir = transform.position - other.transform.position;
+            attackIndicator.ShowIndicator(attackDir);
+
+            // Apply damage
+            PlayerHitFrom(other.transform.position, 10f);
+
+            // Show attack indicator
+            if (attackIndicator != null)
+            {
+                attackIndicator.ShowIndicator(attackDir);
+            }
+
+            Destroy(other.gameObject);
+        }
+    }
+
+
 }
