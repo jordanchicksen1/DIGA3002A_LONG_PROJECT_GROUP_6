@@ -15,6 +15,7 @@ public class firstBoss : MonoBehaviour
     public bool Phase1 = true;
     public bool Phase2 = false;
     public bool Phase3 = false;
+    public firstBossHealth firstBossHealth;
 
     [Header("Move Points and Bools")]
     public Transform pointA;
@@ -360,6 +361,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase2());
         }
 
         if (other.tag == "PointG")
@@ -383,6 +385,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(ConsecutiveShotPhase2());
         }
 
         if (other.tag == "PointH")
@@ -406,6 +409,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase2());
         }
 
         if (other.tag == "PointI")
@@ -429,6 +433,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(ConsecutiveShotPhase2());
         }
 
         if (other.tag == "PointJ")
@@ -452,6 +457,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase2());
         }
 
         if (other.tag == "PointK")
@@ -476,6 +482,7 @@ public class firstBoss : MonoBehaviour
             atPointR = false;
             atPointS = false;
             Debug.Log("hit point k");
+            StartCoroutine(ConsecutiveShotPhase2());
         }
 
         if (other.tag == "PointL")
@@ -499,6 +506,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase2());
         }
 
         if (other.tag == "PointM")
@@ -522,6 +530,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(ConsecutiveShotPhase2());  
         }
 
         if (other.tag == "PointN")
@@ -545,6 +554,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase3());
         }
 
         if (other.tag == "PointO")
@@ -568,6 +578,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(ConsecutiveShotPhase3());
         }
 
         if (other.tag == "PointP")
@@ -591,6 +602,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase3());
         }
 
         if (other.tag == "PointQ")
@@ -614,6 +626,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = true;
             atPointR = false;
             atPointS = false;
+            StartCoroutine(ConsecutiveShotPhase3());
         }
 
         if (other.tag == "PointR")
@@ -637,6 +650,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = true;
             atPointS = false;
+            StartCoroutine(SpreadshotPhase3());
         }
 
         if (other.tag == "PointS")
@@ -660,6 +674,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = true;
+            StartCoroutine(ConsecutiveShotPhase3());
         }
     }
 
@@ -687,11 +702,42 @@ public class firstBoss : MonoBehaviour
     public IEnumerator SpreadshotPhase2()
     {
         yield return new WaitForSeconds(0f);
+        moveSpeed = 0f;
+        var projectile = Instantiate(mediumProjectiles, shootPoint1.position, shootPoint1.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = shootPoint1.forward * mediumProjectileSpeed;
+        Destroy(projectile, 1.5f);
+        var projectile2 = Instantiate(smallProjectile, shootPoint2.position, shootPoint2.rotation);
+        var rb2 = projectile2.GetComponent<Rigidbody>();
+        rb2.velocity = shootPoint2.forward * smallProjectileSpeed;
+        Destroy(projectile2, 1.5f);
+        var projectile3 = Instantiate(smallProjectile, shootPoint3.position, shootPoint3.rotation);
+        var rb3 = projectile3.GetComponent<Rigidbody>();
+        rb3.velocity = shootPoint3.forward * smallProjectileSpeed;
+        Destroy(projectile3, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        moveSpeed = moveSpeedPhaseTwo;
     }
 
     public IEnumerator SpreadshotPhase3()
     {
+       
         yield return new WaitForSeconds(0f);
+        moveSpeed = 0f;
+        var projectile = Instantiate(smallProjectile, shootPoint1.position, shootPoint1.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = shootPoint1.forward * smallProjectileSpeed;
+        Destroy(projectile, 1.5f);
+        var projectile2 = Instantiate(mediumProjectiles, shootPoint2.position, shootPoint2.rotation);
+        var rb2 = projectile2.GetComponent<Rigidbody>();
+        rb2.velocity = shootPoint2.forward * mediumProjectileSpeed;
+        Destroy(projectile2, 1.5f);
+        var projectile3 = Instantiate(mediumProjectiles, shootPoint3.position, shootPoint3.rotation);
+        var rb3 = projectile3.GetComponent<Rigidbody>();
+        rb3.velocity = shootPoint3.forward * mediumProjectileSpeed;
+        Destroy(projectile3, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        moveSpeed = moveSpeedPhaseThree;
     }
 
     public IEnumerator ConsecutiveShotPhase1()
@@ -719,11 +765,44 @@ public class firstBoss : MonoBehaviour
     public IEnumerator ConsecutiveShotPhase2()
     {
         yield return new WaitForSeconds(0f);
-
+        moveSpeed = 0f;
+        var projectile = Instantiate(mediumProjectiles, shootPoint1.position, shootPoint1.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = shootPoint1.forward * mediumProjectileSpeed;
+        Destroy(projectile, 1.5f);
+        yield return new WaitForSeconds(0.5f);
+        var projectile2 = Instantiate(smallProjectile, shootPoint1.position, shootPoint1.rotation);
+        var rb2 = projectile2.GetComponent<Rigidbody>();
+        rb2.velocity = shootPoint1.forward * smallProjectileSpeed;
+        Destroy(projectile2, 1.5f);
+        yield return new WaitForSeconds(0.5f);
+        var projectile3 = Instantiate(smallProjectile, shootPoint1.position, shootPoint1.rotation);
+        var rb3 = projectile3.GetComponent<Rigidbody>();
+        rb3.velocity = shootPoint1.forward * smallProjectileSpeed;
+        Destroy(projectile3, 1.5f);
+        yield return new WaitForSeconds(0.5f);
+        moveSpeed = moveSpeedPhaseTwo;
     }
 
     public IEnumerator ConsecutiveShotPhase3()
     {
         yield return new WaitForSeconds(0f);
+        moveSpeed = 0f;
+        var projectile = Instantiate(mediumProjectiles, shootPoint1.position, shootPoint1.rotation);
+        var rb = projectile.GetComponent<Rigidbody>();
+        rb.velocity = shootPoint1.forward * mediumProjectileSpeed;
+        Destroy(projectile, 1.5f);
+        yield return new WaitForSeconds(0.5f);
+        var projectile2 = Instantiate(smallProjectile, shootPoint1.position, shootPoint1.rotation);
+        var rb2 = projectile2.GetComponent<Rigidbody>();
+        rb2.velocity = shootPoint1.forward * mediumProjectileSpeed;
+        Destroy(projectile2, 1.5f);
+        yield return new WaitForSeconds(0.5f);
+        var projectile3 = Instantiate(mediumProjectiles, shootPoint1.position, shootPoint1.rotation);
+        var rb3 = projectile3.GetComponent<Rigidbody>();
+        rb3.velocity = shootPoint1.forward * mediumProjectileSpeed;
+        Destroy(projectile3, 1.5f);
+        yield return new WaitForSeconds(0.5f);
+        moveSpeed = moveSpeedPhaseThree;
     }
 }
