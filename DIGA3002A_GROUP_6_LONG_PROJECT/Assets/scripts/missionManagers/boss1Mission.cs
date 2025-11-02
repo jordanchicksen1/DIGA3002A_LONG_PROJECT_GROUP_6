@@ -1,12 +1,11 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class missionOneManager : MonoBehaviour
+public class boss1Mission : MonoBehaviour
 {
-    public int requiredKills = 6;   // how many enemies must be killed
+    public int requiredKills = 1;   // how many enemies must be killed
     public int currentKills = 0;
     public TextMeshProUGUI currentKillsText;
     public GameObject currentKillsTextObject;
@@ -19,38 +18,23 @@ public class missionOneManager : MonoBehaviour
     public playerHealth playerHealth;
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
-    public GameObject bossOneIcon;
     private void OnEnable()
     {
-        EnemyWeakSpot.OnEnemyDeath += HandleTankDeath;
-        EnemyMovement.OnEnemyDeath += HandleMovementDeath;
-        TacticalDroneAI.OnDroneDeath += HandleDroneDeath;
+        firstBossHealth.OnBoss1Death += HandleBossDeath;
     }
 
     private void OnDisable()
     {
-        EnemyWeakSpot.OnEnemyDeath -= HandleTankDeath;
-        EnemyMovement.OnEnemyDeath -= HandleMovementDeath;
-        TacticalDroneAI.OnDroneDeath += HandleDroneDeath;
+        firstBossHealth.OnBoss1Death -= HandleBossDeath;
     }
 
-    private void HandleTankDeath(EnemyWeakSpot enemy)
+    private void HandleBossDeath(firstBossHealth boss)
     {
         CountKill();
         Debug.Log("MissionManager received TankDeath event!");
     }
 
-    private void HandleMovementDeath(EnemyMovement enemy)
-    {
-        CountKill();
-        Debug.Log("MissionManager received MovementDeath event!");
-    }
-
-    private void HandleDroneDeath(TacticalDroneAI enemy)
-    {
-        CountKill();
-        Debug.Log("MissionManager received TacticalDroneAI Event!");
-    }
+    
 
     private void CountKill()
     {
@@ -82,9 +66,10 @@ public class missionOneManager : MonoBehaviour
         playerHealth.Heal();
         globalVolumes.SetActive(false);
         levelMusic.SetActive(false);
-        uiButtons.isDoingMissionOne = false;
+        uiButtons.isDoingBossOne = false;
         currentKillsTextObject.SetActive(false);
-        bossOneIcon.SetActive(true);
         lobbyMusic.SetActive(true);
     }
 }
+
+

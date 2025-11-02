@@ -59,6 +59,13 @@ public class uiButtons : MonoBehaviour
     public GameObject tutorial3Screen;
     public GameObject currentKillsCounterTut3;
     public GameObject tutorialThreeEnemies;
+
+    [Header("Boss 1 Stuff")]
+    public bool isDoingBossOne = false;
+    public GameObject bossOneScreen;
+    public GameObject currentKillsCounterBossOne;
+    public GameObject bossOneItself;
+    public GameObject bossOneHealthBar;
     public void GoBackToRoboBuilding()
     {
         headsScreen.SetActive(false);
@@ -187,6 +194,16 @@ public class uiButtons : MonoBehaviour
         StartCoroutine(TutorialThree());
     }
 
+    public void StartBossOne()
+    {
+        missionScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        StartCoroutine(BossOne());
+            
+    }
+
+
     public void EquipControlTypeA()
     {
         playerEdited.controlTypeA = true;
@@ -293,6 +310,28 @@ public class uiButtons : MonoBehaviour
         currentKillsCounterTut3.SetActive(true);
     }
 
+    public IEnumerator BossOne()
+    {
+        yield return new WaitForSeconds(0f);
+        bossOneScreen.SetActive(true);
+        isDoingBossOne = true;
+        characterController.enabled = false;
+        player.transform.position = teleporterLevel.transform.position;
+        lobbyMusic.SetActive(false);
+        tutorialOneEnemies.SetActive(false);
+        tutorialTwoEnemies.SetActive(false);
+        tutorialThreeEnemies.SetActive(false);
+        missionOneEnemies.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        bossOneHealthBar.SetActive(true);
+        characterController.enabled = true;
+        bossOneScreen.SetActive(false);
+        globalVolumes.SetActive(true);
+        levelMusic.SetActive(true);
+        bossOneItself.SetActive(true);
+        currentKillsCounterBossOne.SetActive(true);
+    }
+
     public IEnumerator BackToTheGarage()
     {
         yield return new WaitForSeconds(0f);
@@ -310,6 +349,9 @@ public class uiButtons : MonoBehaviour
         currentKillsCounterTut2.SetActive(false);
         tutorialThreeEnemies.SetActive(false);
         currentKillsCounterTut3.SetActive(false);
+        bossOneItself.SetActive(false);
+        currentKillsCounterBossOne.SetActive(false);
+        bossOneHealthBar.SetActive(false);
         player.transform.position = garageTeleporter.transform.position;
         characterController.enabled = true;
         globalVolumes.SetActive(false);
