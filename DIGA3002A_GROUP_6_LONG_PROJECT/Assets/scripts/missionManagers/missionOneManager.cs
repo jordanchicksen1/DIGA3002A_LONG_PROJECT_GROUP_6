@@ -19,6 +19,7 @@ public class missionOneManager : MonoBehaviour
     public playerHealth playerHealth;
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
+    public GameObject bossOneIcon;
     private void OnEnable()
     {
         EnemyWeakSpot.OnEnemyDeath += HandleTankDeath;
@@ -83,6 +84,7 @@ public class missionOneManager : MonoBehaviour
         levelMusic.SetActive(false);
         uiButtons.isDoingMissionOne = false;
         currentKillsTextObject.SetActive(false);
+        bossOneIcon.SetActive(true);
         lobbyMusic.SetActive(true);
     }
 }

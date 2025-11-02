@@ -7,11 +7,13 @@ public class firstBossHealth : MonoBehaviour
 {
   
     [Header("Health Bar")]
-    public float maxHealth = 100f;
+    public float maxHealth = 1500f;
     public float currentHealth;
     public Image healthBarPic;
-    public boss1Posture boss1Posture;
-
+    public firstBossPosture firstBossPosture;
+    public firstBoss firstBoss;
+    public ParticleSystem explosion;
+    public static event System.Action<firstBossHealth> OnBoss1Death;
     public void Start()
     {
         currentHealth = maxHealth;
@@ -21,7 +23,40 @@ public class firstBossHealth : MonoBehaviour
 
     public void Update()
     {
+        if(currentHealth > 1000f)
+        {
+            firstBoss.Phase1 = true;
+            firstBoss.Phase2 = false;
+            firstBoss.Phase3 = false;
+        }
 
+        if (currentHealth < 1000f && currentHealth > 500f)
+        {
+            firstBoss.Phase1 = false;
+            firstBoss.Phase2 = true;
+            firstBoss.Phase3 = false;
+        }
+
+        if (currentHealth < 500f)
+        {
+            firstBoss.Phase1 = false;
+            firstBoss.Phase2 = false;
+            firstBoss.Phase3 = true;
+        }
+
+        if(currentHealth <= 0f)
+        {
+            Debug.Log("Boss died");
+            if (explosion != null)
+            {
+                ParticleSystem ps = Instantiate(explosion, transform.position, Quaternion.identity);
+                ps.Play();
+                Destroy(ps.gameObject, ps.main.duration);
+            }
+
+            OnBoss1Death?.Invoke(this);
+            Destroy(gameObject);
+        }
 
     }
 
@@ -31,7 +66,7 @@ public class firstBossHealth : MonoBehaviour
     {
         currentHealth = currentHealth - 5f;
         updateHealthBar();
-        boss1Posture.PostureHitALot();
+        firstBossPosture.PostureHitALot();
     }
 
     [ContextMenu("MachineHit")]
@@ -40,7 +75,7 @@ public class firstBossHealth : MonoBehaviour
         currentHealth = currentHealth - 2f;
 
         updateHealthBar();
-        boss1Posture.SmallPostureHit();
+        firstBossPosture.SmallPostureHit();
     }
 
     [ContextMenu("AssaultHit")]
@@ -49,7 +84,7 @@ public class firstBossHealth : MonoBehaviour
     {
         currentHealth = currentHealth - 4f;
         updateHealthBar();
-        boss1Posture.PostureHitALot();
+        firstBossPosture.PostureHitALot();
     }
 
     [ContextMenu("LaserHit")]
@@ -58,7 +93,7 @@ public class firstBossHealth : MonoBehaviour
         currentHealth = currentHealth - 10f;
 
         updateHealthBar();
-        boss1Posture.BigPostureHit();
+        firstBossPosture.BigPostureHit();
     }
 
     [ContextMenu("BeamHit")]
@@ -67,16 +102,8 @@ public class firstBossHealth : MonoBehaviour
         currentHealth = currentHealth - 50f;
 
         updateHealthBar();
-        boss1Posture.BigPostureHit();
+        firstBossPosture.BigPostureHit();
     }
-
-    public void Heal()
-    {
-        currentHealth = maxHealth;
-        updateHealthBar();
-    }
-
-
 
     public void updateHealth(float amount)
     {

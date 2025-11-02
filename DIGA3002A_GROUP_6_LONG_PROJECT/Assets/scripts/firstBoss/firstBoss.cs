@@ -12,10 +12,18 @@ public class firstBoss : MonoBehaviour
     public float moveSpeedPhaseOne = 5f;
     public float moveSpeedPhaseTwo = 6f;
     public float moveSpeedPhaseThree = 7.5f;
+    public float moveSpeedPhaseTransition = 20f;
     public bool Phase1 = true;
     public bool Phase2 = false;
     public bool Phase3 = false;
+    public float knockbackForce = 0.5f;
+    public float knockbackDuration = 0.1f;
+    private bool isKnockedBack = false;
+    public Rigidbody rb;
+    public Collider firstBossCollider;
     public firstBossHealth firstBossHealth;
+    public firstBossPosture firstBossPosture;
+    public superMoveBar superMoveBar;
 
     [Header("Move Points and Bools")]
     public Transform pointA;
@@ -66,6 +74,8 @@ public class firstBoss : MonoBehaviour
     public GameObject mediumProjectiles;
     public float mediumProjectileSpeed = 12.5f;
 
+    
+
     public void Start()
     {
         
@@ -75,144 +85,157 @@ public class firstBoss : MonoBehaviour
     {
         this.gameObject.transform.LookAt(player);
 
-        if(Phase1 == true)
+        if (firstBossPosture.isStaggered == false)
         {
-            if(atPointA == false && atPointB == false && atPointC == false && atPointD == false  && atPointE == false)
+            if (isKnockedBack == false)
             {
-                Debug.Log("starting phase 1");
-                transform.position = Vector3.MoveTowards(transform.position, pointA.transform.position, moveSpeed * Time.deltaTime);
-            }
 
-            if(atPointA == true)
-            {
-                Debug.Log("Moving to point B");
-                transform.position = Vector3.MoveTowards(transform.position, pointB.transform.position, moveSpeed * Time.deltaTime);
-            }
+                if (Phase1 == true)
+                {
+                    if (atPointA == false && atPointB == false && atPointC == false && atPointD == false && atPointE == false)
+                    {
+                        Debug.Log("starting phase 1");
+                        transform.position = Vector3.MoveTowards(transform.position, pointA.transform.position, moveSpeed * Time.deltaTime);
+                        moveSpeed = moveSpeedPhaseTransition;
+                        
+                    }
 
-            if (atPointB == true)
-            {
-                Debug.Log("Moving to point C");
-                transform.position = Vector3.MoveTowards(transform.position, pointC.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointA == true)
+                    {
+                        Debug.Log("Moving to point B");
+                        transform.position = Vector3.MoveTowards(transform.position, pointB.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointC == true)
-            {
-                Debug.Log("Moving to point D");
-                transform.position = Vector3.MoveTowards(transform.position, pointD.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointB == true)
+                    {
+                        Debug.Log("Moving to point C");
+                        transform.position = Vector3.MoveTowards(transform.position, pointC.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointD == true)
-            {
-                Debug.Log("Moving to point E");
-                transform.position = Vector3.MoveTowards(transform.position, pointE.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointC == true)
+                    {
+                        Debug.Log("Moving to point D");
+                        transform.position = Vector3.MoveTowards(transform.position, pointD.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointE == true)
-            {
-                Debug.Log("Moving to point A");
-                transform.position = Vector3.MoveTowards(transform.position, pointA .transform.position, moveSpeed * Time.deltaTime);
-            }
-        }
+                    if (atPointD == true)
+                    {
+                        Debug.Log("Moving to point E");
+                        transform.position = Vector3.MoveTowards(transform.position, pointE.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-        if (Phase2 == true) 
-        {
-            if (atPointF == false && atPointG == false && atPointH == false && atPointI == false && atPointJ == false && atPointK == false && atPointL == false && atPointM == false)
-            {
-                Debug.Log("starting phase 2");
-                transform.position = Vector3.MoveTowards(transform.position, pointF.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointE == true)
+                    {
+                        Debug.Log("Moving to point A");
+                        transform.position = Vector3.MoveTowards(transform.position, pointA.transform.position, moveSpeed * Time.deltaTime);
+                    }
+                }
 
-            if (atPointF == true)
-            {
-                Debug.Log("Moving to point G");
-                transform.position = Vector3.MoveTowards(transform.position, pointG.transform.position, moveSpeed * Time.deltaTime);
-            }
+                if (Phase2 == true)
+                {
+                    if (atPointF == false && atPointG == false && atPointH == false && atPointI == false && atPointJ == false && atPointK == false && atPointL == false && atPointM == false)
+                    {
+                        Debug.Log("starting phase 2");
+                        transform.position = Vector3.MoveTowards(transform.position, pointF.transform.position, moveSpeed * Time.deltaTime);
+                        moveSpeed = 20f;
+                        
+                    }
 
-            if (atPointG == true)
-            {
-                Debug.Log("Moving to point H");
-                transform.position = Vector3.MoveTowards(transform.position, pointH.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointF == true)
+                    {
+                        Debug.Log("Moving to point G");
+                        transform.position = Vector3.MoveTowards(transform.position, pointG.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointH == true)
-            {
-                Debug.Log("Moving to point I");
-                transform.position = Vector3.MoveTowards(transform.position, pointI.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointG == true)
+                    {
+                        Debug.Log("Moving to point H");
+                        transform.position = Vector3.MoveTowards(transform.position, pointH.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointI == true)
-            {
-                Debug.Log("Moving to point J");
-                transform.position = Vector3.MoveTowards(transform.position, pointJ.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointH == true)
+                    {
+                        Debug.Log("Moving to point I");
+                        transform.position = Vector3.MoveTowards(transform.position, pointI.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointJ == true)
-            {
-                Debug.Log("Moving to point K");
-                transform.position = Vector3.MoveTowards(transform.position, pointK.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointI == true)
+                    {
+                        Debug.Log("Moving to point J");
+                        transform.position = Vector3.MoveTowards(transform.position, pointJ.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointK == true)
-            {
-                Debug.Log("Moving to point L");
-                transform.position = Vector3.MoveTowards(transform.position, pointL.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointJ == true)
+                    {
+                        Debug.Log("Moving to point K");
+                        transform.position = Vector3.MoveTowards(transform.position, pointK.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointL == true)
-            {
-                Debug.Log("Moving to point M");
-                transform.position = Vector3.MoveTowards(transform.position, pointM.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointK == true)
+                    {
+                        Debug.Log("Moving to point L");
+                        transform.position = Vector3.MoveTowards(transform.position, pointL.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointM == true)
-            {
-                Debug.Log("Moving to point M");
-                transform.position = Vector3.MoveTowards(transform.position, pointF.transform.position, moveSpeed * Time.deltaTime);
-            }
-        }
+                    if (atPointL == true)
+                    {
+                        Debug.Log("Moving to point M");
+                        transform.position = Vector3.MoveTowards(transform.position, pointM.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-        if(Phase3 == true)
-        {
-            if (atPointN == false && atPointO == false && atPointP == false && atPointQ == false && atPointR == false && atPointS == false)
-            {
-                Debug.Log("starting phase 3");
-                transform.position = Vector3.MoveTowards(transform.position, pointN.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointM == true)
+                    {
+                        Debug.Log("Moving to point M");
+                        transform.position = Vector3.MoveTowards(transform.position, pointF.transform.position, moveSpeed * Time.deltaTime);
+                    }
+                }
 
-            if (atPointN == true)
-            {
-                Debug.Log("Moving to point O");
-                transform.position = Vector3.MoveTowards(transform.position, pointO.transform.position, moveSpeed * Time.deltaTime);
-            }
+                if (Phase3 == true)
+                {
+                    if (atPointN == false && atPointO == false && atPointP == false && atPointQ == false && atPointR == false && atPointS == false)
+                    {
+                        Debug.Log("starting phase 3");
+                        transform.position = Vector3.MoveTowards(transform.position, pointN.transform.position, moveSpeed * Time.deltaTime);
+                        moveSpeed = moveSpeedPhaseTransition;
+                        
+                    }
 
-            if (atPointO == true)
-            {
-                Debug.Log("Moving to point P");
-                transform.position = Vector3.MoveTowards(transform.position, pointP.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointN == true)
+                    {
+                        Debug.Log("Moving to point O");
+                        transform.position = Vector3.MoveTowards(transform.position, pointO.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointP == true)
-            {
-                Debug.Log("Moving to point Q");
-                transform.position = Vector3.MoveTowards(transform.position, pointQ.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointO == true)
+                    {
+                        Debug.Log("Moving to point P");
+                        transform.position = Vector3.MoveTowards(transform.position, pointP.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointQ == true)
-            {
-                Debug.Log("Moving to point R");
-                transform.position = Vector3.MoveTowards(transform.position, pointR.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointP == true)
+                    {
+                        Debug.Log("Moving to point Q");
+                        transform.position = Vector3.MoveTowards(transform.position, pointQ.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointR == true)
-            {
-                Debug.Log("Moving to point S");
-                transform.position = Vector3.MoveTowards(transform.position, pointS.transform.position, moveSpeed * Time.deltaTime);
-            }
+                    if (atPointQ == true)
+                    {
+                        Debug.Log("Moving to point R");
+                        transform.position = Vector3.MoveTowards(transform.position, pointR.transform.position, moveSpeed * Time.deltaTime);
+                    }
 
-            if (atPointS == true)
-            {
-                Debug.Log("Moving to point N");
-                transform.position = Vector3.MoveTowards(transform.position, pointN.transform.position, moveSpeed * Time.deltaTime);
+                    if (atPointR == true)
+                    {
+                        Debug.Log("Moving to point S");
+                        transform.position = Vector3.MoveTowards(transform.position, pointS.transform.position, moveSpeed * Time.deltaTime);
+                    }
+
+                    if (atPointS == true)
+                    {
+                        Debug.Log("Moving to point N");
+                        transform.position = Vector3.MoveTowards(transform.position, pointN.transform.position, moveSpeed * Time.deltaTime);
+                    }
+                }
             }
         }
 
@@ -241,6 +264,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            moveSpeed = moveSpeedPhaseOne;
             StartCoroutine(ConsecutiveShotPhase1());
         }
 
@@ -361,6 +385,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            moveSpeed = moveSpeedPhaseTwo;
             StartCoroutine(SpreadshotPhase2());
         }
 
@@ -554,6 +579,7 @@ public class firstBoss : MonoBehaviour
             atPointQ = false;
             atPointR = false;
             atPointS = false;
+            moveSpeed = moveSpeedPhaseThree;
             StartCoroutine(SpreadshotPhase3());
         }
 
@@ -675,6 +701,49 @@ public class firstBoss : MonoBehaviour
             atPointR = false;
             atPointS = true;
             StartCoroutine(ConsecutiveShotPhase3());
+        }
+
+        //bullets
+        Vector3 knockbackDirection = (transform.position - other.transform.position).normalized;
+
+        if (other.tag == "BasicBullet")
+        {
+            Destroy(other.gameObject);
+            firstBossHealth.BasicHit();
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.BasicHit();
+        }
+
+        if( other.tag == "AssaultBullet")
+        {
+            Destroy(other.gameObject);
+            firstBossHealth.AssaultHit();
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.AssaultHit();
+        }
+
+        if (other.tag == "MachineBullet")
+        {
+            Destroy(other.gameObject);
+            firstBossHealth.MachineHit();
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.MachineHit();
+        }
+
+        if (other.tag == "LaserBullet")
+        {
+            Destroy(other.gameObject);
+            firstBossHealth.LaserHit();
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+            superMoveBar.LaserHit();
+        }
+
+        if (other.tag == "Beam")
+        {
+            Destroy(other.gameObject);
+            firstBossHealth.BeamHit();
+            StartCoroutine(ApplyKnockback(knockbackDirection));
+            
         }
     }
 
@@ -804,5 +873,23 @@ public class firstBoss : MonoBehaviour
         Destroy(projectile3, 1.5f);
         yield return new WaitForSeconds(0.5f);
         moveSpeed = moveSpeedPhaseThree;
+    }
+
+    private IEnumerator ApplyKnockback(Vector3 direction)
+    {
+        isKnockedBack = true;
+
+        // Ensure knockback only happens in the XZ plane (no floating up/down)
+        direction.y = 0f;
+
+        rb.AddForce(direction.normalized * knockbackForce, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        // Stop the dummy from drifting forever
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        isKnockedBack = false;
     }
 }
