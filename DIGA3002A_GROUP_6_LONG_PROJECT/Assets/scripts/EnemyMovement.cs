@@ -154,18 +154,21 @@ public class EnemyMovement : MonoBehaviour
     {
         if (projectile == null || firePosition == null || player == null) return;
 
-        Rigidbody rb = Instantiate(projectile, firePosition.position, Quaternion.identity).GetComponent<Rigidbody>();
+        GameObject bulletObj = Instantiate(projectile, firePosition.position, Quaternion.identity);
+        EnemyBullet eb = bulletObj.GetComponent<EnemyBullet>();
+
         Vector3 direction = (player.position - firePosition.position).normalized;
 
         float spread = 0.05f;
         direction += new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0);
 
-        rb.AddForce(direction.normalized * projectileForce, ForceMode.Impulse);
-        rb.transform.forward = direction.normalized;
+        direction.Normalize();
+        eb.direction = direction;  // <--- important
 
         if (muzzleEffect != null)
             muzzleEffect.Play();
     }
+
 
 
     private void Strafe()
