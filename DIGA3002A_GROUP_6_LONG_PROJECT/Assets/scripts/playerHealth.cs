@@ -20,6 +20,7 @@ public class playerHealth : MonoBehaviour
     public Material HurtPlayerMat;
     public float MateralAlpha;*/
     public GameObject HurtPlayerOutline;
+    public AttackIndicator attackIndicator;
 
     private void Awake()
     {
@@ -48,21 +49,46 @@ public class playerHealth : MonoBehaviour
         }
     }
 
+    public void PlayerHitFrom(Vector3 attackerPosition, float damage)
+    {
+        currentHealth -= damage;
+        StartCoroutine(RedOn());
+        updateHealthBar();
+
+        if (attackIndicator != null)
+        {
+            Vector3 attackDir = attackerPosition - transform.position;
+            attackIndicator.ShowIndicator(attackDir);
+        }
+
+        if (currentHealth <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
 
     [ContextMenu("PlayerHit")]
-    public void PlayerHit()
+    public void PlayerHit(Vector3 attackerPosition)
     {
-        currentHealth = currentHealth - 10f;
+        currentHealth -= 10f;
         StartCoroutine(RedOn());
 
-        if (currentHealth <= maxHealth / 2)
+        if (attackIndicator != null)
         {
-            ImageAlpha += 0.1f;
+            Vector3 attackDirection = attackerPosition - transform.position;
+            attackIndicator.ShowIndicator(attackDirection);
         }
+
+        if (currentHealth <= maxHealth / 2)
+            ImageAlpha += 0.1f;
 
         updateHealthBar();
         playerPosture.PlayerPostureHit();
     }
+
 
     [ContextMenu("PlayerHitALot")]
     public void PlayerHitALot()
@@ -105,6 +131,8 @@ public class playerHealth : MonoBehaviour
         playerPosture.PostureHeal();    
     }
 
+    
+
 
     public void updateHealth(float amount)
     {
@@ -143,4 +171,27 @@ public class playerHealth : MonoBehaviour
         yield return new WaitForSeconds(1);
         HurtPlayerOutline.SetActive(false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyBulletSmall"))  // your bullet tag
+        {
+            // Get direction from bullet to player
+            Vector3 attackDir = transform.position - other.transform.position;
+            attackIndicator.ShowIndicator(attackDir);
+
+            // Apply damage
+            PlayerHitFrom(other.transform.position, 10f);
+
+            // Show attack indicator
+            if (attackIndicator != null)
+            {
+                attackIndicator.ShowIndicator(attackDir);
+            }
+
+            Destroy(other.gameObject);
+        }
+    }
+
+
 }

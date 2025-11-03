@@ -20,6 +20,11 @@ public class healManager : MonoBehaviour
         healText.text = heal.ToString();
     }
 
+    public void AddHeal()
+    {
+        heal = heal + 1;
+        healText.text = heal.ToString();
+    }
     public void RestoreHeal()
     {
         heal = maxHeal;

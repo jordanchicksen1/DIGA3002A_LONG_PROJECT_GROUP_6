@@ -19,6 +19,29 @@ TagManager:
   - MissionTerminalTrigger
   - Boss1
   - DummyAreaTrigger
+  - Heal
+  - HealthUpgrade
+  - SpeedUpgrade
+  - FirstBoss
+  - PointA
+  - PointB
+  - PointC
+  - PointD
+  - PointE
+  - PointF
+  - PointG
+  - PointH
+  - PointI
+  - PointJ
+  - PointK
+  - PointL
+  - PointM
+  - PointN
+  - PointO
+  - PointP
+  - PointQ
+  - PointR
+  - PointS
   layers:
   - Default
   - TransparentFX
