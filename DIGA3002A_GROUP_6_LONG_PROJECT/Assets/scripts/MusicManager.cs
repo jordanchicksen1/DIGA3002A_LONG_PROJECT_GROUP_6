@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource BackgroundMusic;
     public AudioSource SFX;
+    public AudioSource SFXOneGun;
 
     [Header("Audio Clips")]
     public AudioClip NormalBackground;
