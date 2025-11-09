@@ -319,6 +319,7 @@ public class PlayerController : MonoBehaviour
             if (machineLeftCoroutine != null)
             {
                 StopCoroutine(machineLeftCoroutine);
+                MiniGun.SetActive(false);
             }
 
         }
@@ -394,6 +395,7 @@ public class PlayerController : MonoBehaviour
             if (machineRightCoroutine != null)
             {
                 StopCoroutine(machineRightCoroutine);
+                MiniGun.SetActive(false);
             }
 
         }
@@ -632,6 +634,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1.6f);
         leftAmmoManager.MachineShot();
         ApplySmallRecoil(-machineLeftFirePoint.forward);
+        MiniGun.SetActive(true);
         Debug.Log("machine shot left");
     }
 
@@ -648,6 +651,7 @@ public class PlayerController : MonoBehaviour
         Destroy(projectile, 1.6f);
         rightAmmoManager.MachineShot();
         ApplySmallRecoil(-machineRightFirePoint.forward);
+        MiniGun.SetActive(true);
         Debug.Log("machine shot right");
     }
 
@@ -658,7 +662,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastAssaultLeftShotTime + assaultFireRate) return;
         lastAssaultLeftShotTime = Time.time;
 
-        MusicManager.SFX.PlayOneShot(MusicManager.Rifle);
+        MusicManager.SFXOneGun.PlayOneShot(MusicManager.Rifle);
         var projectile = Instantiate(assaultBulletPrefab, assaultLeftFirePoint.position, assaultLeftFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultLeftFirePoint.forward * assaultBulletSpeed;
@@ -676,7 +680,7 @@ public class PlayerController : MonoBehaviour
         if (Time.time < lastAssaultRightShotTime + assaultFireRate) return;
         lastAssaultRightShotTime = Time.time;
 
-        MusicManager.SFX.PlayOneShot(MusicManager.Rifle);
+        MusicManager.SFXOneGun.PlayOneShot(MusicManager.Rifle);
         var projectile = Instantiate(assaultBulletPrefab, assaultRightFirePoint.position, assaultRightFirePoint.rotation);
         var rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = assaultRightFirePoint.forward * assaultBulletSpeed;
