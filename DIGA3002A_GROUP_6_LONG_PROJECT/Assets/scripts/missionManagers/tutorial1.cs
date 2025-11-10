@@ -19,6 +19,7 @@ public class tutorial1 : MonoBehaviour
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
     public GameObject tutorial2Icon;
+    public credits credits;
     private void OnEnable()
     {
         
@@ -37,6 +38,7 @@ public class tutorial1 : MonoBehaviour
     private void HandleMovementDeath(EnemyMovement enemy)
     {
         CountKill();
+        credits.WalkerKill();
         Debug.Log("MissionManager received MovementDeath event!");
     }
 
@@ -76,5 +78,6 @@ public class tutorial1 : MonoBehaviour
         uiButtons.isDoingTutorialOne = false;
         lobbyMusic.SetActive(true);
         tutorial2Icon.SetActive(true);
+        credits.AddTutOneCredits();
     }
 }

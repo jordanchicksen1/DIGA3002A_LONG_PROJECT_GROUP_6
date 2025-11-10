@@ -18,6 +18,7 @@ public class boss1Mission : MonoBehaviour
     public playerHealth playerHealth;
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
+    public credits credits;
     private void OnEnable()
     {
         firstBossHealth.OnBoss1Death += HandleBossDeath;
@@ -69,6 +70,7 @@ public class boss1Mission : MonoBehaviour
         uiButtons.isDoingBossOne = false;
         currentKillsTextObject.SetActive(false);
         lobbyMusic.SetActive(true);
+        credits.AddBossOneCredits();
     }
 }
 
