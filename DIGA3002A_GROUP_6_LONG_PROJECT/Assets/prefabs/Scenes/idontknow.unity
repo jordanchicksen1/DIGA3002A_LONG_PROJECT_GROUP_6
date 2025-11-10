@@ -27316,6 +27316,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroneStaggered
       objectReference: {fileID: 0}
+    - target: {fileID: 1826454072009122203, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e3cbfe1755b644a9231e99412074e0, type: 2}
+    - target: {fileID: 1826454072009122203, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e3cbfe1755b644a9231e99412074e0, type: 2}
     - target: {fileID: 2354500196758505283, guid: 276a72230e1e1cb48b9634d694651504,
         type: 3}
       propertyPath: player
@@ -27427,6 +27437,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2928318669680965331, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: 3fdf575b0f8965247a2f6f4c6a3d82ec,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51329,6 +51345,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroneTwin
       objectReference: {fileID: 0}
+    - target: {fileID: 1826454072009122203, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e3cbfe1755b644a9231e99412074e0, type: 2}
+    - target: {fileID: 1826454072009122203, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e3cbfe1755b644a9231e99412074e0, type: 2}
     - target: {fileID: 2354500196758505283, guid: 276a72230e1e1cb48b9634d694651504,
         type: 3}
       propertyPath: player
@@ -51440,6 +51466,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2928318669680965331, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: 3fdf575b0f8965247a2f6f4c6a3d82ec,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53543,6 +53575,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 1826454072009122203, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e3cbfe1755b644a9231e99412074e0, type: 2}
+    - target: {fileID: 1826454072009122203, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7e3cbfe1755b644a9231e99412074e0, type: 2}
     - target: {fileID: 2354500196758505283, guid: 276a72230e1e1cb48b9634d694651504,
         type: 3}
       propertyPath: player
@@ -53649,6 +53691,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2928318669680965331, guid: 276a72230e1e1cb48b9634d694651504,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2534964839176971238, guid: 3fdf575b0f8965247a2f6f4c6a3d82ec,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
