@@ -14,6 +14,12 @@ public class uiButtons : MonoBehaviour
     public GameObject weaponsScreen;
     public GameObject supersScreen;
     public GameObject pauseScreen;
+    public GameObject shopScreen;
+    public GameObject shopHeadsScreen;
+    public GameObject shopTorsosScreen;
+    public GameObject shopLegsScreen;
+    public GameObject shopSupersScreen;
+    public GameObject shopWeaponsScreen;
     public PlayerController playerEdited;
 
     [Header("Control Stuff")]
@@ -361,5 +367,81 @@ public class uiButtons : MonoBehaviour
         playerHealth.Heal();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void GoBackToShop()
+    {
+        shopHeadsScreen.SetActive(false);
+        shopTorsosScreen.SetActive(false);
+        shopLegsScreen.SetActive(false);
+        shopWeaponsScreen.SetActive(false);
+        shopSupersScreen.SetActive(false);
+        shopScreen.SetActive(true);
+    }
+
+    public void GoToShopHeadsScreen()
+    {
+        shopHeadsScreen.SetActive(true);
+        shopTorsosScreen.SetActive(false);
+        shopLegsScreen.SetActive(false);
+        shopWeaponsScreen.SetActive(false);
+        shopSupersScreen.SetActive(false);
+        shopScreen.SetActive(false);
+    }
+
+    public void GoToShopTorsosScreen()
+    {
+        shopHeadsScreen.SetActive(false);
+        shopTorsosScreen.SetActive(true);
+        shopLegsScreen.SetActive(false);
+        shopWeaponsScreen.SetActive(false);
+        shopSupersScreen.SetActive(false);
+        shopScreen.SetActive(false);
+    }
+
+    public void GoToShopLegsScreen()
+    {
+        shopHeadsScreen.SetActive(false);
+        shopTorsosScreen.SetActive(false);
+        shopLegsScreen.SetActive(true);
+        shopWeaponsScreen.SetActive(false);
+        shopSupersScreen.SetActive(false);
+        shopScreen.SetActive(false);
+    }
+
+    public void GoToShopWeaponsScreen()
+    {
+        shopHeadsScreen.SetActive(false);
+        shopTorsosScreen.SetActive(false);
+        shopLegsScreen.SetActive(false);
+        shopWeaponsScreen.SetActive(true);
+        shopSupersScreen.SetActive(false);
+        shopScreen.SetActive(false);
+    }
+
+    public void GoToShopSupersScreen()
+    {
+        shopHeadsScreen.SetActive(false);
+        shopTorsosScreen.SetActive(false);
+        shopLegsScreen.SetActive(false);
+        shopWeaponsScreen.SetActive(false);
+        shopSupersScreen.SetActive(true);
+        shopScreen.SetActive(false);
+    }
+
+    public void CloseShop()
+    {
+        shopHeadsScreen.SetActive(false);
+        shopTorsosScreen.SetActive(false);
+        shopLegsScreen.SetActive(false);
+        shopWeaponsScreen.SetActive(false);
+        shopSupersScreen.SetActive(false);
+        shopScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        leftAmmoManager.currentAmmo = leftAmmoManager.maxAmmo;
+        leftAmmoManager.updateAmmoBar();
+        rightAmmoManager.currentAmmo = rightAmmoManager.maxAmmo;
+        rightAmmoManager.updateAmmoBar();
     }
 }

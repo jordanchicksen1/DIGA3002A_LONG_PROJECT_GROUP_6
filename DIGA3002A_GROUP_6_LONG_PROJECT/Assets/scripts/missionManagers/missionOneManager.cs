@@ -20,6 +20,7 @@ public class missionOneManager : MonoBehaviour
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
     public GameObject bossOneIcon;
+    public credits credits;
     private void OnEnable()
     {
         EnemyWeakSpot.OnEnemyDeath += HandleTankDeath;
@@ -37,18 +38,21 @@ public class missionOneManager : MonoBehaviour
     private void HandleTankDeath(EnemyWeakSpot enemy)
     {
         CountKill();
+        credits.TankerKill();
         Debug.Log("MissionManager received TankDeath event!");
     }
 
     private void HandleMovementDeath(EnemyMovement enemy)
     {
         CountKill();
+        credits.WalkerKill();
         Debug.Log("MissionManager received MovementDeath event!");
     }
 
     private void HandleDroneDeath(TacticalDroneAI enemy)
     {
         CountKill();
+        credits.JetKill();
         Debug.Log("MissionManager received TacticalDroneAI Event!");
     }
 
@@ -86,5 +90,6 @@ public class missionOneManager : MonoBehaviour
         currentKillsTextObject.SetActive(false);
         bossOneIcon.SetActive(true);
         lobbyMusic.SetActive(true);
+        credits.AddMissionOneCredits();
     }
 }
