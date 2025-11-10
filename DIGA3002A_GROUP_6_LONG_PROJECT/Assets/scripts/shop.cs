@@ -53,65 +53,86 @@ public class shop : MonoBehaviour
     public GameObject notEnoughCredits;
     public GameObject newPartUnlocked;
     public GameObject partAlreadyBought;
+
+    public bool hasPressed = false;
+    
     //buying heads
     public void BuyStandardHead()
     {
-        if(credits.credit >= 100 && boughtStandardHead == false)
+        if(credits.credit >= 100 && boughtStandardHead == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             standardHeadUI.SetActive(true);
             boughtStandardHead = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());    
         }
 
-        if(credits.credit <= 100 &&  boughtStandardHead == false)
+        if(credits.credit <= 100 &&  boughtStandardHead == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtStandardHead == true)
+        if (boughtStandardHead == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
     }
 
     public void BuySpeedHead()
     {
-        if (credits.credit >= 200 && boughtSpeedHead == false)
+        if (credits.credit >= 200 && boughtSpeedHead == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             speedHeadUI.SetActive(true);
             boughtSpeedHead = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 200 && boughtSpeedHead == false)
+        if (credits.credit <= 200 && boughtSpeedHead == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtSpeedHead == true)
+        if (boughtSpeedHead == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyDefenseHead() 
     {
-        if (credits.credit >= 300 && boughtDefenseHead == false)
+        if (credits.credit >= 300 && boughtDefenseHead == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             defenseHeadUI.SetActive(true);
             boughtDefenseHead = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtDefenseHead == false)
+        if (credits.credit <= 300 && boughtDefenseHead == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtDefenseHead == true)
+        if (boughtDefenseHead == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
@@ -119,61 +140,79 @@ public class shop : MonoBehaviour
 
     public void BuyStandardTorso()
     {
-        if (credits.credit >= 100 && boughtStandardTorso == false)
+        if (credits.credit >= 100 && boughtStandardTorso == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             standardTorsoUI.SetActive(true);
             boughtStandardTorso = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 100 && boughtStandardTorso == false)
+        if (credits.credit <= 100 && boughtStandardTorso == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtStandardTorso == true)
+        if (boughtStandardTorso == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuySpeedTorso() 
     {
-        if (credits.credit >= 200 && boughtSpeedTorso == false)
+        if (credits.credit >= 200 && boughtSpeedTorso == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             speedTorsoUI.SetActive(true);
             boughtSpeedTorso = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 200 && boughtSpeedTorso == false)
+        if (credits.credit <= 200 && boughtSpeedTorso == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtSpeedTorso == true)
+        if (boughtSpeedTorso == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyDefenseTorso()
     {
-        if (credits.credit >= 300 && boughtDefenseTorso == false)
+        if (credits.credit >= 300 && boughtDefenseTorso == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             defenseTorsoUI.SetActive(true);
             boughtDefenseTorso = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtDefenseTorso == false)
+        if (credits.credit <= 300 && boughtDefenseTorso == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtDefenseTorso == true)
+        if (boughtDefenseTorso == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
@@ -181,62 +220,80 @@ public class shop : MonoBehaviour
 
     public void BuyStandardLegs()
     {
-        if (credits.credit >= 100 && boughtStandardLegs == false)
+        if (credits.credit >= 100 && boughtStandardLegs == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             standardLegsUI.SetActive(true);
             boughtStandardLegs = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 100 && boughtStandardLegs == false)
+        if (credits.credit <= 100 && boughtStandardLegs == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtStandardLegs == true)
+        if (boughtStandardLegs == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
     }
 
     public void BuySpeedLegs()
     {
-        if (credits.credit >= 200 && boughtSpeedLegs == false)
+        if (credits.credit >= 200 && boughtSpeedLegs == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             speedLegsUI.SetActive(true);
             boughtSpeedLegs = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 200 && boughtSpeedLegs == false)
+        if (credits.credit <= 200 && boughtSpeedLegs == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtSpeedLegs == true)
+        if (boughtSpeedLegs == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyDefenseLegs()
     {
-        if (credits.credit >= 300 && boughtDefenseLegs == false)
+        if (credits.credit >= 300 && boughtDefenseLegs == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             defenseLegsUI.SetActive(true);
             boughtDefenseLegs = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtDefenseLegs == false)
+        if (credits.credit <= 300 && boughtDefenseLegs == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtDefenseLegs == true)
+        if (boughtDefenseLegs == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
@@ -244,119 +301,155 @@ public class shop : MonoBehaviour
 
     public void BuyMachineLeft()
     {
-        if (credits.credit >= 300 && boughtMachineLeft == false)
+        if (credits.credit >= 300 && boughtMachineLeft == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             machineLeftUI.SetActive(true);
             boughtMachineLeft = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtMachineLeft == false)
+        if (credits.credit <= 300 && boughtMachineLeft == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtMachineLeft == true)
+        if (boughtMachineLeft == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
     public void BuyMachineRight() 
     {
-        if (credits.credit >= 300 && boughtMachineRight == false)
+        if (credits.credit >= 300 && boughtMachineRight == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             machineRightUI.SetActive(true);
             boughtMachineRight = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtMachineRight == false)
+        if (credits.credit <= 300 && boughtMachineRight == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtMachineRight == true)
+        if (boughtMachineRight == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyAssaultLeft()
     {
-        if (credits.credit >= 300 && boughtAssaultLeft == false)
+        if (credits.credit >= 300 && boughtAssaultLeft == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             assaultLeftUI.SetActive(true);
             boughtAssaultLeft = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtAssaultLeft == false)
+        if (credits.credit <= 300 && boughtAssaultLeft == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtAssaultLeft == true)
+        if (boughtAssaultLeft == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
     public void BuyAssaultRight() 
     {
-        if (credits.credit >= 300 && boughtAssaultRight == false)
+        if (credits.credit >= 300 && boughtAssaultRight == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             assaultRightUI.SetActive(true);
             boughtAssaultRight = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtAssaultRight == false)
+        if (credits.credit <= 300 && boughtAssaultRight == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtAssaultRight == true)
+        if (boughtAssaultRight == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyLaserLeft()
     {
-        if (credits.credit >= 400 && boughtLaserLeft == false)
+        if (credits.credit >= 400 && boughtLaserLeft == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             laserLeftUI.SetActive(true);
             boughtLaserLeft = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 400 && boughtLaserLeft == false)
+        if (credits.credit <= 400 && boughtLaserLeft == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtLaserLeft == true)
+        if (boughtLaserLeft == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyLaserRight() 
     {
-        if (credits.credit >= 400 && boughtLaserRight == false)
+        if (credits.credit >= 400 && boughtLaserRight == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             laserRightUI.SetActive(true);
             boughtLaserRight = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 400 && boughtLaserRight == false)
+        if (credits.credit <= 400 && boughtLaserRight == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtLaserRight == true)
+        if (boughtLaserRight == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
@@ -364,41 +457,53 @@ public class shop : MonoBehaviour
 
     public void BuyLaserSuper()
     {
-        if (credits.credit >= 400 && boughtLaserSuper == false)
+        if (credits.credit >= 400 && boughtLaserSuper == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             laserSuperUI.SetActive(true);
             boughtLaserSuper = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 400 && boughtLaserSuper == false)
+        if (credits.credit <= 400 && boughtLaserSuper == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtLaserSuper == true)
+        if (boughtLaserSuper == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
     public void BuyOrbitalSuper()
     {
-        if (credits.credit >= 300 && boughtOrbitalSuper == false)
+        if (credits.credit >= 300 && boughtOrbitalSuper == false && hasPressed == false)
         {
             StartCoroutine(NewPartAcquired());
             orbitalSuperUI.SetActive(true);
             boughtOrbitalSuper = true;
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (credits.credit <= 300 && boughtOrbitalSuper == false)
+        if (credits.credit <= 300 && boughtOrbitalSuper == false && hasPressed == false)
         {
             StartCoroutine(NotEnoughMoney());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
 
-        if (boughtOrbitalSuper == true)
+        if (boughtOrbitalSuper == true && hasPressed == false)
         {
             StartCoroutine(AlreadyBoughtPart());
+            hasPressed = true;
+            StartCoroutine(PressedButton());
         }
     }
 
@@ -426,5 +531,11 @@ public class shop : MonoBehaviour
         partAlreadyBought.SetActive(true);
         yield return new WaitForSeconds(2f);
         partAlreadyBought.SetActive(false);
+    }
+
+    public IEnumerator PressedButton()
+    {
+        yield return new WaitForSeconds(0.1f);
+        hasPressed = false;
     }
 }
