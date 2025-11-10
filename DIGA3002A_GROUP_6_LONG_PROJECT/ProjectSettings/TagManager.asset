@@ -42,6 +42,7 @@ TagManager:
   - PointQ
   - PointR
   - PointS
+  - ShopTerminal
   layers:
   - Default
   - TransparentFX

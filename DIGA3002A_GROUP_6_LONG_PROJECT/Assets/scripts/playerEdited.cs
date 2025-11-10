@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
     public boss1Posture boss1Posture;
     public boss1HealthBar boss1HealthBar;
     public GameObject missionScreen;
+    public GameObject shopScreen;
 
     private void Awake()
     {
@@ -847,6 +848,13 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             equipment.GotSpeedUpgrade();
             StartCoroutine(GotSpeedUpgrade());
+        }
+
+        if (other.tag == "ShopTerminal")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            shopScreen.SetActive(true);
         }
     }
 

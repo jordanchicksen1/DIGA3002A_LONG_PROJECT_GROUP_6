@@ -108,7 +108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -178}
+  m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4494887774229585561
@@ -10600,7 +10600,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1586476997997136267}
         m_TargetAssemblyTypeName: uiButtons, Assembly-CSharp
-        m_MethodName: GoBackToRoboBuilding
+        m_MethodName: GoBackToShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20432,7 +20432,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1586476997997136267}
         m_TargetAssemblyTypeName: uiButtons, Assembly-CSharp
-        m_MethodName: GoBackToRoboBuilding
+        m_MethodName: GoBackToShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24482,7 +24482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -178}
+  m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6266705761885638595
@@ -28067,7 +28067,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1586476997997136267}
         m_TargetAssemblyTypeName: uiButtons, Assembly-CSharp
-        m_MethodName: GoBackToRoboBuilding
+        m_MethodName: GoBackToShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36534,7 +36534,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1586476997997136267}
         m_TargetAssemblyTypeName: uiButtons, Assembly-CSharp
-        m_MethodName: GoBackToRoboBuilding
+        m_MethodName: GoBackToShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49732,6 +49732,7 @@ MonoBehaviour:
   boss1Posture: {fileID: 0}
   boss1HealthBar: {fileID: 0}
   missionScreen: {fileID: 2980649669893388638}
+  shopScreen: {fileID: 0}
 --- !u!114 &6924484907784928906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55501,7 +55502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -178}
+  m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &504749960938661145
