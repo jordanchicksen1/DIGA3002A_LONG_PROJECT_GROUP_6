@@ -20,6 +20,7 @@ public class missionOneManager : MonoBehaviour
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
     public GameObject bossOneIcon;
+    public GameObject mission1Icon;
     public credits credits;
     private void OnEnable()
     {
@@ -89,6 +90,7 @@ public class missionOneManager : MonoBehaviour
         uiButtons.isDoingMissionOne = false;
         currentKillsTextObject.SetActive(false);
         bossOneIcon.SetActive(true);
+        mission1Icon.SetActive(false);
         lobbyMusic.SetActive(true);
         credits.AddMissionOneCredits();
     }

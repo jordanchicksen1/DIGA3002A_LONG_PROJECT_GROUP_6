@@ -20,6 +20,7 @@ public class tutorial1 : MonoBehaviour
     public GameObject lobbyMusic;
     public GameObject tutorial2Icon;
     public credits credits;
+    public GameObject tutorial1Icon;
     private void OnEnable()
     {
         
@@ -78,6 +79,7 @@ public class tutorial1 : MonoBehaviour
         uiButtons.isDoingTutorialOne = false;
         lobbyMusic.SetActive(true);
         tutorial2Icon.SetActive(true);
+        tutorial1Icon.SetActive(false);
         credits.AddTutOneCredits();
     }
 }
