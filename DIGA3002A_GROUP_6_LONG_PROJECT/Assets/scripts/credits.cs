@@ -57,4 +57,28 @@ public class credits : MonoBehaviour
         credit = credit + 150;
         creditText.text = credit.ToString();
     }
+
+    public void Minus100()
+    {
+        credit = credit - 100;
+        creditText.text = credit.ToString();
+    }
+
+    public void Minus200()
+    {
+        credit = credit - 200;
+        creditText.text = credit.ToString();
+    }
+
+    public void Minus300()
+    {
+        credit = credit - 300;
+        creditText.text = credit.ToString();
+    }
+
+    public void Minus400()
+    {
+        credit = credit - 400;
+        creditText.text = credit.ToString();
+    }
 }

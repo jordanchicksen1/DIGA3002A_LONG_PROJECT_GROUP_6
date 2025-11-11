@@ -65,7 +65,8 @@ public class shop : MonoBehaviour
             standardHeadUI.SetActive(true);
             boughtStandardHead = true;
             hasPressed = true;
-            StartCoroutine(PressedButton());    
+            StartCoroutine(PressedButton());
+            credits.Minus100();
         }
 
         if(credits.credit <= 100 &&  boughtStandardHead == false && hasPressed == false)
@@ -93,6 +94,7 @@ public class shop : MonoBehaviour
             boughtSpeedHead = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus200();
         }
 
         if (credits.credit <= 200 && boughtSpeedHead == false && hasPressed == false)
@@ -119,6 +121,7 @@ public class shop : MonoBehaviour
             boughtDefenseHead = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtDefenseHead == false && hasPressed == false)
@@ -147,6 +150,7 @@ public class shop : MonoBehaviour
             boughtStandardTorso = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus100();
         }
 
         if (credits.credit <= 100 && boughtStandardTorso == false && hasPressed == false)
@@ -173,6 +177,7 @@ public class shop : MonoBehaviour
             boughtSpeedTorso = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus200() ;
         }
 
         if (credits.credit <= 200 && boughtSpeedTorso == false && hasPressed == false)
@@ -199,6 +204,7 @@ public class shop : MonoBehaviour
             boughtDefenseTorso = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300() ;
         }
 
         if (credits.credit <= 300 && boughtDefenseTorso == false && hasPressed == false)
@@ -227,6 +233,7 @@ public class shop : MonoBehaviour
             boughtStandardLegs = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus100() ;
         }
 
         if (credits.credit <= 100 && boughtStandardLegs == false && hasPressed == false)
@@ -254,6 +261,7 @@ public class shop : MonoBehaviour
             boughtSpeedLegs = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus200();
         }
 
         if (credits.credit <= 200 && boughtSpeedLegs == false && hasPressed == false)
@@ -280,6 +288,7 @@ public class shop : MonoBehaviour
             boughtDefenseLegs = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtDefenseLegs == false && hasPressed == false)
@@ -308,6 +317,7 @@ public class shop : MonoBehaviour
             boughtMachineLeft = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtMachineLeft == false && hasPressed == false)
@@ -333,6 +343,7 @@ public class shop : MonoBehaviour
             boughtMachineRight = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtMachineRight == false && hasPressed == false)
@@ -359,6 +370,7 @@ public class shop : MonoBehaviour
             boughtAssaultLeft = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtAssaultLeft == false && hasPressed == false)
@@ -384,6 +396,7 @@ public class shop : MonoBehaviour
             boughtAssaultRight = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtAssaultRight == false && hasPressed == false)
@@ -410,6 +423,7 @@ public class shop : MonoBehaviour
             boughtLaserLeft = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus400();
         }
 
         if (credits.credit <= 400 && boughtLaserLeft == false && hasPressed == false)
@@ -436,6 +450,7 @@ public class shop : MonoBehaviour
             boughtLaserRight = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus400();
         }
 
         if (credits.credit <= 400 && boughtLaserRight == false && hasPressed == false)
@@ -464,6 +479,7 @@ public class shop : MonoBehaviour
             boughtLaserSuper = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus400();
         }
 
         if (credits.credit <= 400 && boughtLaserSuper == false && hasPressed == false)
@@ -490,6 +506,7 @@ public class shop : MonoBehaviour
             boughtOrbitalSuper = true;
             hasPressed = true;
             StartCoroutine(PressedButton());
+            credits.Minus300();
         }
 
         if (credits.credit <= 300 && boughtOrbitalSuper == false && hasPressed == false)
