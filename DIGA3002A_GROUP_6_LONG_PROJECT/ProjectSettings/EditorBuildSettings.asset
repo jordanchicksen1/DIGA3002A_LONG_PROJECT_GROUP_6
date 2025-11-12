@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/START.unity
     guid: a1550ac68738e55409644d2f3a010900
   - enabled: 1
-    path: Assets/Scenes/jordanTest.unity
-    guid: 9cde20d6179869545a91d4f4304d7a53
+    path: Assets/prefabs/Scenes/jordanTest.unity
+    guid: 215b90fd2f7e579459b05d8e2daa21c7
   - enabled: 1
     path: Assets/Scenes/END.unity
     guid: bbeaacc3b71f84140ae6a83b1af06aa0
