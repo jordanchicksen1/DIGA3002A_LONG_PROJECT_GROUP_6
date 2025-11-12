@@ -696,7 +696,6 @@ Transform:
   - {fileID: 868542139237706728}
   - {fileID: 4544643344955099176}
   - {fileID: 7208628647865810062}
-  - {fileID: 2169184065205676829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4362842195074741125
@@ -725,6 +724,7 @@ MonoBehaviour:
   uiButtons: {fileID: 0}
   lobbyMusic: {fileID: 0}
   boss1Icon: {fileID: 0}
+  finalBossIcon: {fileID: 0}
   credits: {fileID: 0}
 --- !u!1 &4363799139113883365
 GameObject:
@@ -1281,6 +1281,7 @@ Transform:
   - {fileID: 585170870387105985}
   - {fileID: 6100801440683993679}
   - {fileID: 5864016048257808708}
+  - {fileID: 2169184065205676829}
   m_Father: {fileID: 4101501236721236852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2087258632126629539
@@ -1691,37 +1692,37 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4101501236721236852}
+    m_TransformParent: {fileID: 1144576703839114081}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.66
+      value: 0.332
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9348959
+      value: 0.5804688
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.1413999
+      value: 0.42827997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.31
+      value: -0.0076538087
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0.006009293
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.52
+      value: -0.023535157
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e40ee5903b2284a43a3828bb49b3d752,
         type: 3}

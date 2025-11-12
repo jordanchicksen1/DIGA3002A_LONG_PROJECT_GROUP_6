@@ -72,6 +72,13 @@ public class uiButtons : MonoBehaviour
     public GameObject currentKillsCounterBossOne;
     public GameObject bossOneItself;
     public GameObject bossOneHealthBar;
+
+    [Header("Final Boss Stuff")]
+    public bool isDoingFinalBoss = false;
+    public GameObject finalBossScreen;
+    public GameObject currentKillsCounterFinalBoss;
+    public GameObject finalBossItself;
+    public GameObject finalBossHealthBar;
     public void GoBackToRoboBuilding()
     {
         headsScreen.SetActive(false);
@@ -209,6 +216,14 @@ public class uiButtons : MonoBehaviour
             
     }
 
+    public void StartFinalBoss()
+    {
+        missionScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        StartCoroutine(FinalBoss());
+
+    }
 
     public void EquipControlTypeA()
     {
@@ -338,6 +353,29 @@ public class uiButtons : MonoBehaviour
         currentKillsCounterBossOne.SetActive(true);
     }
 
+    public IEnumerator FinalBoss()
+    {
+        yield return new WaitForSeconds(0f);
+        finalBossScreen.SetActive(true);
+        isDoingFinalBoss = true;
+        characterController.enabled = false;
+        player.transform.position = teleporterLevelSnow.transform.position;
+        lobbyMusic.SetActive(false);
+        tutorialOneEnemies.SetActive(false);
+        tutorialTwoEnemies.SetActive(false);
+        tutorialThreeEnemies.SetActive(false);
+        missionOneEnemies.SetActive(false);
+        bossOneItself.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        finalBossHealthBar.SetActive(true);
+        characterController.enabled = true;
+        finalBossScreen.SetActive(false);
+        globalVolumes.SetActive(true);
+        levelMusic.SetActive(true);
+        finalBossItself.SetActive(true);
+        currentKillsCounterFinalBoss.SetActive(true);
+    }
+
     public IEnumerator BackToTheGarage()
     {
         yield return new WaitForSeconds(0f);
@@ -358,6 +396,7 @@ public class uiButtons : MonoBehaviour
         bossOneItself.SetActive(false);
         currentKillsCounterBossOne.SetActive(false);
         bossOneHealthBar.SetActive(false);
+        finalBossHealthBar.SetActive(false);
         player.transform.position = garageTeleporter.transform.position;
         characterController.enabled = true;
         globalVolumes.SetActive(false);

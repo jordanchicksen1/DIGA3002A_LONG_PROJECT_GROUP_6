@@ -44,6 +44,7 @@ TagManager:
   - PointS
   - ShopTerminal
   - LastBoss
+  - BossShield
   layers:
   - Default
   - TransparentFX

@@ -74,7 +74,11 @@ public class lastBoss : MonoBehaviour
     public GameObject bigProjectiles;
     public float bigProjectileSpeed = 14f;
 
-
+    [Header("Shields")]
+    public GameObject shield1;
+    public GameObject shield2;
+    public bool shield1Active = false;
+    public bool shield2Active = false;
 
     public void Start()
     {
@@ -133,18 +137,29 @@ public class lastBoss : MonoBehaviour
 
                 if (Phase2 == true)
                 {
+                    if(shield1Active == true && shield1 != null)
+                    { 
+                     
+                            shield1.SetActive(true);
+                            shield1Active = false;
+                        
+                        
+                    }
                     if (atPointF == false && atPointG == false && atPointH == false && atPointI == false && atPointJ == false && atPointK == false && atPointL == false && atPointM == false)
                     {
                         Debug.Log("starting phase 2");
                         transform.position = Vector3.MoveTowards(transform.position, pointF.transform.position, moveSpeed * Time.deltaTime);
                         moveSpeed = 20f;
-
+                        shield1Active = true;
+                        
+                        shield2Active = false;
                     }
 
                     if (atPointF == true)
                     {
                         Debug.Log("Moving to point G");
                         transform.position = Vector3.MoveTowards(transform.position, pointG.transform.position, moveSpeed * Time.deltaTime);
+                        shield1Active = false;
                     }
 
                     if (atPointG == true)
@@ -192,18 +207,27 @@ public class lastBoss : MonoBehaviour
 
                 if (Phase3 == true)
                 {
+                    if (shield2Active == true && shield2 != null)
+                    {
+                        shield2.SetActive(true);
+                        shield2Active = false;
+                    }
+
                     if (atPointN == false && atPointO == false && atPointP == false && atPointQ == false && atPointR == false && atPointS == false)
                     {
                         Debug.Log("starting phase 3");
                         transform.position = Vector3.MoveTowards(transform.position, pointN.transform.position, moveSpeed * Time.deltaTime);
                         moveSpeed = moveSpeedPhaseTransition;
-
+                        shield2Active = true;
+                        
+                        shield1Active = false;
                     }
 
                     if (atPointN == true)
                     {
                         Debug.Log("Moving to point O");
                         transform.position = Vector3.MoveTowards(transform.position, pointO.transform.position, moveSpeed * Time.deltaTime);
+                        shield2Active = false;
                     }
 
                     if (atPointO == true)

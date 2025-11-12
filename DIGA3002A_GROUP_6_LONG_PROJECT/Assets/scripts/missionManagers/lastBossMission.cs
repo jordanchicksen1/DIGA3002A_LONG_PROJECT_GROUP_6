@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class lastBossMission : MonoBehaviour
 {
@@ -22,15 +23,15 @@ public class lastBossMission : MonoBehaviour
     public credits credits;
     private void OnEnable()
     {
-        firstBossHealth.OnBoss1Death += HandleBossDeath;
+        lastBossHealth.OnBossLDeath += HandleBossDeath;
     }
 
     private void OnDisable()
     {
-        firstBossHealth.OnBoss1Death -= HandleBossDeath;
+        lastBossHealth.OnBossLDeath -= HandleBossDeath;
     }
 
-    private void HandleBossDeath(firstBossHealth boss)
+    private void HandleBossDeath(lastBossHealth boss)
     {
         CountKill();
         Debug.Log("MissionManager received TankDeath event!");
@@ -62,16 +63,6 @@ public class lastBossMission : MonoBehaviour
         mission1CompleteScreen.SetActive(true);
         characterController.enabled = false;
         yield return new WaitForSeconds(2f);
-        player.transform.position = garageTeleporter.transform.position;
-        characterController.enabled = true;
-        mission1CompleteScreen.SetActive(false);
-        playerHealth.Heal();
-        globalVolumes.SetActive(false);
-        levelMusic.SetActive(false);
-        uiButtons.isDoingBossOne = false;
-        currentKillsTextObject.SetActive(false);
-        lobbyMusic.SetActive(true);
-        boss1Icon.SetActive(false);
-        credits.AddBossOneCredits();
+        SceneManager.LoadScene("END");
     }
 }

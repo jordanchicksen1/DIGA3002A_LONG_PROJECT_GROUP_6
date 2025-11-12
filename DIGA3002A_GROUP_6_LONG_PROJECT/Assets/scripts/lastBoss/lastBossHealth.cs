@@ -23,21 +23,21 @@ public class lastBossHealth : MonoBehaviour
 
     public void Update()
     {
-        if (currentHealth > 1000f)
+        if (currentHealth > 1300f)
         {
             firstBoss.Phase1 = true;
             firstBoss.Phase2 = false;
             firstBoss.Phase3 = false;
         }
 
-        if (currentHealth < 1000f && currentHealth > 500f)
+        if (currentHealth < 1300f && currentHealth > 800f)
         {
             firstBoss.Phase1 = false;
             firstBoss.Phase2 = true;
             firstBoss.Phase3 = false;
         }
 
-        if (currentHealth < 500f)
+        if (currentHealth < 800f)
         {
             firstBoss.Phase1 = false;
             firstBoss.Phase2 = false;
