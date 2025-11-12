@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class boss1Mission : MonoBehaviour
+public class lastBossMission : MonoBehaviour
 {
     public int requiredKills = 1;   // how many enemies must be killed
     public int currentKills = 0;
@@ -19,26 +20,24 @@ public class boss1Mission : MonoBehaviour
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
     public GameObject boss1Icon;
-    public GameObject finalBossIcon;
     public credits credits;
-    public GameObject boss1HealthBar;
     private void OnEnable()
     {
-        firstBossHealth.OnBoss1Death += HandleBossDeath;
+        lastBossHealth.OnBossLDeath += HandleBossDeath;
     }
 
     private void OnDisable()
     {
-        firstBossHealth.OnBoss1Death -= HandleBossDeath;
+        lastBossHealth.OnBossLDeath -= HandleBossDeath;
     }
 
-    private void HandleBossDeath(firstBossHealth boss)
+    private void HandleBossDeath(lastBossHealth boss)
     {
         CountKill();
         Debug.Log("MissionManager received TankDeath event!");
     }
 
-    
+
 
     private void CountKill()
     {
@@ -64,21 +63,6 @@ public class boss1Mission : MonoBehaviour
         mission1CompleteScreen.SetActive(true);
         characterController.enabled = false;
         yield return new WaitForSeconds(2f);
-        player.transform.position = garageTeleporter.transform.position;
-        characterController.enabled = true;
-        mission1CompleteScreen.SetActive(false);
-        playerHealth.Heal();
-        globalVolumes.SetActive(false);
-        levelMusic.SetActive(false);
-        uiButtons.isDoingBossOne = false;
-        currentKillsTextObject.SetActive(false);
-        lobbyMusic.SetActive(true);
-        boss1Icon.SetActive(false);
-        finalBossIcon.SetActive(true);
-        credits.AddBossOneCredits();
-        boss1HealthBar.SetActive(false);
-        
+        SceneManager.LoadScene("END");
     }
 }
-
-
