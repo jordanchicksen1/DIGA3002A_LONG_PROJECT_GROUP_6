@@ -19,6 +19,8 @@ public class tutorial3 : MonoBehaviour
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
     public GameObject mission1Icon;
+    public GameObject tutorial3Icon;
+    public credits credits;
     private void OnEnable()
     {
 
@@ -37,6 +39,7 @@ public class tutorial3 : MonoBehaviour
     private void HandleDroneDeath(TacticalDroneAI enemy)
     {
         CountKill();
+        credits.JetKill();
         Debug.Log("MissionManager received DroneDeath event!");
     }
 
@@ -76,5 +79,7 @@ public class tutorial3 : MonoBehaviour
         uiButtons.isDoingTutorialThree = false;
         lobbyMusic.SetActive(true);
         mission1Icon.SetActive(true);
+        tutorial3Icon.SetActive(false);
+        credits.AddTutThreeCredits();
     }
 }

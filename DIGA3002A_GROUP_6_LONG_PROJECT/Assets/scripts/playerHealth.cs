@@ -19,7 +19,7 @@ public class playerHealth : MonoBehaviour
     /*public MeshRenderer MeshRenderer;
     public Material HurtPlayerMat;
     public float MateralAlpha;*/
-    public GameObject HurtPlayerOutline;
+    //public GameObject HurtPlayerOutline;
     public AttackIndicator attackIndicator;
 
     private void Awake()
@@ -74,7 +74,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHit(Vector3 attackerPosition)
     {
         currentHealth -= 10f;
-        StartCoroutine(RedOn());
+        //StartCoroutine(RedOn());
 
         if (attackIndicator != null)
         {
@@ -94,7 +94,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitALot()
     {
         currentHealth = currentHealth - 30f;
-        StartCoroutine(RedOn());
+        //StartCoroutine(RedOn());
 
         if (currentHealth <= maxHealth / 2)
         {
@@ -109,7 +109,7 @@ public class playerHealth : MonoBehaviour
     public void PlayerHitATon()
     {
         currentHealth = currentHealth - 50f;
-        StartCoroutine(RedOn());
+        //StartCoroutine(RedOn());
 
         if (currentHealth <= maxHealth / 2)
         {
@@ -167,9 +167,9 @@ public class playerHealth : MonoBehaviour
 
     public IEnumerator RedOn() 
     {
-        HurtPlayerOutline.SetActive(true);
+       // HurtPlayerOutline.SetActive(true);
         yield return new WaitForSeconds(1);
-        HurtPlayerOutline.SetActive(false);
+       // HurtPlayerOutline.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -42,6 +42,9 @@ TagManager:
   - PointQ
   - PointR
   - PointS
+  - ShopTerminal
+  - LastBoss
+  - BossShield
   layers:
   - Default
   - TransparentFX

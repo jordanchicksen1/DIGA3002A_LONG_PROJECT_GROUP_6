@@ -19,6 +19,8 @@ public class tutorial2 : MonoBehaviour
     public uiButtons uiButtons;
     public GameObject lobbyMusic;
     public GameObject tutorial3Icon;
+    public GameObject tutorial2Icon;
+    public credits credits;
     private void OnEnable()
     {
 
@@ -37,6 +39,7 @@ public class tutorial2 : MonoBehaviour
     private void HandleTankDeath(EnemyWeakSpot enemy)
     {
         CountKill();
+        credits.TankerKill();
         Debug.Log("MissionManager received TankDeath event!");
     }
 
@@ -76,5 +79,7 @@ public class tutorial2 : MonoBehaviour
         uiButtons.isDoingTutorialTwo = false;
         lobbyMusic.SetActive(true);
         tutorial3Icon.SetActive(true);
+        tutorial2Icon.SetActive(false);
+        credits.AddTutTwoCredits();
     }
 }
